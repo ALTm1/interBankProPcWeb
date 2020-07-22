@@ -1,0 +1,16 @@
+{
+  "List": [
+    {
+      "path": "/demo/business",
+      "title": "示例",
+      "icon": "folder-o",
+      "badge": "new",
+      "children": [
+        {
+          "path": "/demo/business/bankInner",
+          "title": "行内转账"
+        }
+      ]
+    }
+  ]
+}

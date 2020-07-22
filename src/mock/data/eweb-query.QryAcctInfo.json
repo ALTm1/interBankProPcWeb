@@ -1,0 +1,24 @@
+{
+  "Map": {
+    "Head": "",
+    "AcctType": "C",
+    "BaseAcctNo": "2000000026223070000155",
+    "ProdType": "RB8002000001",
+    "OsaFlag": "I",
+    "ActualBal": "50000",
+    "DocumentId": "24004623-5",
+    "DocumentType": "206",
+    "RealRate": "0.52000000",
+    "WithdrawalType": "W",
+    "Success": "true",
+    "AcctNature": "3",
+    "ClientShort": "公司网银001",
+    "AcctName": "公司网银001",
+    "AutoDep": "N",
+    "AcctStatus": "A",
+    "ClientNo": "200000002622",
+    "AcctClass": "1",
+    "AcctOpenDate": "20171016",
+    "Balance": "300000"
+  }
+}

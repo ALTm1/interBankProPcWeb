@@ -1,0 +1,13 @@
+#是否是顶级配置文件，设置为true的时候才会停止搜索.editorconfig文件
+root true
+[*.{js,jsx,ts,tsx,vue}]
+# 缩进风格，可选"space"、"tab"
+indent_style = space
+# 缩进的空格数
+indent_size = 2
+# 结尾换行符，可选"lf"、"cr"、"crlf",cr为回车，lf为换行
+# end_of_line = lf
+# 是否删除行尾空格
+trim_trailing_whitespace = true
+# 是否在文件结尾插入新行
+insert_final_newline = true

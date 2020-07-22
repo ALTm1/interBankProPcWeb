@@ -1,0 +1,83 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-17 15:31:45
+ * @LastEditTime: 2020-07-22 14:29:36
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JNRCB-PC\public\index.html
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>icon.ico">
+  <title><%= VUE_APP_TITLE %></title>
+  <style>
+    html,
+    body,
+    #app {
+      height: 100%;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .vx-home {
+      background-color: #303133;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .vx-home__main {
+      user-select: none;
+      width: 100%;
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .vx-home__footer {
+      width: 100%;
+      flex-grow: 0;
+      text-align: center;
+      padding: 1em 0;
+    }
+
+    .vx-home__footer>a {
+      font-size: 12px;
+      color: #ABABAB;
+      text-decoration: none;
+    }
+
+    .vx-home__loading {
+      height: 32px;
+      width: 32px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>
+    <strong>
+      Sorry, VXAdmin will not work properly without JavaScript support. Enable JavaScript for browsers and continue.
+    </strong>
+  </noscript>
+  <div id="app">
+    <!-- <div class="vx-home">
+      <div class="vx-home__main">
+        <img class="vx-home__loading" src="./image/loading/loading-spin.svg" alt="loading">
+      </div>
+      <div class="vx-home__footer">
+        <a href="" target="_blank"></a>
+      </div> -->
+  </div>
+  </div>
+</body>
+
+</html>
