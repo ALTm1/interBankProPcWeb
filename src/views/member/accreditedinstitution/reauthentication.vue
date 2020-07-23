@@ -59,10 +59,10 @@
           </ui-form-item>
         </ui-col>
         <ui-col :span="12">
-          <ui-form-item label="机构类型：" prop="department">
-            <ui-select style="width: 100%" v-model="organInfo.department" placeholder="请选择">
+          <ui-form-item label="机构类型：" prop="organType">
+            <ui-select style="width: 100%" v-model="organInfo.organType" placeholder="请选择">
               <ui-option
-                v-for="item in departmentOptions"
+                v-for="item in  organTypeOptions"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
@@ -134,7 +134,7 @@
               <ui-cascader
                 style="width: 100%"
                 v-model="organInfo.cityValue"
-                :options="options"
+                :options="cityOptions"
                 @change="handleChange"
               ></ui-cascader>
             </div>
@@ -403,9 +403,31 @@ export default {
           label: '北京烤鸭'
         }
       ],
+      // 机构类型
+      organTypeOptions: [
+        {
+          value: '选项1',
+          label: '黄金糕'
+        },
+        {
+          value: '选项2',
+          label: '双皮奶'
+        },
+        {
+          value: '选项3',
+          label: '蚵仔煎'
+        },
+        {
+          value: '选项4',
+          label: '龙须面'
+        },
+        {
+          value: '选项5',
+          label: '北京烤鸭'
+        }
+      ],
       // 省市数据
-
-      options: [
+      cityOptions: [
         {
           value: 'zhinan',
           label: '指南',

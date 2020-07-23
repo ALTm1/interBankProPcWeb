@@ -1,12 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2020-07-20 18:26:04
- * @LastEditTime: 2020-07-21 10:06:54
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \JNRCB-PC\src\views\member\publishedassets\PublishedDetail.vue
---> 
-
 
 <template>
   <div class="credit-management">
@@ -17,17 +8,26 @@
         <ui-breadcrumb-item>授信管理</ui-breadcrumb-item>
       </ui-breadcrumb>
     </div>
-    <div class="pro-info item">
-      <div class="item-title">
-        <p></p>
-        <p>授信额度</p>
-      </div>
-      <div v-for="item in proInfo" :key="item.itemTitle">
-        <Item :itemTitle="item.itemTitle">
-          <span>{{item.itemValue}}</span>
-        </Item>
-      </div>
-    </div>
+    <ui-row>
+      <ui-col>
+        <div class="pro-info item">
+          <div class="item-title">
+            <p></p>
+            <p>授信额度</p>
+          </div>
+        </div>
+      </ui-col>
+    </ui-row>
+    <ui-row>
+      <ui-col>
+        <div v-for="item in proInfo" :key="item.itemTitle">
+          <Item :itemTitle="item.itemTitle">
+            <span>{{item.itemValue}}</span>
+          </Item>
+        </div>
+      </ui-col>
+    </ui-row>
+
     <!--授信申请 -->
     <div class="pro-info item">
       <div class="item-title">

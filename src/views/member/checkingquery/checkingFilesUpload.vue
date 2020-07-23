@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2020-07-20 18:26:04
- * @LastEditTime: 2020-07-21 10:06:54
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \JNRCB-PC\src\views\member\publishedassets\PublishedDetail.vue
---> 
 
 
 <template>
