@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-20 18:28:40
- * @LastEditTime: 2020-07-22 15:32:58
+ * @LastEditTime: 2020-07-23 14:24:14
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JNRCB-PC\src\views\member\components\item.vue
@@ -20,13 +20,14 @@ export default {
   props: {
     itemTitle: {
       type: String,
-      default: 'title'
-    }
+      default: 'title',
+    },
   },
   data() {
     return {}
   },
-  methods: {}
+  created() {},
+  methods: {},
 }
 </script>
 <style lang="css" scoped>
