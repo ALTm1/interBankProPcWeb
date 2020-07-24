@@ -155,8 +155,7 @@ export default {
     changepayer(index) {
       // 选中的账户的账号
       const payerAcNo = this.accList[index].AcNo
-      console.log(payerAcNo);
-      
+      console.log('这是选择的账号');
       // 获得选择的付款账户对象
       this.$axios
         .post('eweb-query.QryAcctInfo.do', {
