@@ -7,6 +7,9 @@ const _import = require('@/libs/utils/util.import.' + process.env.NODE_ENV)
 import financialMarket from "./modules/financialmarket"
 // 引入'会员中心'路由组件
 import member from "./modules/member"
+// 引入'联盟圈'路由组件
+import unionlap from "./modules/unionlap"
+
 // 导出需要显示菜单的
 export const frameInRoutes = [
   {
@@ -82,7 +85,8 @@ const frameIn = [
   },
   ...frameInRoutes,
   ...financialMarket,
-  ...member
+  ...member,
+  ...unionlap
 ]
 
 /**

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-17 15:31:46
- * @LastEditTime: 2020-07-20 15:37:54
+ * @LastEditTime: 2020-07-24 14:31:40
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JNRCB-PC\src\main.js
@@ -27,6 +27,9 @@ import router from './router'
 import { frameInRoutes } from '@/router/routes'
 import '@/libs/mixins'
 import { deleteClass, setClass } from '@csii/vx-util'
+
+// 引入公共样式
+import '@/assets/style/common.css'
 
 // 核心插件
 Vue.use(vxadmin)
