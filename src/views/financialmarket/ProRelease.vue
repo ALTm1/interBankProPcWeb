@@ -11,9 +11,7 @@
           </ui-select>
         </ui-form-item>
         <ui-form-item label="产品名称" prop="proName">
-          <ui-col :span="6">
-            <ui-input v-model="form.proName" style="width: 100%" placeholder="请输入"></ui-input>
-          </ui-col>
+          <ui-input v-model="form.proName" style="width: 100%" placeholder="请输入"></ui-input>
         </ui-form-item>
         <ui-form-item label="交易方向" prop="tradeDirec">
           <ui-select v-model="form.tradeDirec" multiple placeholder="请选择">
@@ -30,27 +28,19 @@
           </ui-checkbox-group>
         </ui-form-item>
         <ui-form-item label="金额" prop="proMoney">
-          <ui-col :span="7">
-            <ui-input v-model="form.proMoney" style="width:90%" placeholder="请输入"></ui-input>
-            <span slot>万元</span>
-          </ui-col>
+          <ui-input v-model="form.proMoney" style="width:90%" placeholder="请输入"></ui-input>
+          <span slot>万元</span>
         </ui-form-item>
         <ui-form-item label="利率" prop="proRate">
-          <ui-col :span="6">
-            <ui-input v-model="form.proRate" style="width:90%" placeholder="请输入"></ui-input>
-            <span slot>%</span>
-          </ui-col>
+          <ui-input v-model="form.proRate" style="width:90%" placeholder="请输入"></ui-input>
+          <span slot>%</span>
         </ui-form-item>
         <ui-form-item label="期限" prop="proExpires">
-          <ui-col :span="6">
-            <ui-input v-model="form.proExpires" style="width: 90%;" placeholder="请输入"></ui-input>
-            <span slot>天</span>
-          </ui-col>
+          <ui-input v-model="form.proExpires" style="width: 90%;" placeholder="请输入"></ui-input>
+          <span slot>天</span>
         </ui-form-item>
         <ui-form-item label="备注" prop="proDesc">
-          <ui-col :span="6">
-            <ui-input type="textarea" v-model="form.proDesc" placeholder="请输入"></ui-input>
-          </ui-col>
+          <ui-input type="textarea" v-model="form.proDesc" placeholder="请输入"></ui-input>
         </ui-form-item>
         <ui-form-item label="联系人列表" prop="contactPeople">
           <ui-select v-model="form.contactPeople" multiple placeholder="请选择联系人">
