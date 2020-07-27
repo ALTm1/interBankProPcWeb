@@ -1,0 +1,80 @@
+<template>
+    <div>
+        <!-- 已开户 -->
+        <div class="open-account">
+            <ul>
+                <li class="account-left">机构代码</li>
+                <li class="account-right">{{code}}</li>
+            </ul>
+            <ul>
+                <li class="account-left">机构名称</li>
+                <li class="account-right">{{name}}</li>
+            </ul>
+            <ul>
+                <li class="account-left">机构简称</li>
+                <li class="account-right">{{name1}}</li>
+            </ul>
+            <ul>
+                <li class="account-left">机构证件类型</li>
+                <li class="account-right">{{type}}</li>
+            </ul>
+            <ul>
+                <li class="account-left">证件号码</li>
+                <li class="account-right">{{number}}</li>
+            </ul>
+            <ul>
+                <li class="account-left">证件有效期</li>
+                <li class="account-right">{{day}}</li>
+            </ul>
+            <ul>
+                <li class="account-left">发起时间</li>
+                <li class="account-right">{{date}}</li>
+            </ul>
+            <ul>
+                <li class="account-left">银行账户</li>
+                <li class="account-right">{{account}}</li>
+            </ul>
+            <ul>
+                <li class="account-left">申请状态</li>
+                <li class="account-right">{{state}}</li>
+            </ul>
+        </div>
+        <!-- 未开户 -->
+        <div v-if="state=='1'">
+
+        </div>
+    </div>
+</template>
+<script>
+export default {
+    name:'openaccount',
+    data(){
+        return{
+            state:'0',
+            code:"12",
+            name:"",
+            name1:"",
+            type:"",
+            number:"",
+            day:"",
+            date:"",
+            account:"",
+            state:""
+        }
+    }
+};
+</script>
+<style scoped>
+.open-account ul{
+    border-radius: 10px;
+    background: #f0f0f0;
+    height: 30px;
+    line-height: 30px;
+}
+.account-left{
+    float: left;
+}
+.account-right{
+    float: right;
+}
+</style>
