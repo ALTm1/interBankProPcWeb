@@ -2,7 +2,37 @@
 
 <template>
   <div class="pro-query">
-    <ui-form ref="ruleForm" :model="form" :rules="rules" label-width="100px">
+    <div>
+      <!-- 业务类型 -->
+      <div class="clear">
+        <div class="float-left">
+          <ui-popover
+            placement="bottom"
+            title="标题"
+            width="200"
+            trigger="manual"
+            content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+            v-model="serviceTypePopup"
+          >
+            <SelectItem slot="reference" selText="全部" @hit="serviceTypePopup = !serviceTypePopup"></SelectItem>
+          </ui-popover>
+        </div>
+        <div class="float-left" v-for="item in form.serviceTypeList" :key="item.label">
+          <SelectItem
+            :selText="item.value"
+            :selActive="item.active"
+            @hit="item.active=!item.active"
+          ></SelectItem>
+        </div>
+      </div>
+      <!-- 交易方向 -->
+      <div></div>
+      <!-- 利率 -->
+      <div></div>
+      <!-- 期限 -->
+      <div></div>
+    </div>
+    <!-- <ui-form ref="ruleForm" :model="form" :rules="rules" label-width="100px">
       <ui-form-item label="产品类型" prop="proType">
         <ui-select v-model="form.proType" multiple placeholder="请选择">
           <div v-for="item in form.proTypeList" :key="item.label">
@@ -41,7 +71,7 @@
         <ui-button type="primary" @click="submitForm('ruleForm')">查询</ui-button>
         <ui-button @click="resetForm('ruleForm')">重置</ui-button>
       </ui-form-item>
-    </ui-form>
+    </ui-form>-->
     <ui-table :data="tableData" v-if="showTable" cell-class-name="tabel-cell">
       <ui-table-column prop="proType" label="产品类型" min-width="100px"></ui-table-column>
       <ui-table-column prop="serviceType" label="业务类型" min-width="200px"></ui-table-column>
@@ -65,7 +95,11 @@
 </template>
 
 <script>
+import SelectItem from '@/components/selectitem'
 export default {
+  components: {
+    SelectItem,
+  },
   data() {
     return {
       form: {
@@ -102,6 +136,24 @@ export default {
           {
             label: '闲钱参团',
             value: '产品发布',
+          },
+        ],
+        serviceType: '',
+        serviceTypeList: [
+          {
+            label: '同业存放',
+            value: '同业存放',
+            active: false,
+          },
+          {
+            label: '协议存款',
+            value: '协议存款',
+            active: false,
+          },
+          {
+            label: '同业借款',
+            value: '同业借款',
+            active: false,
           },
         ],
         tradeDirec: '',
@@ -201,6 +253,9 @@ export default {
           publishDate: '2020/09/10',
         },
       ],
+
+      // 业务筛选弹出框
+      visible: false,
     }
   },
   methods: {

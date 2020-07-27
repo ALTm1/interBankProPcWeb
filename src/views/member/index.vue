@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-20 15:53:35
- * @LastEditTime: 2020-07-22 16:56:13
+ * @LastEditTime: 2020-07-27 11:20:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JNRCB-PC\src\views\member\index.vue
@@ -93,11 +93,11 @@
 export default {
   data() {
     return {
-      showFriendManage: false
+      showFriendManage: false,
     }
   },
   beforeRouteEnter: (to, from, next) => {
-    next(vm => {
+    next((vm) => {
       // if (to.meta.sideMenu && to.meta.sideMenu == '好友管理') {
       //   vm.showFriendManage = true
       // } else {
@@ -116,51 +116,51 @@ export default {
       console.log(key, keyPath)
       if (key == '1-1') {
         this.$router.push({
-          path: '/member/publishedQry'
+          path: '/member/publishedQry',
         })
       } else if (key == '1-2') {
         this.$router.push({
-          path: '/member/attentionQry'
+          path: '/member/attentionQry',
         })
       } else if (key == '1-3') {
         this.$router.push({
-          path: '/member/subscribeQry'
+          path: '/member/subscribeQry',
         })
       } else if (key == '1-4') {
         this.$router.push({
-          path: '/member/subscribePreferSet'
+          path: '/member/subscribePreferSet',
         })
       } else if (key == '2') {
         this.$router.push({
-          path: '/member/myIntention'
+          path: '/member/myIntention',
         })
       } else if (key == '3') {
         this.$router.push({
-          path: '/member/intentionDetail'
+          path: '/member/intentionDetail',
         })
       } else if (key == '4') {
         this.$router.push({
-          path: '/member/creditManagement'
+          path: '/member/creditManagement',
         })
       } else if (key == '5-1') {
         this.$router.push({
-          path: '/member/friendList'
+          path: '/member/friendList',
         })
       } else if (key == '5-2') {
         this.$router.push({
-          path: '/member/addressBookList'
+          path: '/member/addressBookList',
         })
       } else if (key == '6') {
         this.$router.push({
-          path: '/member/checkingQuery'
+          path: '/member/checkingQuery',
         })
       } else if (key == '7') {
         this.$router.push({
-          path: '/member/organQry'
+          path: '/member/organQry',
         })
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
