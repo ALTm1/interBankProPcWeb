@@ -5,13 +5,6 @@
   color: rgba(153, 153, 153, 1);
 }
 
-/* .tabel-cell {
-  font-size: 12px;
-  font-family: SimHei;
-  font-weight: 400;
-  color: rgba(51, 51, 51, 1);
-} */
-
 .detail-button {
   display: inline-block;
   width: 71px;
@@ -33,4 +26,38 @@
   content: "";
   display: table;
   clear: both;
+}
+
+.service-title {
+  font-size: 16px;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+}
+
+.service-item {
+  display: inline-block;
+  margin-right: 65px;
+}
+
+.service-img-wrap {
+  position: relative;
+  text-align: center;
+}
+
+.service-img {
+  width: 25px;
+  height: 30px;
+}
+
+.icon-circle-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.icon-circle-check {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
