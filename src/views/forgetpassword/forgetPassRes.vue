@@ -1,11 +1,4 @@
-<!--
- * @Author: your name
- * @Date: 2020-07-21 10:08:35
- * @LastEditTime: 2020-07-22 15:38:52
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \jn-pc\src\views\forgetpassword\forgetPassRes.vue
---> 
+
 <template>
   <ui-container-full class="forget-pass-res">
     <!-- 标题 -->
