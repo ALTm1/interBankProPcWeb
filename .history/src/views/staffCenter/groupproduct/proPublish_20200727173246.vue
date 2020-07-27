@@ -175,7 +175,7 @@ export default {
   border-radius: 20px;
   background: darkgray;
 }
-.transcation{
+.transcation ul {
   width: 90px;
   height: 30px;
   line-height: 30px;
@@ -206,16 +206,14 @@ border:1px solid rgba(190,157,98,1);
   margin: 30px;
 }
 .publish-btn button{
-   width:160px;
-height:36px;
-background:rgba(206,40,72,1);
-border-radius:18px;
- outline: none;
- cursor: pointer;
-  /* line-height: 36px; */
-  font-size:16px;
-
-  color: #ffffff;
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
   border: none;
+  background: skyblue;
+  color: #fff;
+  margin: 0 auto;
+  cursor: pointer;
 }
 </style>

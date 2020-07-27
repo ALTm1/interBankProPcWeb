@@ -12,15 +12,14 @@
       </div>
       <div class="transcation-wrap">
         <li>交易方向</li>
-      
+        <div class="transcation">
           <ul
-          class="transcation"
             @click="choose(index)"
             v-for="(item,index) in transcation"
             :key="index"
             :class="index==trans?'sele':'nosele'"
           >{{item}}</ul>
-       
+        </div>
       </div>
       <div>
         <li>产品标签</li>
@@ -175,11 +174,11 @@ export default {
   border-radius: 20px;
   background: darkgray;
 }
-.transcation{
+.transcation ul {
   width: 90px;
   height: 30px;
   line-height: 30px;
-  /* text-align: center; */
+  text-align: center;
   border-radius: 20px;
   margin-right: 30px;
 }
@@ -206,16 +205,14 @@ border:1px solid rgba(190,157,98,1);
   margin: 30px;
 }
 .publish-btn button{
-   width:160px;
-height:36px;
-background:rgba(206,40,72,1);
-border-radius:18px;
- outline: none;
- cursor: pointer;
-  /* line-height: 36px; */
-  font-size:16px;
-
-  color: #ffffff;
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
   border: none;
+  background: skyblue;
+  color: #fff;
+  margin: 0 auto;
+  cursor: pointer;
 }
 </style>

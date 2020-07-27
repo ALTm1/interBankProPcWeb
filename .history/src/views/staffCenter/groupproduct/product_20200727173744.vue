@@ -4,7 +4,7 @@
     <div class="product-title">
       <ui-breadcrumb separator-class="ui-icon-arrow-right">
         <ui-breadcrumb-item class="ui-icon-add-location">员工中心</ui-breadcrumb-item>
-        <ui-breadcrumb-item :to="{ path: 'productlist' }">团购产品管理</ui-breadcrumb-item>
+        <ui-breadcrumb-item :to="{ path: 'leagueList' }">团购产品管理</ui-breadcrumb-item>
       </ui-breadcrumb>
 
 

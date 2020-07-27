@@ -3,8 +3,8 @@
         <!-- 面包屑导航 -->
         <div class="league-wrap">
             <ui-breadcrumb separator-class="ui-icon-arrow-right">
-        <ui-breadcrumb-item class="ui-icon-add-location" >员工中心</ui-breadcrumb-item>
-        <ui-breadcrumb-item>参团意向列表</ui-breadcrumb-item>
+        <ui-breadcrumb-item class="ui-icon-add-location">员工中心</ui-breadcrumb-item>
+        <ui-breadcrumb-item :to="{ path: 'league/leagueList' }">参团意向列表</ui-breadcrumb-item>
       </ui-breadcrumb>
 
             <!-- <ui-breadcrumb separator-class="el-icon-arrow-right">
