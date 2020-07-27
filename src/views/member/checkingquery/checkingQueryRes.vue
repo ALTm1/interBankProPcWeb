@@ -1,11 +1,4 @@
-<!--
- * @Author: your name
- * @Date: 2020-07-21 19:36:33
- * @LastEditTime: 2020-07-22 15:40:06
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \jn-pc\src\views\member\checkingquery\checkingQueryRes.vue
---> 
+
 <template>
   <div class="checking-query-res">
     <!-- 标题 -->

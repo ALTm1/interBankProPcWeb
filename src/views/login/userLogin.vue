@@ -62,7 +62,6 @@ export default {
   components: {
     CodeTimer
   },
-  computed: {},
   data() {
     return {
       form: {
