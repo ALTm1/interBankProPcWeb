@@ -105,7 +105,8 @@ const frameOut = [
   {
     path: '/registerPre',
     name: 'registerPre',
-    component: _import('register/registerPre')
+    component: _import('register/registerPre'),
+
   },
   // 注册确认页
   {

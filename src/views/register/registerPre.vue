@@ -1,69 +1,85 @@
 <template>
-  <ui-container-full class="register-pre">
-    <!-- 标题 -->
-    <ui-breadcrumb separator-class="ui-icon-arrow-right">
-      <ui-breadcrumb-item class="ui-icon-add-location">注册</ui-breadcrumb-item>
-      <ui-breadcrumb-item>个人信息录入</ui-breadcrumb-item>
-    </ui-breadcrumb>
-    <!-- 步骤条 -->
-    <div class="register-step">
-      <ui-steps :space="300" :active="0" finish-status="success" align-center>
-        <ui-step title="个人信息录入"></ui-step>
-        <ui-step title="设置登录密码"></ui-step>
-        <ui-step title="注册结果"></ui-step>
-      </ui-steps>
+  <!-- <ui-container-full class="register-pre"> -->
+  <div class="register-pre">
+    <div class="header"></div>
+    <div class="register-wrap">
+      <!-- 标题 -->
+      <ui-breadcrumb separator-class="ui-icon-arrow-right">
+        <ui-breadcrumb-item class="ui-icon-add-location">注册</ui-breadcrumb-item>
+        <ui-breadcrumb-item>个人信息录入</ui-breadcrumb-item>
+      </ui-breadcrumb>
+      <!-- 步骤条 -->
+      <div class="register-step">
+        <ui-steps :space="300" :active="0" finish-status="success" align-center>
+          <ui-step title="个人信息录入"></ui-step>
+          <ui-step title="设置登录密码"></ui-step>
+          <ui-step title="注册结果"></ui-step>
+        </ui-steps>
+      </div>
+      <!--表单-->
+      <div class="regform">
+        <ui-form
+          ref="form"
+          :rules="rules"
+          :model="form"
+          label-width="150px"
+          style="width:70%;margin: 0 auto"
+        >
+          <div>
+            <ui-row class="bordB">
+              <ui-col :span="20">
+                <ui-form-item label="姓名" prop="name">
+                  <ui-input-business v-model="form.name" maxlength="13" placeholder="请输入注册人姓名"></ui-input-business>
+                </ui-form-item>
+                <ui-form-item label="登录名" prop="loginName">
+                  <ui-input-business
+                    v-model="form.loginName"
+                    minlength="4"
+                    maxlength="20"
+                    placeholder="请输入登录名"
+                  ></ui-input-business>
+                </ui-form-item>
+                <ui-form-item label="机构简称" prop="organName">
+                  <ui-input-business v-model="form.organName" placeholder="请输入机构简称"></ui-input-business>
+                </ui-form-item>
+              </ui-col>
+            </ui-row>
+            <ui-row>
+              <ui-col :span="20">
+                <ui-form-item label="身份证号码" prop="idCard">
+                  <ui-input-business v-model="form.idCard" placeholder="请输入身份证号码"></ui-input-business>
+                </ui-form-item>
+                <ui-form-item label="邮箱" prop="email">
+                  <ui-input-business v-model="form.email" maxlength="13" placeholder="请输入邮箱"></ui-input-business>
+                </ui-form-item>
+                <ui-form-item label="手机号" prop="phone">
+                  <ui-input-business v-model="form.phone" maxlength="13" placeholder="请输入您的注册手机号"></ui-input-business>
+                </ui-form-item>
+                <ui-form-item label="验证码" prop="code" id="code">
+                  <ui-input v-model="form.code" maxlength="4" placeholder="请输入短信验证码">
+                    <template slot="append">
+                      <code-timer
+                        ref="codeTimer"
+                        @click="getCode"
+                        :isBegin.sync="isBegin"
+                        class="code-timer"
+                        text="获取验证码"
+                      ></code-timer>
+                    </template>
+                  </ui-input>
+                </ui-form-item>
+              </ui-col>
+            </ui-row>
+            <ui-row class="text-center padtop20">
+              <ui-button type="primary" round @click="submitForm('form')">注册</ui-button>
+            </ui-row>
+          </div>
+        </ui-form>
+      </div>
     </div>
-    <!--表单-->
-    <ui-form ref="form" :rules="rules" :model="form" label-width="150px">
-      <ui-row class="bordB">
-        <ui-col :span="20" :offset="2">
-          <ui-form-item label="姓名：" prop="name">
-            <ui-input-business v-model="form.name" maxlength="13" placeholder="请输入注册人姓名"></ui-input-business>
-          </ui-form-item>
-          <ui-form-item label="登录名：" prop="loginName">
-            <ui-input-business
-              v-model="form.loginName"
-              minlength="4"
-              maxlength="20"
-              placeholder="请输入登录名"
-            ></ui-input-business>
-          </ui-form-item>
-          <ui-form-item label="机构简称：" prop="organName">
-            <ui-input-business v-model="form.organName" placeholder="请输入机构简称"></ui-input-business>
-          </ui-form-item>
-        </ui-col>
-      </ui-row>
-      <ui-row>
-        <ui-col :span="20" :offset="2">
-          <ui-form-item label="身份证号码：" prop="idCard">
-            <ui-input-business v-model="form.idCard" placeholder="请输入身份证号码"></ui-input-business>
-          </ui-form-item>
-          <ui-form-item label="邮箱：" prop="email">
-            <ui-input-business v-model="form.email" maxlength="13" placeholder="请输入邮箱"></ui-input-business>
-          </ui-form-item>
-          <ui-form-item label="手机号：" prop="phone">
-            <ui-input-business v-model="form.phone" maxlength="13" placeholder="请输入您的注册手机号"></ui-input-business>
-          </ui-form-item>
-          <ui-form-item label="验证码：" prop="code" id="code">
-            <ui-input v-model="form.code" maxlength="4" placeholder="请输入短信验证码">
-              <template slot="append">
-                <code-timer
-                  ref="codeTimer"
-                  @click="getCode"
-                  :isBegin.sync="isBegin"
-                  class="code-timer"
-                  text="获取验证码"
-                ></code-timer>
-              </template>
-            </ui-input>
-          </ui-form-item>
-        </ui-col>
-      </ui-row>
-      <ui-row class="text-center padtop20">
-        <ui-button type="primary" round @click="submitForm('form')">注册</ui-button>
-      </ui-row>
-    </ui-form>
-  </ui-container-full>
+  </div>
+
+  <!-- </ui-container-full> -->
 </template>
 <script>
 import { IdCard, Phone, Email, LoginName } from '@/libs/validator'
@@ -71,7 +87,7 @@ import CodeTimer from '@/components/codetimer'
 export default {
   name: 'registerPre',
   components: {
-    CodeTimer
+    CodeTimer,
   },
   computed: {},
   data() {
@@ -90,40 +106,42 @@ export default {
         //    手机号
         phone: '',
         //    验证码
-        code: ''
+        code: '',
       },
       rules: {
-        // name: [
-        //   {
-        //     required: true,
-        //     message: '请输入注册人姓名',
-        //     trigger: 'blur'
-        //   }
-        //   // { validator: this.validateAcNo, trigger: 'blur' },
-        // ],
+        name: [
+          {
+            required: true,
+            message: '请输入注册人姓名',
+            trigger: 'blur',
+          },
+          // { validator: this.validateAcNo, trigger: 'blur' },
+        ],
         loginName: [
           { required: true, message: '请输入登录名', trigger: 'blur' },
-          { validator: LoginName, trigger: 'blur' }
+          { validator: LoginName, trigger: 'blur' },
         ],
         organName: [
-          { required: true, message: '请输入登录名', trigger: 'blur' }
+          { required: true, message: '请输入登录名', trigger: 'blur' },
         ],
         idCard: [
           { required: true, message: '请输入证件号码', trigger: 'blur' },
-          { validator: IdCard, trigger: 'blur' }
+          { validator: IdCard, trigger: 'blur' },
         ],
         email: [
           { required: true, message: '请输入邮箱', trigger: 'blur' },
-          { validator: Email, trigger: 'blur' }
+          { validator: Email, trigger: 'blur' },
         ],
         phone: [
           { required: true, message: '请输入您的注册手机号', trigger: 'blur' },
-          { validator: Phone, trigger: 'blur' }
+          { validator: Phone, trigger: 'blur' },
         ],
-        code: [{ required: true, message: '请输入短信验证码', trigger: 'blur' }]
+        code: [
+          { required: true, message: '请输入短信验证码', trigger: 'blur' },
+        ],
       },
       //   是否开始倒计时
-      isBegin: false
+      isBegin: false,
     }
   },
   created() {},
@@ -157,7 +175,7 @@ export default {
           }
         }
       ); */
-      this.$refs[formName].validate(valid => {
+      this.$refs[formName].validate((valid) => {
         if (valid) {
           this.$router.push('/registerConf')
           //   this.onSubmit()
@@ -180,7 +198,7 @@ export default {
         payeeCurrencyCRFlag: 'R',
         abstractCode: '0360',
         trsCurrencyCode: 'CNY',
-        trsCurrencyCRFlag: 'R'
+        trsCurrencyCRFlag: 'R',
       })
       // 组装结束
       // 校验并提交表单
@@ -203,30 +221,49 @@ export default {
       //         params: { info: this.confirmData }
       //       })
       //     })
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>
 .register-pre {
-  .ui-breadcrumb {
-    width: 50%;
-    margin: 0 auto;
+  background: rgb(247, 246, 251) !important;
+  .header {
+    height: 41.7px;
   }
-  .register-step {
-    width: 60%;
-    margin: 40px auto;
+  .register-wrap {
+    width: 68.5%;
+    margin: 20px auto;
+
+    .ui-breadcrumb {
+      background: #fff;
+
+      padding: 12.3px 30px;
+    }
+    .register-step {
+      width: 60%;
+      margin: 40px auto;
+    }
+    .ui-steps {
+      margin-left: 9%;
+    }
+    .ui-form {
+      // width: 40% !important;
+      margin: 0 auto !important;
+      .ui-form-item__content {
+        text-align: left;
+        .ui-form-item__label {
+          text-align: left !important;
+        }
+      }
+    }
+    .regform {
+      background: #fff;
+      width: 100%;
+      padding: 40px 0;
+    }
   }
-  .ui-steps {
-    margin-left: 9%;
-  }
-  .ui-form {
-    width: 40% !important;
-    margin: 0 auto !important;
-  }
-  .ui-form-item__content {
-    text-align: left;
-  }
+
   .text-center {
     text-align: center;
   }

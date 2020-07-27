@@ -11,7 +11,30 @@
     </div>
 
     <!--授信申请 -->
-    <div class="pro-info item">
+    <ui-row>
+      <ui-col>
+        <div class="pro-info item">
+          <div class="item-title">
+            <p></p>
+            <p>授信申请</p>
+            <div class="arrow-right"></div>
+          </div>
+        </div>
+      </ui-col>
+    </ui-row>
+    <ui-row>
+      <ui-col :span="8" style="border:1px solid #eee;padding:10px 0;border-right:none">
+        <div style="text-align:center">授信文件上传</div>
+      </ui-col>
+      <ui-col :span="12" style="border:1px solid #eee;padding:10px 0">
+        <div style="text-align:center">授信材料.rar</div>
+      </ui-col>
+      <ui-col :span="4" style="padding:10px 0">
+        <a href="javascript:;" style="margin:0 20px">上传</a>
+        <a href="javascript:;">重新上传</a>
+      </ui-col>
+    </ui-row>
+    <!-- <div class="pro-info item">
       <div class="item-title">
         <p></p>
         <p>授信申请</p>
@@ -29,7 +52,7 @@
           <a href="javascript:;">重新上传</a>
         </p>
       </div>
-    </div>
+    </div>-->
 
     <!-- 按钮 -->
     <div class="btn">
@@ -44,35 +67,35 @@ import Item from '@/views/member/components/Item.vue'
 export default {
   name: 'checkingFilesUpload',
   components: {
-    Item
+    Item,
   },
   data() {
     return {
       proInfo: [
         {
           itemTitle: '授信测算额度',
-          itemValue: '50'
+          itemValue: '50',
         },
         {
           itemTitle: '授信期限',
-          itemValue: '36'
+          itemValue: '36',
         },
         {
           itemTitle: '金融市场部业务额度（亿元）',
-          itemValue: '5'
+          itemValue: '5',
         },
         {
           itemTitle: '零售业务部业务额度（亿元）',
-          itemValue: '5'
-        }
-      ]
+          itemValue: '5',
+        },
+      ],
     }
   },
   methods: {
     submitForm(form) {
       this.$router.push('/member/checkingQueryRes')
-    }
-  }
+    },
+  },
 }
 </script>
 
