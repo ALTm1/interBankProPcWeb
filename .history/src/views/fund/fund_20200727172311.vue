@@ -4,7 +4,7 @@
       <div class="header-wrap">
         <!-- 面包屑 -->
         <ui-breadcrumb separator-class="ui-icon-arrow-right">
-          <ui-breadcrumb-item class="ui-icon-add-location" :to="{ path: 'fundproduct' }">基金通</ui-breadcrumb-item>
+          <ui-breadcrumb-item class="ui-icon-add-location" :to="{ path: 'fund/fundproduct' }">基金通</ui-breadcrumb-item>
           <ui-breadcrumb-item>产品超市</ui-breadcrumb-item>
         </ui-breadcrumb>
       </div>

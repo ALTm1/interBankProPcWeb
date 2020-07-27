@@ -3,7 +3,7 @@
     <div class="header-wrap">
       <!-- 面包屑 -->
       <ui-breadcrumb separator-class="ui-icon-arrow-right">
-        <ui-breadcrumb-item class="ui-icon-add-location" :to="{ path: 'fund/fundproduct' }">基金通</ui-breadcrumb-item>
+        <ui-breadcrumb-item class="ui-icon-add-location">基金通</ui-breadcrumb-item>
         <ui-breadcrumb-item>产品详情</ui-breadcrumb-item>
       </ui-breadcrumb>
     </div>
@@ -150,7 +150,7 @@ export default {
   margin: 0 auto;
 	background: #f0f0f0;
   border-radius: 20px;
-  padding: 30px 0;
+  padding-bottom: 30px;
 }
 .fund-intro span {
   margin: 20px 0 5px 30px;

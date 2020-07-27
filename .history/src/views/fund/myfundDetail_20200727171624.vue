@@ -76,14 +76,8 @@
   </div>
 </template>
 <script>
-import echart from './eCharts'
-import echartstwo from './eChartstwo'
 export default {
   name: "mufunddetail",
-  components:{
-     echart,
-	  echartstwo
-  },
   data(){
       return{
          tab: 0,
@@ -180,22 +174,5 @@ export default {
     margin: 0 auto;
     border: 1px solid #999;
     border-radius: 10px;
-}
-.sele {
-  border-top: 3px solid #D02F50;
-  color: #D02F50;
-}
-.echarts-tab {
-  display: -webkit-box;
-  /* margin-top: 50px; */
-  margin: 50px 0;
-}
-.echarts-tab ul {
-  text-align: center;
-  width: 50%;
-   
-}
-.echarts-tab ul li{
-	padding: 10px;
 }
 </style>

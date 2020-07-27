@@ -3,7 +3,7 @@
     <div class="header-wrap">
       <!-- 面包屑 -->
       <ui-breadcrumb separator-class="ui-icon-arrow-right">
-        <ui-breadcrumb-item class="ui-icon-add-location" :to="{ path: 'fund/fundproduct' }">基金通</ui-breadcrumb-item>
+        <ui-breadcrumb-item class="ui-icon-add-location">基金通</ui-breadcrumb-item>
         <ui-breadcrumb-item>产品详情</ui-breadcrumb-item>
       </ui-breadcrumb>
     </div>
@@ -48,11 +48,8 @@
     <!-- 产品介绍 -->
     <div class="fund-intro">
         <span>产品介绍</span>
-		<ul>
-			 <li>TA名称：易方达基金管理有限公司</li>
+        <li>TA名称：易方达基金管理有限公司</li>
         <li>基金经理：刘朝阳</li>
-		</ul>
-			
         <ul>
             <li>基金经理简介：</li>
             <li></li>
@@ -61,9 +58,7 @@
             <li>投资策略：</li>
             <li></li>
         </ul>
-		</div>
-       
-    
+    </div>
   </div>
 </template>
 <script>
@@ -101,9 +96,11 @@ export default {
   methods: {
     sele(index) {
 	  this.tab = index;
-	//   if(index==0){
-	// 	 this.Chart();
-	//   }
+	  if(index==0){
+		//   var echart=document.getElementById("main1")
+		//  console.log(echart)
+		 this.Chart();
+	  }
     },
     
     
@@ -148,9 +145,8 @@ export default {
 .fund-intro {
   width: 90%;
   margin: 0 auto;
-	background: #f0f0f0;
+
   border-radius: 20px;
-  padding: 30px 0;
 }
 .fund-intro span {
   margin: 20px 0 5px 30px;
@@ -183,8 +179,5 @@ export default {
 .echarts-two {
   width: 80%;
   margin: 0 auto;
-}
-.fund-intro{
-	margin-top: 50px;
 }
 </style>

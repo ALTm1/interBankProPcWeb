@@ -80,10 +80,6 @@ import echart from './eCharts'
 import echartstwo from './eChartstwo'
 export default {
   name: "mufunddetail",
-  components:{
-     echart,
-	  echartstwo
-  },
   data(){
       return{
          tab: 0,
