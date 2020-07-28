@@ -1,85 +1,56 @@
 <template>
-  <!-- <ui-container-full class="register-pre"> -->
-  <div class="register-pre">
-    <div class="header"></div>
-    <div class="register-wrap">
-      <!-- 标题 -->
-      <ui-breadcrumb separator-class="ui-icon-arrow-right">
-        <ui-breadcrumb-item class="ui-icon-add-location">注册</ui-breadcrumb-item>
-        <ui-breadcrumb-item>个人信息录入</ui-breadcrumb-item>
-      </ui-breadcrumb>
-      <!-- 步骤条 -->
-      <div class="register-step">
-        <ui-steps :space="300" :active="0" finish-status="success" align-center>
-          <ui-step title="个人信息录入"></ui-step>
-          <ui-step title="设置登录密码"></ui-step>
-          <ui-step title="注册结果"></ui-step>
-        </ui-steps>
-      </div>
-      <!--表单-->
-      <div class="regform">
-        <ui-form
-          ref="form"
-          :rules="rules"
-          :model="form"
-          label-width="150px"
-          style="width:70%;margin: 0 auto"
-        >
-          <div>
-            <ui-row class="bordB">
-              <ui-col :span="20">
-                <ui-form-item label="姓名" prop="name">
-                  <ui-input-business v-model="form.name" maxlength="13" placeholder="请输入注册人姓名"></ui-input-business>
-                </ui-form-item>
-                <ui-form-item label="登录名" prop="loginName">
-                  <ui-input-business
-                    v-model="form.loginName"
-                    minlength="4"
-                    maxlength="20"
-                    placeholder="请输入登录名"
-                  ></ui-input-business>
-                </ui-form-item>
-                <ui-form-item label="机构简称" prop="organName">
-                  <ui-input-business v-model="form.organName" placeholder="请输入机构简称"></ui-input-business>
-                </ui-form-item>
-              </ui-col>
-            </ui-row>
-            <ui-row>
-              <ui-col :span="20">
-                <ui-form-item label="身份证号码" prop="idCard">
-                  <ui-input-business v-model="form.idCard" placeholder="请输入身份证号码"></ui-input-business>
-                </ui-form-item>
-                <ui-form-item label="邮箱" prop="email">
-                  <ui-input-business v-model="form.email" maxlength="13" placeholder="请输入邮箱"></ui-input-business>
-                </ui-form-item>
-                <ui-form-item label="手机号" prop="phone">
-                  <ui-input-business v-model="form.phone" maxlength="13" placeholder="请输入您的注册手机号"></ui-input-business>
-                </ui-form-item>
-                <ui-form-item label="验证码" prop="code" id="code">
-                  <ui-input v-model="form.code" maxlength="4" placeholder="请输入短信验证码">
-                    <template slot="append">
-                      <code-timer
-                        ref="codeTimer"
-                        @click="getCode"
-                        :isBegin.sync="isBegin"
-                        class="code-timer"
-                        text="获取验证码"
-                      ></code-timer>
-                    </template>
-                  </ui-input>
-                </ui-form-item>
-              </ui-col>
-            </ui-row>
-            <ui-row class="text-center padtop20">
-              <ui-button type="primary" round @click="submitForm('form')">注册</ui-button>
-            </ui-row>
+  <ui-container-full class="register">
+    <div class="register-pre">
+      <div class="header"></div>
+      <div class="register-wrap">
+        <!-- 标题 -->
+        <ui-breadcrumb separator-class="ui-icon-arrow-right">
+          <ui-breadcrumb-item class="ui-icon-add-location">注册</ui-breadcrumb-item>
+          <ui-breadcrumb-item>{{this.$route.meta.title}}</ui-breadcrumb-item>
+        </ui-breadcrumb>
+        <!-- 步骤条 -->
+        <div class="register-step">
+          <div class="steps">
+            <div class="line linebg"></div>
+            <div class="line lineColor" :style="lineWidth"></div>
+            <div class="img img1">
+              <img src="@/assets/image/success.png" alt />
+              <p
+                style="width:96px;left:-40px;"
+                :class="{'step-title':this.$route.name==='registerConf'||this.$route.name==='regPre'|| this.$route.name==='registerRes'}"
+              >个人信息录入</p>
+            </div>
+            <div class="img img2">
+              <img src="@/assets/image/success.png" alt />
+              <p
+                style="width:100px;left:-40px;"
+                :class="{'step-title':this.$route.name==='registerConf'|| this.$route.name==='registerRes' }"
+              >设置登录密码</p>
+            </div>
+            <div class="img img3">
+              <img src="@/assets/image/success.png" alt />
+              <p
+                style="width:64px;left:-24px;"
+                :class="{'step-title':this.$route.name==='registerRes'}"
+              >注册结果</p>
+            </div>
           </div>
-        </ui-form>
+        </div>
+        <!--表单-->
+
+        <router-view></router-view>
+
+        <!-- 底部 -->
+        <div class="form-bottom">
+          <div class="tip-title">
+            <img src="@/assets/image/tip.png" alt />
+            <div class="tip">重要提示</div>
+          </div>
+          <div class="important-tip">这是提示内容</div>
+        </div>
       </div>
     </div>
-  </div>
-
-  <!-- </ui-container-full> -->
+  </ui-container-full>
 </template>
 <script>
 import { IdCard, Phone, Email, LoginName } from '@/libs/validator'
@@ -91,71 +62,20 @@ export default {
   },
   computed: {},
   data() {
-    return {
-      form: {
-        // 姓名
-        name: '',
-        //    登录名
-        loginName: '',
-        //    机构简称
-        organName: '',
-        //    身份证号码
-        idCard: '',
-        //    邮箱
-        email: '',
-        //    手机号
-        phone: '',
-        //    验证码
-        code: '',
-      },
-      rules: {
-        name: [
-          {
-            required: true,
-            message: '请输入注册人姓名',
-            trigger: 'blur',
-          },
-          // { validator: this.validateAcNo, trigger: 'blur' },
-        ],
-        loginName: [
-          { required: true, message: '请输入登录名', trigger: 'blur' },
-          { validator: LoginName, trigger: 'blur' },
-        ],
-        organName: [
-          { required: true, message: '请输入登录名', trigger: 'blur' },
-        ],
-        idCard: [
-          { required: true, message: '请输入证件号码', trigger: 'blur' },
-          { validator: IdCard, trigger: 'blur' },
-        ],
-        email: [
-          { required: true, message: '请输入邮箱', trigger: 'blur' },
-          { validator: Email, trigger: 'blur' },
-        ],
-        phone: [
-          { required: true, message: '请输入您的注册手机号', trigger: 'blur' },
-          { validator: Phone, trigger: 'blur' },
-        ],
-        code: [
-          { required: true, message: '请输入短信验证码', trigger: 'blur' },
-        ],
-      },
-      //   是否开始倒计时
-      isBegin: false,
-    }
+    return {}
   },
-  created() {},
-  // 组件激活
-  activated() {
-    // 是否重新加载数据
-    if (this.$route.meta.reloadData) {
-      this.$nextTick(() => {
-        this.$refs.form.resetFields()
-      })
-    }
+  computed: {
+    lineWidth: function () {
+      if (this.$route.name === 'regPre') {
+        return 'width:25%'
+      } else if (this.$route.name === 'registerConf') {
+        return 'width:75%'
+      } else {
+        return 'width:99%'
+      }
+    },
   },
-  // 组件
-  deactivated() {},
+
   methods: {
     //  获取验证码
     getCode() {
@@ -185,25 +105,7 @@ export default {
       })
     },
     // 组装数据
-    onSubmit() {
-      // 获取上送数据，对数据按照要求的格式上送
-      var pargs = Object.assign({}, this.form, {
-        // 付款账号
-        payerAccountNo: this.payerAc.AcNo,
-        // 付款人姓名
-        payerAccountAcName: this.payerAc.AcName,
-        // 付款账号类型
-        payerAccountBankAcType: this.payerAc.BankAcType,
-        payeeCurrencyCode: 'CNY',
-        payeeCurrencyCRFlag: 'R',
-        abstractCode: '0360',
-        trsCurrencyCode: 'CNY',
-        trsCurrencyCRFlag: 'R',
-      })
-      // 组装结束
-      // 校验并提交表单
-      this.transferPre(pargs)
-    },
+    onSubmit() {},
 
     // 提交表单
     submitPre(pargs) {
@@ -225,9 +127,9 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .register-pre {
-  background: rgb(247, 246, 251) !important;
+  // background: rgb(247, 246, 251) !important;
   .header {
     height: 41.7px;
   }
@@ -237,30 +139,97 @@ export default {
 
     .ui-breadcrumb {
       background: #fff;
-
       padding: 12.3px 30px;
+
+      .ui-breadcrumb__inner {
+        font-size: 14px;
+        font-family: SimHei;
+        font-weight: 400;
+        color: rgba(89, 103, 107, 1);
+      }
     }
     .register-step {
-      width: 60%;
+      width: 100%;
+      position: relative;
       margin: 40px auto;
-    }
-    .ui-steps {
-      margin-left: 9%;
-    }
-    .ui-form {
-      // width: 40% !important;
-      margin: 0 auto !important;
-      .ui-form-item__content {
-        text-align: left;
-        .ui-form-item__label {
-          text-align: left !important;
+      z-index: 2;
+      .steps {
+        width: 80%;
+        margin: 0 auto;
+        position: relative;
+        .line {
+          position: absolute;
+          top: 8px;
+          left: 1px;
+          height: 3px;
+          z-index: 0;
+        }
+        .linebg {
+          width: 99%;
+          background-color: #c2c2c4;
+        }
+        .lineColor {
+          background-color: #be9d62;
+        }
+        .img {
+          display: inline-block;
+          width: 15px;
+          height: 15px;
+          position: relative;
+          img {
+            width: 15px;
+            height: 15px;
+          }
+          p {
+            margin: 0;
+            position: absolute;
+          }
+        }
+        .img1 {
+          float: left;
+        }
+        .img2 {
+          margin-left: 47.85%;
+        }
+        .img3 {
+          float: right;
+        }
+        .step-title {
+          color: rgba(38, 38, 38, 1);
         }
       }
     }
-    .regform {
-      background: #fff;
+    .form-bottom {
       width: 100%;
-      padding: 40px 0;
+      padding: 16px 30px;
+      margin-top: 20px;
+      background: #fff;
+      box-sizing: border-box;
+      .tip-title {
+        overflow: hidden;
+        .tip,
+        img {
+          float: left;
+        }
+        .tip {
+          line-height: 32px;
+          font-size: 16px;
+          font-family: SimHei;
+          font-weight: 400;
+          color: rgba(39, 39, 39, 1);
+        }
+        img {
+          display: block;
+          margin-right: 10px;
+        }
+      }
+      .important-tip {
+        margin-top: 10px;
+        font-size: 14px;
+        font-family: SimHei;
+        font-weight: 400;
+        color: rgba(153, 153, 153, 1);
+      }
     }
   }
 
@@ -269,10 +238,6 @@ export default {
   }
   .padtop20 {
     padding-top: 20px;
-  }
-  .ui-button.is-round {
-    padding: 12px 180px;
-    margin-left: 140px;
   }
 }
 </style>

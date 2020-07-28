@@ -1,36 +1,25 @@
 <template>
-  <ui-container-full class="forget-pass-conf">
-    <!-- 标题 -->
-    <ui-breadcrumb separator-class="ui-icon-arrow-right">
-      <ui-breadcrumb-item class="ui-icon-add-location">忘记密码</ui-breadcrumb-item>
-      <ui-breadcrumb-item>设置新密码</ui-breadcrumb-item>
-    </ui-breadcrumb>
-    <!-- 步骤条 -->
-    <div class="forget-pass-step">
-      <ui-steps :space="300" :active="1" finish-status="success" align-center>
-        <ui-step title="个人信息录入"></ui-step>
-        <ui-step title="设置新密码"></ui-step>
-        <ui-step title="注册结果"></ui-step>
-      </ui-steps>
-    </div>
-    <!-- {{$store.state.vxadmin.page.keepAlive}} -->
+  <div class="forget-pass-conf">
     <!--表单-->
-    <ui-form ref="form" :rules="rules" :model="form" label-width="150px">
+    <!-- :rules="rules" -->
+    <ui-form ref="form" :model="form" label-width="120px">
       <ui-row class="bordB">
-        <ui-col :span="20" :offset="2">
-          <ui-form-item label="登陆密码：" prop="loginPass">
-            <ui-input-business v-model="form.loginPass" maxlength="13" placeholder="请输入注册人姓名"></ui-input-business>
-          </ui-form-item>
-          <ui-form-item label="确认登陆密码：" prop="confirmLoginPass">
-            <ui-input-business v-model="form.confirmLoginPass" placeholder="请输入登录名"></ui-input-business>
-          </ui-form-item>
-        </ui-col>
+        <div class="form-top">
+          <div class="form-content">
+            <ui-form-item label="登陆密码：" prop="loginPass">
+              <ui-input-business v-model="form.loginPass" maxlength="13" placeholder="请输入登陆密码"></ui-input-business>
+            </ui-form-item>
+            <ui-form-item label="确认登陆密码：" prop="confirmLoginPass">
+              <ui-input-business v-model="form.confirmLoginPass" placeholder="请再次输入"></ui-input-business>
+            </ui-form-item>
+          </div>
+        </div>
       </ui-row>
       <ui-row class="text-center padtop20">
-        <ui-button type="primary" round @click="submitForm('form')">注册</ui-button>
+        <ui-button type="primary" round @click="submitForm('form')">确定</ui-button>
       </ui-row>
     </ui-form>
-  </ui-container-full>
+  </div>
 </template>
 <script>
 import { Pass, validateConfirmPass } from '@/libs/validator'
@@ -38,7 +27,7 @@ import CodeTimer from '@/components/codetimer'
 export default {
   name: 'forgetPassConf',
   components: {
-    CodeTimer
+    CodeTimer,
   },
   computed: {},
   data() {
@@ -47,18 +36,18 @@ export default {
         // 登录密码
         loginPass: '',
         //    确认登录密码
-        confirmLoginPass: ''
+        confirmLoginPass: '',
       },
       rules: {
         loginPass: [
           { required: true, message: '请输入登录密码', trigger: 'blur' },
-          { validator: Pass, trigger: 'blur' }
+          { validator: Pass, trigger: 'blur' },
         ],
         confirmLoginPass: [
           { required: true, message: '请再输入一次', trigger: 'blur' },
-          { validator: validateConfirmPass, trigger: 'blur' }
-        ]
-      }
+          { validator: validateConfirmPass, trigger: 'blur' },
+        ],
+      },
     }
   },
   created() {},
@@ -92,9 +81,9 @@ export default {
           }
         }
       ); */
-      this.$refs[formName].validate(valid => {
+      this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.$router.push('/registerRes')
+          this.$router.push('/forgetPassRes')
           //   this.onSubmit()
         } else {
           return false
@@ -104,22 +93,6 @@ export default {
     // 组装数据
     onSubmit() {
       // 获取上送数据，对数据按照要求的格式上送
-      var pargs = Object.assign({}, this.form, {
-        // 付款账号
-        payerAccountNo: this.payerAc.AcNo,
-        // 付款人姓名
-        payerAccountAcName: this.payerAc.AcName,
-        // 付款账号类型
-        payerAccountBankAcType: this.payerAc.BankAcType,
-        payeeCurrencyCode: 'CNY',
-        payeeCurrencyCRFlag: 'R',
-        abstractCode: '0360',
-        trsCurrencyCode: 'CNY',
-        trsCurrencyCRFlag: 'R'
-      })
-      // 组装结束
-      // 校验并提交表单
-      this.transferPre(pargs)
     },
 
     // 提交表单
@@ -138,29 +111,50 @@ export default {
       //         params: { info: this.confirmData }
       //       })
       //     })
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>
 .forget-pass-conf {
-  .ui-breadcrumb {
-    width: 50%;
-    margin: 0 auto;
-  }
-  .forget-pass-step {
-    width: 60%;
-    margin: 40px auto;
-  }
-  .ui-steps {
-    margin-left: 9%;
-  }
+  background: #fff;
+  padding: 40px 0;
+  height: 533px;
   .ui-form {
-    width: 40% !important;
-    margin: 0 auto !important;
+    margin: 159px auto 0 !important;
+    .form-top,
+    .top {
+      width: 81%;
+      margin: 0 auto 20px;
+    }
+
+    .form-content {
+      width: 70%;
+      margin: 0 auto;
+    }
   }
   .ui-form-item__content {
     text-align: left;
+    width: 55.5%;
+    text-align: left;
+    float: left;
+    margin-left: 0 !important;
+  }
+  .ui-form-item__label {
+    font-size: 14px;
+    font-family: SimHei;
+    font-weight: 400;
+    color: rgba(114, 114, 114, 1);
+    margin-left: 70px;
+    padding: 0;
+    text-align: left !important;
+  }
+  .ui-input__inner {
+    font-size: 14px;
+    font-family: SimHei;
+    font-weight: 400;
+    color: rgba(194, 194, 194, 1);
+    border: 1px solid #e5e5e5;
   }
   .text-center {
     text-align: center;
@@ -169,8 +163,17 @@ export default {
     padding-top: 20px;
   }
   .ui-button.is-round {
-    padding: 12px 180px;
-    margin-left: 140px;
+    width: 160px;
+    height: 34px;
+    line-height: 34px;
+    padding: 0;
+    font-size: 16px;
+    font-family: SimHei;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    border-radius: 18px;
+    background-color: #ce2848;
+    border: 1px solid #ce2848;
   }
 }
 </style>

@@ -1,38 +1,29 @@
 <template>
-  <!-- <ui-container-full class="register-pre"> -->
-  <div class="pre">
+  <div class="forget-pre">
     <!--表单-->
     <!-- :rules="rules" -->
-    <ui-form ref="form" label-width="100px" :model="form">
+    <ui-form ref="form" :model="form" label-width="100px">
       <ui-row class="bordB">
         <div class="form-top">
           <div class="form-content">
             <ui-form-item label="姓名：" prop="name">
-              <ui-input v-model="form.name" maxlength="13" placeholder="请输入注册人姓名"></ui-input>
+              <ui-input-business v-model="form.name" placeholder="请输入注册人姓名"></ui-input-business>
             </ui-form-item>
             <ui-form-item label="登录名：" prop="loginName">
-              <ui-input-business
-                v-model="form.loginName"
-                minlength="4"
-                maxlength="20"
-                placeholder="请输入登录名"
-              ></ui-input-business>
-            </ui-form-item>
-            <ui-form-item label="机构简称：" prop="organName">
-              <ui-input-business v-model="form.organName" placeholder="请输入机构简称"></ui-input-business>
-            </ui-form-item>
-            <ui-form-item label="身份证号码：" prop="idCard">
-              <ui-input-business v-model="form.idCard" placeholder="请输入身份证号码"></ui-input-business>
-            </ui-form-item>
-            <ui-form-item label="邮箱：" prop="email">
-              <ui-input-business v-model="form.email" maxlength="13" placeholder="请输入邮箱"></ui-input-business>
+              <ui-input-business v-model="form.loginName" placeholder="请输入登录名"></ui-input-business>
             </ui-form-item>
           </div>
         </div>
       </ui-row>
       <ui-row>
-        <div class="form-top top">
+        <div class="form-top">
           <div class="form-content">
+            <ui-form-item label="身份证号码：" prop="idCard">
+              <ui-input-business v-model="form.idCard" placeholder="请输入身份证号码"></ui-input-business>
+            </ui-form-item>
+            <!-- <ui-form-item label="邮箱：" prop="email">
+            <ui-input-business v-model="form.email" maxlength="13" placeholder="请输入邮箱"></ui-input-business>
+            </ui-form-item>-->
             <ui-form-item label="手机号：" prop="phone">
               <ui-input-business v-model="form.phone" maxlength="13" placeholder="请输入您的注册手机号"></ui-input-business>
             </ui-form-item>
@@ -52,20 +43,17 @@
           </div>
         </div>
       </ui-row>
-
       <ui-row class="text-center padtop20">
-        <ui-button type="primary" round @click="submitForm('form')">注册</ui-button>
+        <ui-button type="primary" round @click="submitForm('form')">下一步</ui-button>
       </ui-row>
     </ui-form>
   </div>
-
-  <!-- </ui-container-full> -->
 </template>
 <script>
 import { IdCard, Phone, Email, LoginName } from '@/libs/validator'
 import CodeTimer from '@/components/codetimer'
 export default {
-  name: 'registerPre',
+  name: 'forgetPassPre',
   components: {
     CodeTimer,
   },
@@ -78,7 +66,7 @@ export default {
         //    登录名
         loginName: '',
         //    机构简称
-        organName: '',
+        // organName: '',
         //    身份证号码
         idCard: '',
         //    邮箱
@@ -89,29 +77,29 @@ export default {
         code: '',
       },
       rules: {
-        // name: [
-        //   {
-        //     required: true,
-        //     message: '请输入注册人姓名',
-        //     trigger: 'blur'
-        //   }
-        //   // { validator: this.validateAcNo, trigger: 'blur' },
-        // ],
+        name: [
+          {
+            required: true,
+            message: '请输入姓名',
+            trigger: 'blur',
+          },
+          // { validator: this.validateAcNo, trigger: 'blur' },
+        ],
         loginName: [
           { required: true, message: '请输入登录名', trigger: 'blur' },
           { validator: LoginName, trigger: 'blur' },
         ],
-        organName: [
-          { required: true, message: '请输入登录名', trigger: 'blur' },
-        ],
+        // organName: [
+        //   { required: true, message: '请输入登录名', trigger: 'blur' }
+        // ],
         idCard: [
           { required: true, message: '请输入证件号码', trigger: 'blur' },
           { validator: IdCard, trigger: 'blur' },
         ],
-        email: [
-          { required: true, message: '请输入邮箱', trigger: 'blur' },
-          { validator: Email, trigger: 'blur' },
-        ],
+        // email: [
+        //   { required: true, message: '请输入邮箱', trigger: 'blur' },
+        //   { validator: Email, trigger: 'blur' }
+        // ],
         phone: [
           { required: true, message: '请输入您的注册手机号', trigger: 'blur' },
           { validator: Phone, trigger: 'blur' },
@@ -157,7 +145,7 @@ export default {
       ); */
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.$router.push('/registerConf')
+          this.$router.push('/forgetPassConf')
           //   this.onSubmit()
         } else {
           return false
@@ -188,7 +176,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.pre {
+.forget-pre {
   background: #fff;
   padding: 40px 0;
   height: 533px;
@@ -196,13 +184,10 @@ export default {
     margin: 0 auto !important;
     .form-top,
     .top {
-      border-bottom: 1px dashed #999;
       width: 81%;
       margin: 0 auto 20px;
     }
-    .top {
-      border-bottom: none;
-    }
+
     .form-content {
       width: 70%;
       margin: 0 auto;
@@ -211,8 +196,11 @@ export default {
 
   .text-center {
     text-align: center;
-    margin-top: 20px;
   }
+  .padtop20 {
+    padding-top: 20px;
+  }
+
   .ui-button.is-round {
     width: 160px;
     height: 34px;
@@ -229,17 +217,17 @@ export default {
 }
 </style>
 <style>
-.pre .ui-input-group__append,
-.pre .ui-input-group__prepend {
+.forget-pre .ui-input-group__append,
+.forget-pre .ui-input-group__prepend {
   background-color: #fff !important;
 }
-.pre .ui-form-item__content {
+.forget-pre .ui-form-item__content {
   width: 55.5%;
   text-align: left;
   float: left;
   margin-left: 0 !important;
 }
-.pre .ui-form-item__label {
+.forget-pre .ui-form-item__label {
   font-size: 14px;
   font-family: SimHei;
   font-weight: 400;
@@ -248,7 +236,7 @@ export default {
   padding: 0;
   text-align: left !important;
 }
-.pre .ui-input__inner {
+.forget-pre .ui-input__inner {
   font-size: 14px;
   font-family: SimHei;
   font-weight: 400;

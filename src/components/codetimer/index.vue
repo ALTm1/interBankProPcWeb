@@ -8,21 +8,21 @@ export default {
     // 文本
     text: {
       type: String,
-      default: '获取验证码'
+      default: '获取验证码',
     }, // 初始计时数
     number: {
       type: Number,
-      default: 60
+      default: 60,
     }, // 是否开始计时
     isBegin: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   data() {
     return {
       num: 0,
-      timer: null
+      timer: null,
     }
   },
   watch: {
@@ -42,7 +42,7 @@ export default {
           }
         }, 1000)
       }
-    }
+    },
   },
   methods: {
     codeClick() {
@@ -54,19 +54,19 @@ export default {
     resetTimer() {
       clearInterval(this.timer)
       this.timer = null
-    }
+    },
   },
   destroyed() {
     if (this.timer) {
       clearInterval(this.timer)
       this.timer = null
     }
-  }
+  },
 }
 </script>
 <style scoped>
 .text {
-  color: #409eff;
+  color: #ce2848;
   font-size: 14px;
   font-family: SimHei;
   font-weight: 400;
