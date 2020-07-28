@@ -15,8 +15,10 @@
     </ui-breadcrumb>
     <!-- 结果 -->
     <div class="result">
-      <div class="result-img"></div>
-      <p>处理成功</p>
+      <div class="result-img">
+        <img src="@/assets/image/success.png" alt />
+        <span>上传成功</span>
+      </div>
     </div>
     <div class="status-tip">您的待确认意向处理成功成功，请等待审核</div>
     <div style="text-align:center;margin-top:40px">
@@ -38,27 +40,27 @@ export default {
     }
   },
   methods: {
-    submitForm(arg) {}
-  }
+    submitForm(arg) {},
+  },
 }
 </script>
 <style lang="scss" scoped>
 .initention-res {
   .result {
-    width: 15%;
-    overflow: hidden;
+    width: 20%;
     margin: 60px auto 0;
-  }
-  .result-img,
-  .result p {
-    float: left;
-  }
-  .result-img {
-    width: 80px;
-    height: 80px;
-    margin-right: 10%;
-    background: #f0f;
-    display: inline-block;
+    .result-img {
+      img {
+        vertical-align: middle;
+        margin-right: 10%;
+      }
+      span {
+        font-size: 24px;
+        font-family: SimHei;
+        font-weight: 400;
+        color: rgba(51, 51, 51, 1);
+      }
+    }
   }
   .status-tip {
     margin-top: 40px;
@@ -74,6 +76,13 @@ export default {
     padding-top: 20px;
   }
   .ui-button.is-round {
+    font-size: 16px;
+    font-family: SimHei;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    border-radius: 18px;
+    background-color: #ce2848;
+    border-color: #ce2848;
     padding: 12px 180px;
   }
 }

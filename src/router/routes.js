@@ -1,12 +1,19 @@
 import business from './modules/business'
 import layoutHeaderAside from '@/layout/header-aside'
-
+import information from './modules/information'
+import industry from './modules/industry'
+import person from './modules/person'
+import staffcenter from './modules/staffcenter'
+import fund from './modules/fund'
 // 由于懒加载页面太多的话会造成webpack热更新太慢，所以开发环境不使用懒加载，只有生产环境使用懒加载
 const _import = require('@/libs/utils/util.import.' + process.env.NODE_ENV)
 // 引入'金融市场'路由组件
 import financialMarket from "./modules/financialmarket"
 // 引入'会员中心'路由组件
 import member from "./modules/member"
+// 引入'联盟圈'路由组件
+import unionlap from "./modules/unionlap"
+
 // 导出需要显示菜单的
 export const frameInRoutes = [
   {
@@ -41,11 +48,29 @@ const frameIn = [
       {
         path: 'index',
         name: 'index',
+        redirect: { name: 'home' },
         meta: {
           auth: false,
           close: true
         },
-        component: _import('system/index')
+        component: _import('system/index'),
+        children:[
+          {
+            path: 'home',
+            name: 'home',
+            component: () => import('@/views/home/Home.vue'),
+            meta: {
+              title: '首页'
+            }
+          },
+          ...information,
+          ...industry,
+          ...person,
+          ...staffcenter,
+          ...financialMarket,
+          ...member,
+          ...fund
+        ]
       },
       // 系统 前端日志
       {
@@ -81,8 +106,8 @@ const frameIn = [
     ]
   },
   ...frameInRoutes,
-  ...financialMarket,
-  ...member
+  // ...financialMarket,
+  // ...member
 ]
 
 /**

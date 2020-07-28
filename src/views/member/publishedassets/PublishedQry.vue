@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-20 16:50:40
- * @LastEditTime: 2020-07-22 16:04:12
+ * @LastEditTime: 2020-07-23 11:21:20
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JNRCB-PC\src\views\member\publishedassets\PublishedQry.vue
@@ -70,28 +70,28 @@ export default {
       form: {
         proType: '',
         startDate: '',
-        endDate: ''
+        endDate: '',
       },
       rules: {
         proType: [
-          { required: true, message: '请输入产品类型', trigger: 'change' }
+          { required: true, message: '请输入产品类型', trigger: 'change' },
         ],
         startDate: [
           {
             type: 'date',
             required: true,
             message: '请选择日期',
-            trigger: 'change'
-          }
+            trigger: 'change',
+          },
         ],
         endDate: [
           {
             type: 'date',
             required: true,
             message: '请选择时间',
-            trigger: 'change'
-          }
-        ]
+            trigger: 'change',
+          },
+        ],
       },
       showTable: false,
       tableData: [
@@ -103,7 +103,7 @@ export default {
           proRate: '4.55%',
           proMoney: '5,000W',
           proExpires: '360天',
-          publishDate: '2020/09/10'
+          publishDate: '2020/09/10',
         },
         {
           proType: '同业资金',
@@ -113,7 +113,7 @@ export default {
           proRate: '4.55%',
           proMoney: '5,000W',
           proExpires: '360天',
-          publishDate: '2020/09/10'
+          publishDate: '2020/09/10',
         },
         {
           proType: '同业资金',
@@ -123,7 +123,7 @@ export default {
           proRate: '4.55%',
           proMoney: '5,000W',
           proExpires: '360天',
-          publishDate: '2020/09/10'
+          publishDate: '2020/09/10',
         },
         {
           proType: '同业资金',
@@ -133,9 +133,9 @@ export default {
           proRate: '4.55%',
           proMoney: '5,000W',
           proExpires: '360天',
-          publishDate: '2020/09/10'
-        }
-      ]
+          publishDate: '2020/09/10',
+        },
+      ],
     }
   },
   methods: {
@@ -143,12 +143,12 @@ export default {
       this.$router.push({
         path: '/member/publishedDetail',
         query: {
-          detail: JSON.stringify(row)
-        }
+          detail: JSON.stringify(row),
+        },
       })
     },
     submitForm(formName) {
-      this.$refs[formName].validate(valid => {
+      this.$refs[formName].validate((valid) => {
         if (valid) {
           this.showTable = true
         } else {
@@ -158,8 +158,8 @@ export default {
     },
     resetForm(formName) {
       this.$refs[formName].resetFields()
-    }
-  }
+    },
+  },
 }
 </script>
 

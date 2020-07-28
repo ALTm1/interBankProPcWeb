@@ -212,6 +212,9 @@ export default {
   }
   .btn .ui-button {
     width: 30%;
+    border-radius: 20px;
+    background: #ce2848;
+    border-color: #ce2848;
     padding: 12px 20px !important;
   }
 }

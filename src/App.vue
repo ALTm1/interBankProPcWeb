@@ -44,4 +44,8 @@ export default {
 #app .forget-pass-pre .ui-container-full .ui-container-full__body {
   background: rgb(247, 246, 251) !important;
 }
+button {
+  outline: none;
+  cursor: pointer;
+}
 </style>

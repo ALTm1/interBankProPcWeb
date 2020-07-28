@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-20 18:26:04
- * @LastEditTime: 2020-07-22 17:03:49
+ * @LastEditTime: 2020-07-23 14:23:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JNRCB-PC\src\views\member\publishedassets\PublishedDetail.vue
@@ -49,7 +49,7 @@
 import Item from '@/views/member/components/Item.vue'
 export default {
   components: {
-    Item
+    Item,
   },
   data() {
     return {
@@ -59,25 +59,25 @@ export default {
       organList: [
         {
           order: 1,
-          organName: '南京银行'
+          organName: '南京银行',
         },
         {
           order: 2,
-          organName: '江苏银行'
+          organName: '江苏银行',
         },
         {
           order: 3,
-          organName: '招商银行'
-        }
+          organName: '招商银行',
+        },
       ],
       // 发布方联系人
       pubContactList: [
         {
           order: 1,
           contactName: '张三',
-          contactPhone: '19988907868'
-        }
-      ]
+          contactPhone: '19988907868',
+        },
+      ],
     }
   },
   created() {
@@ -85,52 +85,52 @@ export default {
     this.proInfo = [
       {
         itemTitle: '产品类型',
-        itemValue: detail.proType
+        itemValue: detail.proType,
       },
       {
         itemTitle: '业务类型',
-        itemValue: detail.serviceType
+        itemValue: detail.serviceType,
       },
       {
         itemTitle: '交易方向',
-        itemValue: detail.proName
+        itemValue: detail.proName,
       },
       {
         itemTitle: '产品状态',
-        itemValue: '正常'
+        itemValue: '正常',
       },
       {
         itemTitle: '产品发布者',
-        itemValue: detail.organName
+        itemValue: detail.organName,
       },
       {
         itemTitle: '发布日期',
-        itemValue: detail.publishDate
+        itemValue: detail.publishDate,
       },
       {
         itemTitle: '利率',
-        itemValue: detail.proRate
+        itemValue: detail.proRate,
       },
       {
         itemTitle: '金额',
-        itemValue: detail.proMoney
+        itemValue: detail.proMoney,
       },
       {
         itemTitle: '期限',
-        itemValue: detail.proExpires
+        itemValue: detail.proExpires,
       },
       {
         itemTitle: '产品标签',
-        itemValue: '高风险'
+        itemValue: '高风险',
       },
       {
         itemTitle: '备注',
-        itemValue: 'XXXXXXX'
+        itemValue: 'XXXXXXX',
       },
       {
         itemTitle: '属性类型',
-        itemValue: '指定交易对手可见'
-      }
+        itemValue: '指定交易对手可见',
+      },
     ]
   },
   methods: {
@@ -139,10 +139,10 @@ export default {
     // 下一步
     goNext() {
       this.$router.push({
-        path: '/member/publishSucc'
+        path: '/member/publishSucc',
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

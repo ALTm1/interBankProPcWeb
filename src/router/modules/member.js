@@ -1,19 +1,17 @@
 /*
  * @Author: your name
  * @Date: 2020-07-20 15:57:13
- * @LastEditTime: 2020-07-22 13:56:05
+ * @LastEditTime: 2020-07-24 09:26:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JNRCB-PC\src\router\modules\member.js
  */
 
-// 由于懒加载页面太多的话会造成webpack热更新太慢，所以开发环境不使用懒加载，只有生产环境使用懒加载
-const _import = require('@/libs/utils/util.import.' + process.env.NODE_ENV)
 
 // 会员中心
 export default [
   {
-    path: '/member',
+    path: 'member',
     name: 'member',
     component: () => import('@/views/member/index.vue'),
     children: (pre => [
