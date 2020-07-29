@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-20 18:28:40
- * @LastEditTime: 2020-07-29 17:29:26
+ * @LastEditTime: 2020-07-29 18:38:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JNRCB-PC\src\views\member\components\item.vue
@@ -38,7 +38,6 @@ export default {
   line-height: 39px;
   padding: 0 13px;
   box-sizing: border-box;
-  background: rgb(185, 177, 177);
   border-radius: 4px;
   font-size: 12px;
   font-family: SimHei;
