@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-20 09:48:06
- * @LastEditTime: 2020-07-27 17:49:25
+ * @LastEditTime: 2020-07-27 18:03:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JNRCB-PC\src\router\modules\financialmarket.js

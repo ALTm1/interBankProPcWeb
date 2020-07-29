@@ -11,7 +11,7 @@
 // 会员中心
 export default [
   {
-    path: '/member',
+    path: 'member',
     name: 'member',
     component: () => import('@/views/member/index.vue'),
     children: (pre => [

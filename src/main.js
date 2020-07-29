@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-17 15:31:46
- * @LastEditTime: 2020-07-24 14:31:40
+ * @LastEditTime: 2020-07-27 18:32:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JNRCB-PC\src\main.js
@@ -29,7 +29,11 @@ import '@/libs/mixins'
 import { deleteClass, setClass } from '@csii/vx-util'
 
 // 引入公共样式
-import '@/assets/style/common.css'
+import "@/assets/style/common.css"
+
+// 地图
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
 
 // 核心插件
 Vue.use(vxadmin)

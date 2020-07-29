@@ -11,7 +11,7 @@ import pluginLog from '@/plugin/log'
 // import pluginOpen from '@/plugin/open'
 import util from '@csii/vx-util'
 import {
-  // Pagination,
+  Pagination,
   Dialog,
   Autocomplete,
   Dropdown,
@@ -65,9 +65,9 @@ import {
   // Rate,
   Steps,
   Step,
-  // Carousel,
+  Carousel,
   // Scrollbar,
-  // CarouselItem,
+  CarouselItem,
   // Collapse,
   // CollapseItem,
   Cascader,
@@ -114,7 +114,7 @@ export default {
     Vue.prototype.$defaultImg = 'this.src="' + require('@/assets/image/logo.png') + '"'
 
     // Element
-    // Vue.use(Pagination)
+    Vue.use(Pagination)
     Vue.use(Dialog)
     Vue.use(Autocomplete)
     Vue.use(Dropdown)
@@ -168,9 +168,9 @@ export default {
     // Vue.use(Rate)
     Vue.use(Steps)
     Vue.use(Step)
-    // Vue.use(Carousel)
+    Vue.use(Carousel)
     // Vue.use(Scrollbar)
-    // Vue.use(CarouselItem)
+    Vue.use(CarouselItem)
     // Vue.use(Collapse)
     // Vue.use(CollapseItem)
     Vue.use(Cascader)

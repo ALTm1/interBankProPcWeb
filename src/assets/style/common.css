@@ -61,3 +61,17 @@
   top: 0;
   right: 0;
 }
+
+.ui-pager li {
+  font-size: 14px;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(54, 54, 54, 1);
+}
+
+.ui-pager li.active {
+  font-size: 14px;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(210, 49, 82, 1);
+}

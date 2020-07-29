@@ -61,12 +61,8 @@
             <SelectItem slot="reference" selText="全部" @hit="serviceTypePopup = !serviceTypePopup"></SelectItem>
           </ui-popover>
         </div>
-        <div class="float-left" v-for="item in form.serviceTypeList" :key="item.label">
-          <SelectItem
-            :selText="item.value"
-            :selActive="item.active"
-            @hit="item.active=!item.active"
-          ></SelectItem>
+        <div class="float-left" v-for="item in chooseServiceArr" :key="item.id">
+          <SelectItem :selText="item.text" :selActive="item.active" @hit="item.active=!item.active"></SelectItem>
         </div>
       </div>
       <!-- 交易方向 -->
@@ -110,25 +106,37 @@
       </div>
     </div>
     <!-- 查询结果 -->
-    <ui-table :data="tableData" v-if="showTable" cell-class-name="tabel-cell">
-      <ui-table-column prop="proType" label="产品类型" min-width="100px"></ui-table-column>
-      <ui-table-column prop="serviceType" label="业务类型" min-width="200px"></ui-table-column>
-      <ui-table-column prop="proName" label="产品名称" min-width="200px"></ui-table-column>
-      <ui-table-column prop="organName" label="机构全称" min-width="200px"></ui-table-column>
-      <ui-table-column label="利率" min-width="100px">
-        <template slot-scope="scope">
-          <span class="pro-rate">{{ scope.row.proRate }}</span>
-        </template>
-      </ui-table-column>
-      <ui-table-column prop="proMoney" label="金额" min-width="200px"></ui-table-column>
-      <ui-table-column prop="proExpires" label="期限" min-width="100px"></ui-table-column>
-      <ui-table-column prop="publishDate" label="发布日期" min-width="100px"></ui-table-column>
-      <ui-table-column label="操作">
-        <template slot-scope="scope">
-          <span class="detail-button" @click="goDetail(scope.row)">查看详情</span>
-        </template>
-      </ui-table-column>
-    </ui-table>
+    <div v-if="showTable">
+      <ui-table :data="tableData" cell-class-name="tabel-cell">
+        <ui-table-column prop="proType" label="产品类型" min-width="100px"></ui-table-column>
+        <ui-table-column prop="serviceType" label="业务类型" min-width="200px"></ui-table-column>
+        <ui-table-column prop="proName" label="产品名称" min-width="200px"></ui-table-column>
+        <ui-table-column prop="organName" label="机构全称" min-width="200px"></ui-table-column>
+        <ui-table-column label="利率" min-width="100px">
+          <template slot-scope="scope">
+            <span class="pro-rate">{{ scope.row.proRate }}</span>
+          </template>
+        </ui-table-column>
+        <ui-table-column prop="proMoney" label="金额" min-width="200px"></ui-table-column>
+        <ui-table-column prop="proExpires" label="期限" min-width="100px"></ui-table-column>
+        <ui-table-column prop="publishDate" label="发布日期" min-width="100px"></ui-table-column>
+        <ui-table-column label="操作">
+          <template slot-scope="scope">
+            <span class="detail-button" @click="goDetail(scope.row)">查看详情</span>
+          </template>
+        </ui-table-column>
+      </ui-table>
+      <div class="pagination-block">
+        <ui-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page.sync="currentPage"
+          :page-size="100"
+          layout=" prev, pager, next, total"
+          :total="1000"
+        ></ui-pagination>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -305,6 +313,7 @@ export default {
           publishDate: '2020/09/10',
         },
       ],
+      currentPage: 1,
 
       // 业务筛选弹出框
       serviceTypePopup: false,
@@ -313,16 +322,19 @@ export default {
           id: 'choose同业存放',
           imgSrc: require('@/assets/image/logo.png'),
           text: '同业存放',
+          active: false,
         },
         {
           id: 'choose协议存款',
           imgSrc: require('@/assets/image/logo.png'),
           text: '协议存款',
+          active: false,
         },
         {
           id: 'choose同业借款',
           imgSrc: require('@/assets/image/logo.png'),
           text: '同业借款',
+          active: false,
         },
       ],
       allServiceArr: [],
@@ -344,6 +356,12 @@ export default {
         imgSrc: require('@/assets/image/logo.png'),
         text: serviceItem.text,
       })
+    },
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`)
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`)
     },
     goDetail(row) {
       this.$router.push({
@@ -370,7 +388,7 @@ export default {
   background: #ffffff;
   padding: 18px 40px;
   margin-bottom: 14px;
-  border-left: solid 5px #D13051;
+  border-left: solid 5px #d13051;
 }
 
 .sel-item {
@@ -388,6 +406,7 @@ export default {
 }
 .buttons {
   text-align: center;
+  margin-top: 36px;
 }
 .button-item {
   display: inline-block;
@@ -430,5 +449,13 @@ export default {
   border-radius: 11px;
   outline: none;
   margin: 0 12px;
+}
+
+/* 页码 */
+.pagination-block {
+  text-align: right;
+}
+.pagination-block /deep/ .ui-pagination {
+  display: inline-block;
 }
 </style>

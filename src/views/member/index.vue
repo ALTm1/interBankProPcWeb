@@ -15,7 +15,7 @@
           <ui-menu
             style="height: 100%"
             class="ui-menu-vertical-demo"
-            text-color="#fff"
+            
             active-text-color="#ffd04b"
             default-active="1-1"
             @open="openMenu"
@@ -168,17 +168,17 @@ export default {
 .member /deep/ .ui-aside {
   overflow-x: hidden;
   min-height: 100vh;
-  background-color: #545c64;
+  /* background-color: #545c64; */
 }
 .member /deep/ .ui-menu {
-  background-color: #545c64;
+  /* background-color: #545c64; */
 }
 
 .member /deep/ .ui-menu-item:hover,
 .member /deep/ .ui-menu-item:focus,
 .member /deep/ .ui-submenu__title:hover,
 .member /deep/ .ui-submenu__title:focus {
-  background: rgb(75, 79, 80);
+  /* background: rgb(75, 79, 80); */
 }
 .member .content-wrap {
   overflow-y: auto;
