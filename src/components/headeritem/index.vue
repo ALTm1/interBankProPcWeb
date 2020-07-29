@@ -1,21 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2020-07-29 16:41:30
- * @LastEditTime: 2020-07-29 17:06:45
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \interBankProPcWeb\src\components\headeritem\index.vue
---> 
-
-<!--
- * @Author: your name
- * @Date: 2020-07-27 09:22:05
- * @LastEditTime: 2020-07-27 10:49:28
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \interBankProPcWeb\src\components\selectitem\index.vue
---> 
-
 
 <template>
   <div class="header-item">

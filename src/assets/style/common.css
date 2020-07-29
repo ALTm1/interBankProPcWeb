@@ -4,7 +4,12 @@
   font-weight: 400;
   color: rgba(153, 153, 153, 1);
 }
-
+.ui-table__body-wrapper .cell {
+  font-size: 12px;
+  font-family:SimHei;
+  color:rgba(51,51,51,1);
+  font-weight:400;
+}
 .detail-button {
   display: inline-block;
   width: 71px;
