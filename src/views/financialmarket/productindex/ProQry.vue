@@ -380,9 +380,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.pro-rate {
-  color: #d13051;
-}
+
 
 .pro-type {
   background: #ffffff;
