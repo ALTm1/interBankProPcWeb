@@ -1,3 +1,7 @@
+.ui-table .cell {
+  text-align: center;
+}
+
 .ui-table th>.cell {
   font-size: 12px;
   font-family: SimHei;
@@ -17,6 +21,7 @@
 }
 
 /* table表格利率颜色 */
+
 .pro-rate {
   color: #d13051;
 }

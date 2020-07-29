@@ -164,5 +164,6 @@ export default {
 }
 .publish-contact-list {
   width: 500px;
+  margin: 0 auto;
 }
 </style>
