@@ -50,11 +50,9 @@
 
 <script>
 import Item from '@/views/member/components/Item.vue'
-import HeaderItem from '@/components/headeritem'
 export default {
   components: {
     Item,
-    HeaderItem,
   },
   data() {
     return {
@@ -153,13 +151,16 @@ export default {
 }
 .content {
   display: inline-block;
+  text-align: center;
 }
+
 .pro-info-content {
   width: 880px;
   display: inline-block;
 }
 .organ-list {
   width: 500px;
+  display: inline-block;
 }
 .publish-contact-list {
   width: 500px;
