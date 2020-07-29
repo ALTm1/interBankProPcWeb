@@ -1,28 +1,18 @@
 <template>
-  <ui-container-full class="register-pre">
-    <!-- 标题 -->
-    <ui-breadcrumb separator-class="ui-icon-arrow-right">
-      <ui-breadcrumb-item class="ui-icon-add-location">注册</ui-breadcrumb-item>
-      <ui-breadcrumb-item>注册结果</ui-breadcrumb-item>
-    </ui-breadcrumb>
-    <!-- 步骤条 -->
-    <div class="register-step">
-      <ui-steps :space="300" :active="2" finish-status="success" align-center>
-        <ui-step title="个人信息录入"></ui-step>
-        <ui-step title="设置登录密码"></ui-step>
-        <ui-step title="注册结果"></ui-step>
-      </ui-steps>
-    </div>
+  <div class="reg-res">
     <!-- 结果 -->
-    <div style="text-align:center;margin: 80px 0">注册成功</div>
-    <div style="text-align:center">
-      <ui-button type="primary" round @click="submitForm('form')">立即登录</ui-button>
+    <div class="result">
+      <img src="@/assets/image/success.png" alt />
+      <div class="status">注册成功，请登录</div>
     </div>
-  </ui-container-full>
+    <div style="text-align:center">
+      <ui-button type="primary" round @click="submitForm('form')">去登录</ui-button>
+    </div>
+  </div>
 </template>
 <script>
 export default {
-  name: 'registerRes',
+  name: 'regRes',
   created() {},
   // 组件激活
   activated() {
@@ -36,38 +26,47 @@ export default {
   methods: {
     submitForm(form) {
       this.$router.push('/login')
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>
-.register-pre {
-  .ui-breadcrumb {
-    width: 50%;
-    margin: 0 auto;
-  }
-  .register-step {
-    width: 60%;
-    margin: 40px auto;
-  }
-  .ui-steps {
-    margin-left: 9%;
-  }
-  .ui-form {
-    width: 40% !important;
-    margin: 0 auto !important;
-  }
-  .ui-form-item__content {
-    text-align: left;
-  }
-  .text-center {
+.reg-res {
+  height: 533px;
+  background: #fff;
+  padding: 40px 0;
+  .result {
     text-align: center;
+    margin: 80px 0;
+
+    img,
+    .status {
+      display: inline-block;
+    }
+    img {
+      margin-right: 25px;
+      vertical-align: middle;
+    }
+    .status {
+      font-size: 24px;
+      font-family: SimHei;
+      font-weight: 400;
+      color: rgba(51, 51, 51, 1);
+    }
   }
-  .padtop20 {
-    padding-top: 20px;
-  }
+
   .ui-button.is-round {
-    padding: 12px 180px;
+    width: 160px;
+    height: 34px;
+    line-height: 34px;
+    padding: 0;
+    font-size: 16px;
+    font-family: SimHei;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    border-radius: 18px;
+    background-color: #ce2848;
+    border: 1px solid #ce2848;
   }
 }
 </style>
