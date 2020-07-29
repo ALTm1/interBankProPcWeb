@@ -85,6 +85,25 @@ export default {
       this.$router.push('/member/myIntention')
     },
     intentionDetail() {
+      this.$router.push('/member/intentionQry')
+    },
+    creditManagement() {
+      this.$router.push('/member/creditManagement')
+    },
+    friendList() {
+      this.$router.push('/member/friendList')
+    },
+    addressBookList() {
+      this.$router.push('/member/addressBookList')
+    },
+    checkingQuery() {
+      this.$router.push('/member/checkingQuery')
+    },
+    organQry() {
+      this.$router.push('/member/organQry')
+    },
+    ProRelease() {
+      this.$router.push('/index/financialmarket/proQry')
       this.$router.push('/member/intentionDetail')
     },
     creditManagement() {

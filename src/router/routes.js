@@ -54,7 +54,7 @@ const frameIn = [
           close: true
         },
         component: _import('system/index'),
-        children:[
+        children: [
           {
             path: 'home',
             name: 'home',
@@ -69,7 +69,81 @@ const frameIn = [
           ...staffcenter,
           ...financialMarket,
           ...member,
-          ...fund
+          ...fund,
+          // 注册
+          {
+            path: '/registerPre',
+            name: 'registerPre',
+            redirect: '/regPre',
+            component: _import('register/registerPre'),
+            children: [
+              {
+                path: '/regPre',
+                name: 'regPre',
+                meta: {
+                  title: '个人信息录入'
+                },
+                component: _import('register/regPre'),
+              },
+              // 注册确认页
+              {
+                path: '/registerConf',
+                name: 'registerConf',
+                meta: {
+                  title: '设置登陆密码'
+                },
+                component: _import('register/registerConf')
+              },
+              // 注册结果页
+              {
+                path: '/registerRes',
+                name: 'registerRes',
+                meta: {
+                  title: '注册结果'
+                },
+                component: _import('register/registerRes')
+              },
+            ]
+
+          },
+          // 忘记密码
+          {
+            path: '/forgetPassPre',
+            name: 'forgetPassPre',
+            redirect: '/forgetPre',
+            component: _import('forgetpassword/forgetPassPre'),
+            children: [
+              {
+                path: '/forgetPre',
+                name: 'forgetPre',
+                meta: {
+                  title: '个人信息验证'
+                },
+                component: _import('forgetpassword/forgetPre'),
+              },
+              // 忘记密码确认页
+              {
+                path: '/forgetPassConf',
+                name: 'forgetPassConf',
+                meta: {
+                  title: '设置新密码'
+                },
+                component: _import('forgetpassword/forgetPassConf')
+
+
+              },
+
+              // 忘记密码结果页
+              {
+                path: '/forgetPassRes',
+                name: 'forgetPassRes',
+                meta: {
+                  title: '重置结果'
+                },
+                component: _import('forgetpassword/forgetPassRes')
+              },
+            ]
+          },
         ]
       },
       // 系统 前端日志
@@ -126,84 +200,6 @@ const frameOut = [
     name: 'userLogin',
     component: _import('login/userLogin')
   },
-  // 注册录入页
-  {
-    path: '/registerPre',
-    name: 'registerPre',
-    redirect: '/regPre',
-    component: _import('register/registerPre'),
-    children: [
-      {
-        path: '/regPre',
-        name: 'regPre',
-        meta: {
-          title: '个人信息录入'
-        },
-        component: _import('register/regPre'),
-      },
-      // 注册确认页
-      {
-        path: '/registerConf',
-        name: 'registerConf',
-        meta: {
-          title: '设置登陆密码'
-        },
-        component: _import('register/registerConf')
-      },
-      // 注册结果页
-      {
-        path: '/registerRes',
-        name: 'registerRes',
-        meta: {
-          title: '注册结果'
-        },
-        component: _import('register/registerRes')
-      },
-    ]
-
-  },
-
-
-  // 忘记密码录入页
-  {
-    path: '/forgetPassPre',
-    name: 'forgetPassPre',
-    redirect: '/forgetPre',
-    component: _import('forgetpassword/forgetPassPre'),
-    children: [
-      {
-        path: '/forgetPre',
-        name: 'forgetPre',
-        meta: {
-          title: '个人信息验证'
-        },
-        component: _import('forgetpassword/forgetPre'),
-      },
-      // 忘记密码确认页
-      {
-        path: '/forgetPassConf',
-        name: 'forgetPassConf',
-        meta: {
-          title: '设置新密码'
-        },
-        component: _import('forgetpassword/forgetPassConf')
-
-
-      },
-
-      // 忘记密码结果页
-      {
-        path: '/forgetPassRes',
-        name: 'forgetPassRes',
-        meta: {
-          title: '重置结果'
-        },
-        component: _import('forgetpassword/forgetPassRes')
-      },
-    ]
-  },
-
-
 ]
 
 /**

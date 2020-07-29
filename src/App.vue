@@ -38,12 +38,7 @@ export default {
 .demo-block h3 {
   margin: 55px 0 20px;
 }
-#app .register .ui-container-full .ui-container-full__body {
-  background: rgb(247, 246, 251) !important;
-}
-#app .forget-pass-pre .ui-container-full .ui-container-full__body {
-  background: rgb(247, 246, 251) !important;
-}
+
 button {
   outline: none;
   cursor: pointer;
