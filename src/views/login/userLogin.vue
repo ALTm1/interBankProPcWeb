@@ -1,11 +1,14 @@
 <template>
   <ui-container-full class="user-login">
-    <div class="login-wrap">
+    <!-- <img style="width:1138px" src="@/assets/image/loginbg.png" alt /> -->
+    <div class="login-wrapper">
       <ui-row>
-        <ui-col :span="16">
-          <div class="logobg"></div>
-        </ui-col>
-        <ui-col :span="8">
+        <!-- <ui-col :span="16">
+          <div class="logobg">
+            <img src="@/assets/image/loginbg.png" alt />
+          </div>
+        </ui-col>-->
+        <ui-col :span="6" style="position:absolute;top:120px;right:0px">
           <div class="logo">
             <img src="@/assets/image/logo.png" alt />
             <h2>E同赢银银平台</h2>
@@ -47,6 +50,7 @@
           </div>
         </ui-col>
       </ui-row>
+      <img src="@/assets/image/logincont.png" alt class="loginbg-center" />
     </div>
     <!-- <div style="display:flex;">
       <div style="display: flex; margin-bottom:20px;justify-content: flex-end;">
@@ -171,19 +175,29 @@ export default {
   },
 }
 </script>
-<style lang="scss">
+<style lang="scss" >
 .user-login {
-  .login-wrap {
-    width: 83.3%;
+  .login-wrapper {
+    position: relative;
+    // width: 1038px;
     height: 1000px;
     margin: 0 auto;
     background: #fff;
-    overflow: hidden;
+    background: url('~@/assets/image/loginbg.png') no-repeat;
+    .loginbg-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -440px;
+      margin-top: -200px;
+    }
+
     .logobg {
-      float: left;
-      width: 100%;
-      height: 1000px;
-      background: brown;
+      // float: left;
+      // width: 100%;
+      // height: 1000px;
+      // background: url('~@/assets/image/loginbg.png') no-repeat;
+      // background: brown;
     }
     .logo {
       padding: 20px 0;

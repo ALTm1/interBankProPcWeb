@@ -1,5 +1,5 @@
 <template>
-  <ui-container-full class="register">
+  <div class="register">
     <div class="register-pre">
       <div class="header"></div>
       <div class="register-wrap">
@@ -14,21 +14,24 @@
             <div class="line linebg"></div>
             <div class="line lineColor" :style="lineWidth"></div>
             <div class="img img1">
-              <img src="@/assets/image/success.png" alt />
+              <img :src="srcActive" alt />
               <p
                 style="width:96px;left:-40px;"
                 :class="{'step-title':this.$route.name==='registerConf'||this.$route.name==='regPre'|| this.$route.name==='registerRes'}"
               >个人信息录入</p>
             </div>
             <div class="img img2">
-              <img src="@/assets/image/success.png" alt />
+              <img
+                :src="(this.$route.name==='registerConf'|| this.$route.name==='registerRes')?srcActive:src"
+                alt
+              />
               <p
                 style="width:100px;left:-40px;"
                 :class="{'step-title':this.$route.name==='registerConf'|| this.$route.name==='registerRes' }"
               >设置登录密码</p>
             </div>
             <div class="img img3">
-              <img src="@/assets/image/success.png" alt />
+              <img :src="this.$route.name==='registerRes'?srcActive:src" alt />
               <p
                 style="width:64px;left:-24px;"
                 :class="{'step-title':this.$route.name==='registerRes'}"
@@ -50,7 +53,7 @@
         </div>
       </div>
     </div>
-  </ui-container-full>
+  </div>
 </template>
 <script>
 import { IdCard, Phone, Email, LoginName } from '@/libs/validator'
@@ -62,7 +65,10 @@ export default {
   },
   computed: {},
   data() {
-    return {}
+    return {
+      src: require('@/assets/image/progress.png'),
+      srcActive: require('@/assets/image/progressActive.png'),
+    }
   },
   computed: {
     lineWidth: function () {
@@ -129,7 +135,7 @@ export default {
 </script>
 <style lang="scss">
 .register-pre {
-  // background: rgb(247, 246, 251) !important;
+  background: rgb(247, 246, 251);
   .header {
     height: 41.7px;
   }
@@ -159,7 +165,7 @@ export default {
         position: relative;
         .line {
           position: absolute;
-          top: 8px;
+          top: 6px;
           left: 1px;
           height: 3px;
           z-index: 0;
