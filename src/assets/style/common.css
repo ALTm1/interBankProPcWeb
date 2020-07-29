@@ -5,6 +5,10 @@
   color: rgba(153, 153, 153, 1);
 }
 
+.ui-table td {
+  border-bottom-color: #ffffff;
+}
+
 .detail-button {
   display: inline-block;
   width: 71px;
