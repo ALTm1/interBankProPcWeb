@@ -277,6 +277,7 @@ export default {
 }
 .home-wrap {
   width: 100%;
+  min-height: 100vh;
   background: rgba(247, 246, 253, 1);
   overflow: hidden;
 }
