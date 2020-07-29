@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-21 10:08:35
- * @LastEditTime: 2020-07-29 18:37:02
+ * @LastEditTime: 2020-07-29 18:43:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \jn-pc\src\App.vue
@@ -35,9 +35,6 @@ export default {
 @import '~@/assets/style/public-class.scss';
 </style>
 <style lang="scss">
-#app {
-  background: rgb(247, 246, 253);
-}
 .demo-block h3 {
   margin: 55px 0 20px;
 }

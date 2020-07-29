@@ -4,24 +4,23 @@
       <!-- 顶栏 -->
       <div class="tab-menu">
         <div class="menu-left">
-           <img src="~@/assets/image/tab.png" alt />
-        <menuTree></menuTree>
+          <img src="~@/assets/image/tab.png" alt />
+          <menuTree></menuTree>
         </div>
-       
+
         <span class="login-wrap">
           <li @click="login">登录</li>
           <p>｜</p>
           <li @click="registerPre">注册</li>
         </span>
       </div>
-      
     </div>
     <!-- 下面 主体 -->
     <div class="home-wrap">
-         <div>
-          <router-view />
-        </div>
-      </div> 
+      <div>
+        <router-view />
+      </div>
+    </div>
   </div>
   <!-- <div
     class="ui-layout-header-aside-group"
@@ -135,26 +134,26 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>-->
 </template>
 
 <script>
-import uiMenuSide from "./components/menu-side";
-import uiMenuHeader from "./components/menu-header";
-import uiTabs from "./components/tabs";
-import uiHeaderFullscreen from "./components/header-fullscreen";
-import uiHeaderLocales from "./components/header-locales";
-import uiHeaderSearch from "./components/header-search";
-import uiHeaderSize from "./components/header-size";
-import uiHeaderTheme from "./components/header-theme";
-import uiHeaderUser from "./components/header-user";
-import uiHeaderLog from "./components/header-log";
-import uiHeaderColor from "./components/header-color";
-import { mapState, mapGetters, mapActions } from "vuex";
-import mixinSearch from "./mixins/search";
-import menuTree from "./components/menu-tree/menu";
+import uiMenuSide from './components/menu-side'
+import uiMenuHeader from './components/menu-header'
+import uiTabs from './components/tabs'
+import uiHeaderFullscreen from './components/header-fullscreen'
+import uiHeaderLocales from './components/header-locales'
+import uiHeaderSearch from './components/header-search'
+import uiHeaderSize from './components/header-size'
+import uiHeaderTheme from './components/header-theme'
+import uiHeaderUser from './components/header-user'
+import uiHeaderLog from './components/header-log'
+import uiHeaderColor from './components/header-color'
+import { mapState, mapGetters, mapActions } from 'vuex'
+import mixinSearch from './mixins/search'
+import menuTree from './components/menu-tree/menu'
 export default {
-  name: "ui-layout-header-aside",
+  name: 'ui-layout-header-aside',
   mixins: [mixinSearch],
   components: {
     uiMenuSide,
@@ -173,20 +172,20 @@ export default {
   data() {
     return {
       // [侧边栏宽度] 正常状态
-      asideWidth: "200px",
+      asideWidth: '200px',
       // [侧边栏宽度] 折叠状态
-      asideWidthCollapse: "65px"
-    };
+      asideWidthCollapse: '65px',
+    }
   },
   computed: {
-    ...mapState("vxadmin", {
-      keepAlive: state => state.page.keepAlive,
-      grayActive: state => state.gray.active,
-      transitionActive: state => state.transition.active,
-      asideCollapse: state => state.menu.asideCollapse
+    ...mapState('vxadmin', {
+      keepAlive: (state) => state.page.keepAlive,
+      grayActive: (state) => state.gray.active,
+      transitionActive: (state) => state.transition.active,
+      asideCollapse: (state) => state.menu.asideCollapse,
     }),
-    ...mapGetters("vxadmin", {
-      themeActiveSetting: "theme/activeSetting"
+    ...mapGetters('vxadmin', {
+      themeActiveSetting: 'theme/activeSetting',
     }),
     /**
      * @description 最外层容器的背景图片样式
@@ -196,33 +195,33 @@ export default {
       return {
         ...(this.themeActiveSetting.backgroundImage
           ? {
-              backgroundImage: `url('${this.$baseUrl}${this.themeActiveSetting.backgroundImage}')`
+              backgroundImage: `url('${this.$baseUrl}${this.themeActiveSetting.backgroundImage}')`,
             }
-          : {})
-      };
-    }
+          : {}),
+      }
+    },
   },
   methods: {
-    ...mapActions("vxadmin/menu", ["asideCollapseToggle"]),
+    ...mapActions('vxadmin/menu', ['asideCollapseToggle']),
     /**
      * 接收点击切换侧边栏的按钮
      */
     handleToggleAside() {
-      this.asideCollapseToggle();
+      this.asideCollapseToggle()
     },
-    login(){
+    login() {
       this.$router.push('/login')
     },
-    registerPre(){
+    registerPre() {
       this.$router.push('/registerPre')
-    }
-  }
-};
+    },
+  },
+}
 </script>
 
 <style lang="scss">
 // 注册主题
-@import "~@/assets/style/theme/register.scss";
+@import '~@/assets/style/theme/register.scss';
 </style>
 <style lang="scss">
 .tab-menu {
@@ -278,18 +277,19 @@ export default {
 }
 .home-wrap {
   width: 100%;
+  background: rgba(247, 246, 253, 1);
   overflow: hidden;
 }
-.login-wrap{
+.login-wrap {
   float: right;
   padding-right: 30px;
-  li{
+  li {
     cursor: pointer;
   }
 }
-.menu-left{
+.menu-left {
   float: left;
-  .menu-list{
+  .menu-list {
     float: right;
   }
 }
