@@ -14,15 +14,24 @@
       <ui-table-column prop="serviceType" label="业务类型" width="120"></ui-table-column>
       <ui-table-column prop="proName" label="产品名称" width="120"></ui-table-column>
       <ui-table-column prop="organName" label="机构全称" width="150"></ui-table-column>
-      <ui-table-column prop="proRate" label="利率" width="150" class="rate"></ui-table-column>
+      <!-- <ui-table-column prop="proRate" label="利率" width="150"> -->
+      <ui-table-column label="利率" min-width="100px">
+        <template slot-scope="scope">
+          <span class="pro-rate">{{ scope.row.proRate}}</span>
+        </template>
+      </ui-table-column>
+
+      <!-- </ui-table-column> -->
       <ui-table-column prop="proMoney" label="金额" width="120"></ui-table-column>
       <ui-table-column prop="proExpires" label="期限" width="120"></ui-table-column>
       <ui-table-column prop="publishDate" label="发布日期" width="120"></ui-table-column>
+      <!-- <ui-table-column label="操作"> -->
       <ui-table-column label="操作">
         <template slot-scope="scope">
-          <ui-button @click="goDetail(scope.row)" type="text" size="small">查看详情</ui-button>
+          <span class="detail-button" @click="goDetail(scope.row)">查看详情</span>
         </template>
       </ui-table-column>
+      <!-- </ui-table-column> -->
     </ui-table>
   </div>
 </template>
