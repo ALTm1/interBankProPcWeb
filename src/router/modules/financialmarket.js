@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-20 09:48:06
- * @LastEditTime: 2020-07-24 16:02:36
+ * @LastEditTime: 2020-07-27 18:03:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JNRCB-PC\src\router\modules\financialmarket.js
@@ -10,24 +10,37 @@
 
 // 金融市场
 export default [
+  // 产品中心
   {
-    path: 'financialmarket/proQry',
+    path: '/financialMarket/productIndex/proQry',
     name: 'proQry',
-    component: () => import('@/views/financialmarket/ProQry.vue'),
+    component: () => import('@/views/financialmarket/productindex/ProQry.vue'),
   },
   {
-    path: 'financialmarket/proDetail',
+    path: '/financialMarket/productIndex/proDetail',
     name: 'proDetail',
-    component: () => import('@/views/financialmarket/ProDetail.vue'),
+    component: () => import('@/views/financialmarket/productindex/ProDetail.vue'),
   },
+  // 产品发布
   {
-    path: 'financialmarket/proRelease',
+    path: '/financialMarket/productRelease/proRelease',
     name: 'proRelease',
-    component: () => import('@/views/financialmarket/ProRelease.vue'),
+    component: () => import('@/views/financialmarket/productrelease/ProRelease.vue'),
   },
   {
-    path: 'financialmarket/proReleaseSucc',
+    path: '/financialMarket/productRelease/proReleaseSucc',
     name: 'proReleaseSucc',
-    component: () => import('@/views/financialmarket/ProReleaseSucc.vue'),
+    component: () => import('@/views/financialmarket/productrelease/ProReleaseSucc.vue'),
+  },
+  // 产品交易
+  {
+    path: '/financialMarket/productTrade/proTrade',
+    name: 'proTrade',
+    component: () => import('@/views/financialmarket/producttrade/ProTrade.vue'),
+  },
+  {
+    path: '/financialMarket/productTrade/proTradeSucc',
+    name: 'proTrade',
+    component: () => import('@/views/financialmarket/producttrade/ProTradeSucc.vue'),
   },
 ]

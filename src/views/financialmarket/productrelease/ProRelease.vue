@@ -4,11 +4,14 @@
     <ui-form ref="ruleForm" :model="form" :rules="rules" label-width="100px">
       <div class="pro-release">
         <ui-form-item label="产品类型" prop="proType">
-          <ui-select v-model="form.proType" multiple>
+          <!-- <ui-select v-model="form.proType" multiple>
             <div v-for="item in form.proTypeList" :key="item.label">
               <ui-option :label="item.label" :value="item.value"></ui-option>
             </div>
-          </ui-select>
+          </ui-select>-->
+          <div v-for="item in form.proTypeList" :key="item.label">
+            <SelectItem :selText="item.value" @hit="item.active = !item.active"></SelectItem>
+          </div>
         </ui-form-item>
         <ui-form-item label="产品名称" prop="proName">
           <ui-input v-model="form.proName" style="width: 100%" placeholder="请输入"></ui-input>
@@ -69,7 +72,12 @@
   </div>
 </template>
 <script>
+import SelectItem from '@/components/selectitem'
+
 export default {
+  components: {
+    SelectItem,
+  },
   data() {
     return {
       form: {
@@ -77,32 +85,19 @@ export default {
         proType: '',
         proTypeList: [
           {
-            label: '同业资金',
-            value: '同业资金',
+            label: '同业存放',
+            value: '同业存放',
+            active: false,
           },
           {
-            label: '债券业务',
-            value: '债券业务',
+            label: '协议存款',
+            value: '协议存款',
+            active: false,
           },
           {
-            label: '线上资金',
-            value: '线上资金',
-          },
-          {
-            label: '同业投资',
-            value: '同业投资',
-          },
-          {
-            label: '同业存单',
-            value: '同业存单',
-          },
-          {
-            label: '票据业务',
-            value: '票据业务',
-          },
-          {
-            label: '福费廷',
-            value: '福费廷',
+            label: '同业借款',
+            value: '同业借款',
+            active: false,
           },
         ],
         // 产品名称

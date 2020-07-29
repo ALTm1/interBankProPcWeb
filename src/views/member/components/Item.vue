@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-20 18:28:40
- * @LastEditTime: 2020-07-23 14:24:14
+ * @LastEditTime: 2020-07-29 17:29:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JNRCB-PC\src\views\member\components\item.vue
@@ -32,15 +32,19 @@ export default {
 </script>
 <style lang="css" scoped>
 .item {
-  width: 450px;
-  height: 50px;
-  line-height: 50px;
-  font-size: 14px;
-  margin: 10px 0px;
-  padding: 0px 20px;
+  display: inline-block;
+  width: 420px;
+  height: 39px;
+  line-height: 39px;
+  padding: 0 13px;
   box-sizing: border-box;
-  border-radius: 10px;
-  background: #fcfcfc;
+  background: rgb(185, 177, 177);
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  margin: 10px 10px;
 }
 .clear::after {
   content: '';

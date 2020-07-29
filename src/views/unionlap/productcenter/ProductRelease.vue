@@ -111,8 +111,9 @@ export default {
           {
             label: '福费廷',
             value: '福费廷',
-          },
+          }
         ],
+
         // 产品名称
         proName: '',
         // 交易方向

@@ -1,17 +1,9 @@
-
 .ui-table th>.cell {
   font-size: 12px;
   font-family: SimHei;
   font-weight: 400;
   color: rgba(153, 153, 153, 1);
 }
-
-/* .tabel-cell {
-  font-size: 12px;
-  font-family: SimHei;
-  font-weight: 400;
-  color: rgba(51, 51, 51, 1);
-} */
 
 .detail-button {
   display: inline-block;
@@ -26,9 +18,60 @@
   color: rgba(208, 47, 80, 1);
 }
 
-/* .ui-form-item__label {
-  font-size: 12px;
+.float-left {
+  float: left;
+}
+
+.clear:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.service-title {
+  font-size: 16px;
   font-family: SimHei;
   font-weight: 400;
-  color: rgba(61, 61, 61, 1);
-} */
+  color: rgba(51, 51, 51, 1);
+}
+
+.service-item {
+  display: inline-block;
+  margin-right: 65px;
+}
+
+.service-img-wrap {
+  position: relative;
+  text-align: center;
+}
+
+.service-img {
+  width: 25px;
+  height: 30px;
+}
+
+.icon-circle-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.icon-circle-check {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.ui-pager li {
+  font-size: 14px;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(54, 54, 54, 1);
+}
+
+.ui-pager li.active {
+  font-size: 14px;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(210, 49, 82, 1);
+}

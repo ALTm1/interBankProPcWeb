@@ -9,7 +9,12 @@
         <ui-menu-item index="2-3" @click="training">培训</ui-menu-item>
         <ui-menu-item index="2-4" @click="mechanism">机构动态</ui-menu-item>
       </ui-submenu>
-      <ui-menu-item index="3" @click="ProRelease">金融市场</ui-menu-item>
+      <ui-submenu index="3">
+        <template slot="title">金融市场</template>
+        <ui-menu-item index="3-1" @click="proIndex">产品中心</ui-menu-item>
+        <ui-menu-item index="3-2" @click="proTrade">产品交易</ui-menu-item>
+        <ui-menu-item index="3-3" @click="proRelease">产品发布</ui-menu-item>
+      </ui-submenu>
 
       <ui-submenu index="4">
         <template slot="title">会员中心</template>
@@ -99,6 +104,31 @@ export default {
     },
     ProRelease() {
       this.$router.push('/index/financialmarket/proQry')
+      this.$router.push('/member/intentionDetail')
+    },
+    creditManagement() {
+      this.$router.push('/member/creditManagement')
+    },
+    friendList() {
+      this.$router.push('/member/friendList')
+    },
+    addressBookList() {
+      this.$router.push('/member/addressBookList')
+    },
+    checkingQuery() {
+      this.$router.push('/member/checkingQuery')
+    },
+    organQry() {
+      this.$router.push('/member/organQry')
+    },
+    proIndex() {
+      this.$router.push('/financialMarket/productIndex/proQry')
+    },
+    proTrade() {
+      this.$router.push('/financialMarket/productTrade/proTrade')
+    },
+    proRelease() {
+      this.$router.push('/financialMarket/productRelease/proRelease')
     },
     forgetPassConf() {
       // 登录密码修改s
