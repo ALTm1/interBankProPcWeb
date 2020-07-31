@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-29 16:41:30
+ * @LastEditTime: 2020-07-29 19:10:21
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \interBankProPcWeb\src\components\headeritem\index.vue
+--> 
 
 <template>
   <div class="header-item">
@@ -27,7 +35,7 @@ export default {
 
 <style lang="css" scoped>
 .header-item {
-  margin-bottom: 20px;
+  margin: 30px 0px;
   text-align: left;
 }
 .header-item-img {

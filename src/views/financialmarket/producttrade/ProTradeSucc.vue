@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-27 17:47:20
- * @LastEditTime: 2020-07-27 17:48:25
+ * @LastEditTime: 2020-07-30 13:41:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \interBankProPcWeb\src\views\financialmarket\producttrade\ProTradeSucc.vue
@@ -15,7 +15,9 @@
       <span>交易成功</span>
     </p>
     <p>您的意向已提交,请等待对手方确认</p>
-    <ui-button type="primary" style="width: 200px">完成</ui-button>
+    <div style="marginTop:56px">
+      <ButtonItem text="完成" backgroundColor="#CE2848" @click.native="goNext()"></ButtonItem>
+    </div>
   </div>
 </template>
 

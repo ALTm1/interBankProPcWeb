@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-27 18:01:43
- * @LastEditTime: 2020-07-27 18:51:28
+ * @LastEditTime: 2020-07-29 19:25:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \interBankProPcWeb\src\views\home\Home.vue
@@ -29,7 +29,7 @@ export default {
   components: {
     Header,
     infolist,
-    Map,
+    // Map,
   },
 }
 </script>

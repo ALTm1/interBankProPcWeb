@@ -1,3 +1,5 @@
+/* table表格 */
+
 .ui-table .cell {
   text-align: center;
 }
@@ -20,11 +22,13 @@
   border-bottom-color: #ffffff;
 }
 
-/* table表格利率颜色 */
+/* table表格利率列颜色 */
 
 .pro-rate {
   color: #d13051;
 }
+
+/* table表格操作按钮 */
 
 .detail-button {
   display: inline-block;
@@ -39,9 +43,25 @@
   color: rgba(208, 47, 80, 1);
 }
 
+/* form表单 */
+
+.ui-form-item__content {
+  height: 40px;
+}
+
+/* 左浮动 */
+
 .float-left {
   float: left;
 }
+
+/* 右浮动 */
+
+.float-right {
+  float: right;
+}
+
+/* 清除浮动 */
 
 .clear:after {
   content: "";
@@ -49,27 +69,7 @@
   clear: both;
 }
 
-.service-title {
-  font-size: 16px;
-  font-family: SimHei;
-  font-weight: 400;
-  color: rgba(51, 51, 51, 1);
-}
-
-.service-item {
-  display: inline-block;
-  margin-right: 65px;
-}
-
-.service-img-wrap {
-  position: relative;
-  text-align: center;
-}
-
-.service-img {
-  width: 25px;
-  height: 30px;
-}
+/* 错号图标 */
 
 .icon-circle-close {
   position: absolute;
@@ -77,11 +77,15 @@
   right: 0;
 }
 
+/* 对号图标 */
+
 .icon-circle-check {
   position: absolute;
   top: 0;
   right: 0;
 }
+
+/* 页码 */
 
 .ui-pager li {
   font-size: 14px;
@@ -95,4 +99,41 @@
   font-family: SimHei;
   font-weight: 400;
   color: rgba(210, 49, 82, 1);
+}
+
+/* 修改input框placeholder默认样式 */
+
+input::-webkit-input-placeholder {
+  font-size: 14px;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(194, 194, 194, 1);
+  line-height: 56px;
+}
+
+input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  font-size: 14px;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(194, 194, 194, 1);
+  line-height: 56px;
+}
+
+input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  font-size: 14px;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(194, 194, 194, 1);
+  line-height: 56px;
+}
+
+input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  font-size: 14px;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(194, 194, 194, 1);
+  line-height: 56px;
 }

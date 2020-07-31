@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-21 11:18:58
- * @LastEditTime: 2020-07-21 13:40:45
+ * @LastEditTime: 2020-07-30 15:36:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \jn-pc\src\views\member\publishedassets\PublishSucc.vue
@@ -13,7 +13,9 @@
       <img :src="succImg" alt="succImg" />
       <span>下架成功</span>
     </p>
-    <ui-button type="primary" style="width: 200px">完成</ui-button>
+    <div style="marginTop:56px">
+      <ButtonItem text="完成" backgroundColor="#CE2848" @click.native="goNext()"></ButtonItem>
+    </div>
   </div>
 </template>
 
@@ -21,9 +23,9 @@
 export default {
   data() {
     return {
-      succImg: require('@/assets/image/logo.png')
+      succImg: require('@/assets/image/logo.png'),
     }
-  }
+  },
 }
 </script>
 
