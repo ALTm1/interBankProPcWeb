@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-27 18:01:43
- * @LastEditTime: 2020-07-29 19:25:37
+ * @LastEditTime: 2020-07-31 09:10:20
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \interBankProPcWeb\src\views\home\Home.vue
@@ -23,13 +23,13 @@
 <script>
 import Header from './Header'
 import infolist from './infoList'
-// import Map from './map'
+import Map from './map'
 export default {
   name: 'home',
   components: {
     Header,
     infolist,
-    // Map,
+    Map,
   },
 }
 </script>
