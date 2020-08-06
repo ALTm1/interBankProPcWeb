@@ -1,14 +1,14 @@
 <template>
   <ui-container-full class="user-login">
-    <!-- <img style="width:1138px" src="@/assets/image/loginbg.png" alt /> -->
     <div class="login-wrapper">
       <ui-row>
-        <!-- <ui-col :span="16">
+        <ui-col :span="17">
           <div class="logobg">
-            <img src="@/assets/image/loginbg.png" alt />
+            <!-- <img class="loginbg" src="@/assets/image/loginbg.png" alt /> -->
+            <img src="@/assets/image/logincont.png" alt class="loginbg-center" />
           </div>
-        </ui-col>-->
-        <ui-col :span="6" style="position:absolute;top:120px;right:0px">
+        </ui-col>
+        <ui-col :span="7">
           <div class="logo">
             <img src="@/assets/image/logo.png" alt />
             <h2>E同赢银银平台</h2>
@@ -50,7 +50,6 @@
           </div>
         </ui-col>
       </ui-row>
-      <img src="@/assets/image/logincont.png" alt class="loginbg-center" />
     </div>
     <!-- <div style="display:flex;">
       <div style="display: flex; margin-bottom:20px;justify-content: flex-end;">
@@ -177,27 +176,43 @@ export default {
 </script>
 <style lang="scss" >
 .user-login {
+  margin: 0;
+  box-sizing: border-box;
+  // height: 100vh;
+  .ui-container-full {
+    border: none;
+  }
+  .ui-container-full .ui-container-full__body {
+    padding: 0;
+  }
+  .ui-col-17 {
+    width: 69.463%;
+  }
+  .ui-col-7 {
+    width: 30.537%;
+  }
   .login-wrapper {
+    // height: 100vh;
     position: relative;
-    // width: 1038px;
-    height: 1000px;
-    margin: 0 auto;
     background: #fff;
-    background: url('~@/assets/image/loginbg.png') no-repeat;
-    .loginbg-center {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-left: -440px;
-      margin-top: -200px;
-    }
 
     .logobg {
-      // float: left;
-      // width: 100%;
-      // height: 1000px;
-      // background: url('~@/assets/image/loginbg.png') no-repeat;
-      // background: brown;
+      position: relative;
+      height: 100vh;
+      background: url('~@/assets/image/loginbg.png');
+      background-size: 100% 100%;
+      .loginbg {
+        width: 100%;
+        // height: 100vh;
+      }
+      .loginbg-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        // margin-left: -520px;
+        // margin-top: -200px;
+      }
     }
     .logo {
       padding: 20px 0;
@@ -226,9 +241,7 @@ export default {
     .form {
       box-sizing: border-box;
       padding: 0 30px;
-
       .ui-form {
-        height: 1000px;
         .ui-form-item__content {
           text-align: left;
 
