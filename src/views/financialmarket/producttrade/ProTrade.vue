@@ -1,44 +1,54 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-27 17:20:46
- * @LastEditTime: 2020-07-27 17:50:50
+ * @LastEditTime: 2020-07-30 13:40:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \interBankProPcWeb\src\views\financialmarket\producttrade\ProTrade.vue
 --> 
 
 <template>
-  <div class="pro-info-wrap">
-    <div class="pro-info-content">
+  <div class="wrap">
+    <div class="content">
       <div class="pro-info">
-        <p class="item-title">产品信息</p>
-        <div v-for="item in proInfo" :key="item.itemTitle">
-          <Item :itemTitle="item.itemTitle">
-            <span>{{item.itemValue}}</span>
-          </Item>
+        <HeaderItem text="产品信息"></HeaderItem>
+        <div class="pro-info-content clear">
+          <div
+            v-for="item in proInfo"
+            :key="item.itemTitle"
+            :class="[index%2==0?'float-left':'float-right']"
+          >
+            <Item :itemTitle="item.itemTitle">
+              <span>{{item.itemValue}}</span>
+            </Item>
+          </div>
         </div>
       </div>
       <div class="attention-info">
-        <p class="item-title">意向信息</p>
-        <Item itemTitle="意向金额">
-          <input class="item-input" type="text" v-model="attentionMoney" placeholder="请输入" />
-          <span>万元</span>
-        </Item>
-        <Item itemTitle="意向利率">
-          <input class="item-input" type="text" v-model="attentionRate" placeholder="请输入" />
-          <span>%</span>
-        </Item>
-        <Item itemTitle="备注">
-          <input class="item-input" type="text" v-model="remark" placeholder="请输入" />
-        </Item>
+        <HeaderItem text="意向信息"></HeaderItem>
+        <div class="attention-info-content clear">
+          <div class="float-left">
+            <Item itemTitle="意向金额">
+              <input class="item-input" type="text" v-model="attentionMoney" placeholder="请输入" />
+              <span>万元</span>
+            </Item>
+          </div>
+          <div class="float-right">
+            <Item itemTitle="意向利率">
+              <input class="item-input" type="text" v-model="attentionRate" placeholder="请输入" />
+              <span>%</span>
+            </Item>
+          </div>
+          <div class="float-left">
+            <Item itemTitle="备注">
+              <input class="item-input" type="text" v-model="remark" placeholder="请输入" />
+            </Item>
+          </div>
+        </div>
       </div>
-
-      <ui-button
-        @click="goNext()"
-        type="primary"
-        size="small"
-        style="marginTop:20px; width:200px"
-      >提交</ui-button>
+      <div style="marginTop:56px">
+        <ButtonItem text="提交" backgroundColor="#CE2848" @click.native="goNext()"></ButtonItem>
+      </div>
     </div>
   </div>
 </template>
@@ -126,10 +136,18 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.pro-info-wrap {
+.wrap {
   text-align: center;
 }
+.content {
+  display: inline-block;
+  text-align: center;
+}
+.pro-info {
+  display: inline-block;
+}
 .pro-info-content {
+  width: 880px;
   display: inline-block;
 }
 .organ-list {
@@ -143,5 +161,10 @@ export default {
   height: 30px;
   outline: none;
   border: none;
+}
+
+.attention-info-content {
+  width: 880px;
+  display: inline-block;
 }
 </style>

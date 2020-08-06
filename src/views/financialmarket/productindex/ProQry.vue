@@ -1,7 +1,7 @@
 
 
 <template>
-  <div class="pro-query">
+  <div class="wrap">
     <!-- 产品类型 -->
     <div class="pro-type">
       <div class="service-item" v-for="item in form.proTypeList" :key="item.id">
@@ -12,99 +12,112 @@
       </div>
     </div>
     <!-- 查询条件 -->
-    <div>
-      <!-- 业务类型 -->
-      <div class="clear sel-item">
-        <div class="float-left sel-title">业务类型</div>
-        <div class="float-left">
-          <ui-popover placement="bottom" trigger="manual" v-model="serviceTypePopup">
-            <div>
-              <div class="choose-service">
-                <p class="service-title">我的应用</p>
-                <div
-                  class="service-item"
-                  v-for="(item,index) in chooseServiceArr"
-                  :key="item.id"
-                  @click="subtractService(item,index)"
-                >
-                  <div class="service-img-wrap">
-                    <img class="service-img" :src="item.imgSrc" alt="imgSrc" />
-                    <i class="ui-icon-circle-close icon-circle-close"></i>
+    <div class="form-block">
+      <ui-form ref="ruleForm" :model="form" label-width="100px">
+        <ui-form-item label="业务类型">
+          <div class="clear">
+            <div class="float-left">
+              <ui-popover placement="bottom" trigger="manual" v-model="serviceTypePopup">
+                <div>
+                  <div class="choose-service">
+                    <p class="service-title">我的应用</p>
+                    <div
+                      class="service-item"
+                      v-for="(item,index) in chooseServiceArr"
+                      :key="item.id"
+                      @click="subtractService(item,index)"
+                    >
+                      <div class="service-img-wrap">
+                        <img class="service-img" :src="item.imgSrc" alt="imgSrc" />
+                        <i class="ui-icon-circle-close icon-circle-close"></i>
+                      </div>
+                      <span>{{item.text}}</span>
+                    </div>
                   </div>
-                  <span>{{item.text}}</span>
-                </div>
-              </div>
-              <div class="all-service">
-                <p class="service-title">全部应用</p>
-                <div
-                  class="service-item"
-                  v-for="(item,index) in allServiceArr"
-                  :key="item.id"
-                  @click="addService(item,index)"
-                >
-                  <div class="service-img-wrap">
-                    <img class="service-img" :src="item.imgSrc" alt="imgSrc" />
-                    <i class="ui-icon-circle-check icon-circle-check" v-show="item.addActive"></i>
+                  <div class="all-service">
+                    <p class="service-title">全部应用</p>
+                    <div
+                      class="service-item"
+                      v-for="(item,index) in allServiceArr"
+                      :key="item.id"
+                      @click="addService(item,index)"
+                    >
+                      <div class="service-img-wrap">
+                        <img class="service-img" :src="item.imgSrc" alt="imgSrc" />
+                        <i class="ui-icon-circle-check icon-circle-check" v-show="item.addActive"></i>
+                      </div>
+                      <span>{{item.text}}</span>
+                    </div>
                   </div>
-                  <span>{{item.text}}</span>
+                  <div class="buttons">
+                    <div class="button-item-active" @click="serviceTypePopup=!serviceTypePopup">
+                      <span class="button-text">确认</span>
+                    </div>
+                    <div class="button-item" @click="serviceTypePopup=!serviceTypePopup">
+                      <span class="button-text">取消</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="buttons">
-                <div class="button-item-active" @click="serviceTypePopup=!serviceTypePopup">
-                  <span class="button-text">确认</span>
-                </div>
-                <div class="button-item" @click="serviceTypePopup=!serviceTypePopup">
-                  <span class="button-text">取消</span>
-                </div>
-              </div>
+                <SelectItem
+                  slot="reference"
+                  selText="全部"
+                  @hit="serviceTypePopup = !serviceTypePopup"
+                ></SelectItem>
+              </ui-popover>
             </div>
-            <SelectItem slot="reference" selText="全部" @hit="serviceTypePopup = !serviceTypePopup"></SelectItem>
-          </ui-popover>
-        </div>
-        <div class="float-left" v-for="item in chooseServiceArr" :key="item.id">
-          <SelectItem :selText="item.text" :selActive="item.active" @hit="item.active=!item.active"></SelectItem>
-        </div>
-      </div>
-      <!-- 交易方向 -->
-      <div class="clear sel-item">
-        <div class="float-left sel-title">交易方向</div>
-        <div class="float-left" v-for="item in form.tradeDirecList" :key="item.label">
-          <SelectItem
-            :selText="item.value"
-            :selActive="item.active"
-            @hit="item.active=!item.active"
-          ></SelectItem>
-        </div>
-      </div>
-      <!-- 利率 -->
-      <div class="clear sel-item">
-        <div class="float-left sel-title">利率</div>
-        <input class="input-item" type="text" placeholder="请输入" />
-        <span>--</span>
-        <input class="input-item" type="text" placeholder="请输入" />
-      </div>
-      <!-- 期限 -->
-      <div class="clear sel-item">
-        <div class="float-left sel-title">期限</div>
-        <div class="float-left" v-for="item in form.expiresList" :key="item.label">
-          <SelectItem
-            :selText="item.value"
-            :selActive="item.active"
-            @hit="item.active=!item.active"
-          ></SelectItem>
-        </div>
-      </div>
+            <div class="float-left" v-for="item in chooseServiceArr" :key="item.id">
+              <SelectItem
+                :selText="item.text"
+                :selActive="item.active"
+                @hit="item.active=!item.active"
+              ></SelectItem>
+            </div>
+          </div>
+        </ui-form-item>
+        <ui-form-item label="交易方向">
+          <div class="clear">
+            <div class="float-left" v-for="item in form.tradeDirecList" :key="item.label">
+              <SelectItem
+                :selText="item.value"
+                :selActive="item.active"
+                @hit="item.active=!item.active"
+              ></SelectItem>
+            </div>
+          </div>
+        </ui-form-item>
+        <ui-form-item label="利率">
+          <div class="clear">
+            <ui-input placeholder="请输入内容"></ui-input>
+            <span class="split-line"></span>
+            <ui-input placeholder="请输入内容"></ui-input>
+          </div>
+        </ui-form-item>
+        <ui-form-item label="期限">
+          <div class="clear">
+            <div class="float-left" v-for="item in form.expiresList" :key="item.label">
+              <SelectItem
+                :selText="item.value"
+                :selActive="item.active"
+                @hit="item.active=!item.active"
+              ></SelectItem>
+            </div>
+          </div>
+        </ui-form-item>
+        <!-- 查询按钮 -->
+        <ui-form-item>
+          <div class="query-buttons">
+            <ButtonItem
+              text="查询"
+              backgroundColor="#CE2848"
+              marginRight="20px"
+              @click.native="submitForm()"
+            ></ButtonItem>
+            <ButtonItem text="重置" backgroundColor="#BE9D62" @click.native="resetForm()"></ButtonItem>
+          </div>
+        </ui-form-item>
+      </ui-form>
     </div>
 
-    <!-- 查询 -->
-    <div>
-      <div class="button-item-active" @click="submitForm()">
-        <span class="button-text">查询</span>
-      </div>
-      <div class="button-item">
-        <span class="button-text" @click="resetForm()">重置</span>
-      </div>
-    </div>
     <!-- 查询结果 -->
     <div v-if="showTable">
       <ui-table :data="tableData" cell-class-name="tabel-cell">
@@ -141,13 +154,10 @@
 </template>
 
 <script>
-import SelectItem from '@/components/selectitem'
 export default {
-  components: {
-    SelectItem,
-  },
   data() {
     return {
+      lineImg: require('@/assets/image/line.png'),
       form: {
         proType: '',
         proTypeList: [
@@ -380,80 +390,80 @@ export default {
 </script>
 
 <style lang="css" scoped>
-
-
+.form-block {
+  margin: 20px 0px;
+}
+/* 产品类型 */
 .pro-type {
+  height: 76px;
   background: #ffffff;
-  padding: 18px 40px;
   margin-bottom: 14px;
-  border-left: solid 5px #d13051;
+  margin-top: 10px;
+  padding: 0px 20px;
+  box-sizing: border-box;
 }
-
-.sel-item {
-  margin-bottom: 14px;
-}
-.sel-title {
-  width: 50px;
-  height: 22px;
-  line-height: 22px;
-  font-size: 12px;
-  font-family: SimHei;
-  font-weight: 400;
-  color: rgba(61, 61, 61, 1);
-  text-align: left;
-}
-.buttons {
-  text-align: center;
-  margin-top: 36px;
-}
-.button-item {
+.service-item {
   display: inline-block;
-  width: 99px;
-  height: 30px;
-  line-height: 30px;
-  border: 1px solid rgba(190, 157, 98, 1);
-  border-radius: 15px;
-  text-align: center;
-  margin: 0 10px;
+  margin-right: 65px;
+  margin-top: 15px;
 }
-.button-item-active {
-  display: inline-block;
-  width: 99px;
-  height: 30px;
-  line-height: 30px;
-  border: 1px solid rgba(208, 47, 80, 1);
-  border-radius: 15px;
-  text-align: center;
-  margin: 0 10px;
-}
-.button-item > .button-text {
+.service-title {
   font-size: 16px;
   font-family: SimHei;
   font-weight: 400;
-  color: rgba(190, 157, 98, 1);
+  color: rgba(51, 51, 51, 1);
 }
-.button-item-active > .button-text {
-  font-size: 16px;
-  font-family: SimHei;
-  font-weight: 400;
-  color: rgba(208, 47, 80, 1);
+.service-img-wrap {
+  position: relative;
+  text-align: center;
+}
+.service-img {
+  width: 25px;
+  height: 30px;
 }
 
-.input-item {
+/* 查询/重置按钮 */
+.query-buttons {
+  margin: 20px 0px 0px;
+}
+
+.wrap /deep/ .ui-input {
+  display: inline-block;
   width: 120px;
+  margin-left: 10px;
+}
+.wrap /deep/ .ui-input__inner {
+  width: 100%;
   height: 22px;
   background: rgba(255, 255, 255, 1);
   border: 1px solid rgba(83, 83, 83, 1);
   border-radius: 11px;
-  outline: none;
-  margin: 0 12px;
 }
 
 /* 页码 */
 .pagination-block {
   text-align: right;
+  margin-top: 20px;
 }
 .pagination-block /deep/ .ui-pagination {
   display: inline-block;
 }
+
+/* 日期分割线 */
+.split-line {
+  display: inline-block;
+  width: 17px;
+  height: 1px;
+  background: #3d3d3d;
+  margin: 0 20px;
+}
+
+/* form表单 */
+.wrap /deep/ .ui-form-item__label {
+  font-size: 12px;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(61, 61, 61, 1);
+}
+
 </style>

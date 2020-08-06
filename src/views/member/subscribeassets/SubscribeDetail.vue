@@ -1,48 +1,45 @@
 
-<!--
- * @Author: your name
- * @Date: 2020-07-20 18:26:04
- * @LastEditTime: 2020-07-22 17:06:27
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \JNRCB-PC\src\views\member\publishedassets\PublishedDetail.vue
---> 
 
 <template>
-  <div class="pro-info item">
-    <div class="pro-info">
-      <p class="item-title">产品信息</p>
-      <div v-for="item in proInfo" :key="item.itemTitle">
-        <Item :itemTitle="item.itemTitle">
-          <span>{{item.itemValue}}</span>
-        </Item>
+  <div class="wrap">
+    <div class="content">
+      <div class="pro-info">
+        <HeaderItem text="产品信息"></HeaderItem>
+        <div class="pro-info-content clear">
+          <div
+            v-for="(item,index) in proInfo"
+            :key="item.itemTitle"
+            :class="[index%2==0?'float-left':'float-right']"
+          >
+            <Item :itemTitle="item.itemTitle">
+              <span>{{item.itemValue}}</span>
+            </Item>
+          </div>
+        </div>
+      </div>
+      <div class="organ-list">
+        <HeaderItem text="机构列表"></HeaderItem>
+        <ui-table :data="organList">
+          <ui-table-column prop="order" label="序号" min-width="100px"></ui-table-column>
+          <ui-table-column prop="organName" label="机构全称" min-width="300px"></ui-table-column>
+        </ui-table>
+      </div>
+      <div class="publish-contact-list">
+        <HeaderItem text="发布方联系人"></HeaderItem>
+        <ui-table :data="pubContactList">
+          <ui-table-column prop="order" label="序号" min-width="100px"></ui-table-column>
+          <ui-table-column prop="contactName" label="联系人姓名" min-width="100px"></ui-table-column>
+          <ui-table-column label="在线聊天" min-width="100px">
+            <template slot-scope="scope">
+              <ui-button @click="goChat(scope.row)" type="text" size="small">聊天</ui-button>
+            </template>
+          </ui-table-column>
+        </ui-table>
+      </div>
+      <div style="marginTop:56px">
+        <ButtonItem text="下架" backgroundColor="#CE2848" @click.native="goNext()"></ButtonItem>
       </div>
     </div>
-    <div class="organ-list">
-      <p class="item-title">机构列表</p>
-      <ui-table :data="organList" border>
-        <ui-table-column prop="order" label="序号" min-width="100px"></ui-table-column>
-        <ui-table-column prop="organName" label="机构全称" min-width="100px"></ui-table-column>
-      </ui-table>
-    </div>
-    <div class="publish-contact-list">
-      <p class="item-title">发布方联系人</p>
-      <ui-table :data="pubContactList" border>
-        <ui-table-column prop="order" label="序号" min-width="100px"></ui-table-column>
-        <ui-table-column prop="contactName" label="联系人姓名" min-width="100px"></ui-table-column>
-        <ui-table-column label="在线聊天" min-width="100px">
-          <template slot-scope="scope">
-            <ui-button @click="goChat(scope.row)" type="text" size="small">聊天</ui-button>
-          </template>
-        </ui-table-column>
-      </ui-table>
-    </div>
-    <ui-button
-      @click="goNext()"
-      type="primary"
-      size="small"
-      style="marginTop:20px; width:200px"
-    >取消关注</ui-button>
   </div>
 </template>
 
@@ -51,7 +48,7 @@
 import Item from '@/views/member/components/Item.vue'
 export default {
   components: {
-    Item
+    Item,
   },
   data() {
     return {
@@ -61,25 +58,25 @@ export default {
       organList: [
         {
           order: 1,
-          organName: '南京银行'
+          organName: '南京银行',
         },
         {
           order: 2,
-          organName: '江苏银行'
+          organName: '江苏银行',
         },
         {
           order: 3,
-          organName: '招商银行'
-        }
+          organName: '招商银行',
+        },
       ],
       // 发布方联系人
       pubContactList: [
         {
           order: 1,
           contactName: '张三',
-          contactPhone: '19988907868'
-        }
-      ]
+          contactPhone: '19988907868',
+        },
+      ],
     }
   },
   created() {
@@ -87,52 +84,52 @@ export default {
     this.proInfo = [
       {
         itemTitle: '产品类型',
-        itemValue: detail.proType
+        itemValue: detail.proType,
       },
       {
         itemTitle: '业务类型',
-        itemValue: detail.serviceType
+        itemValue: detail.serviceType,
       },
       {
         itemTitle: '交易方向',
-        itemValue: detail.proName
+        itemValue: detail.proName,
       },
       {
         itemTitle: '产品状态',
-        itemValue: '正常'
+        itemValue: '正常',
       },
       {
         itemTitle: '产品发布者',
-        itemValue: detail.organName
+        itemValue: detail.organName,
       },
       {
         itemTitle: '发布日期',
-        itemValue: detail.publishDate
+        itemValue: detail.publishDate,
       },
       {
         itemTitle: '利率',
-        itemValue: detail.proRate
+        itemValue: detail.proRate,
       },
       {
         itemTitle: '金额',
-        itemValue: detail.proMoney
+        itemValue: detail.proMoney,
       },
       {
         itemTitle: '期限',
-        itemValue: detail.proExpires
+        itemValue: detail.proExpires,
       },
       {
         itemTitle: '产品标签',
-        itemValue: '高风险'
+        itemValue: '高风险',
       },
       {
         itemTitle: '备注',
-        itemValue: 'XXXXXXX'
+        itemValue: 'XXXXXXX',
       },
       {
         itemTitle: '属性类型',
-        itemValue: '指定交易对手可见'
-      }
+        itemValue: '指定交易对手可见',
+      },
     ]
   },
   methods: {
@@ -141,12 +138,24 @@ export default {
     // 下一步
     goNext() {
       this.$router.push({
-        path: '/member/subscribeSucc'
+        path: '/member/SubscribeSucc',
       })
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="css" scoped>
+.wrap {
+  text-align: center;
+}
+.content {
+  display: inline-block;
+  text-align: center;
+}
+
+.pro-info-content {
+  width: 880px;
+  display: inline-block;
+}
 </style>

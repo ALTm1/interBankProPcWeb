@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-27 09:22:05
- * @LastEditTime: 2020-07-27 10:49:28
+ * @LastEditTime: 2020-07-30 11:30:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \interBankProPcWeb\src\components\selectitem\index.vue
@@ -41,6 +41,7 @@ export default {
 
 <style lang="css" scoped>
 .select-item {
+  display: inline-block;
   width: 91px;
   height: 22px;
   line-height: 22px;
@@ -55,8 +56,7 @@ export default {
   height: 22px;
   line-height: 22px;
   text-align: center;
-  background: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(190, 157, 98, 1);
+  background: rgba(190, 157, 98, 1);
   border-radius: 11px;
   margin: 0 12px;
 }
@@ -70,6 +70,6 @@ export default {
   font-size: 12px;
   font-family: SimHei;
   font-weight: 400;
-  color: rgba(190, 157, 98, 1);
+  color: rgba(255, 255, 255, 1);
 }
 </style>

@@ -37,12 +37,9 @@
           </ui-table-column>
         </ui-table>
       </div>
-      <ui-button
-        @click="goNext()"
-        type="primary"
-        size="small"
-        style="marginTop:20px; width:200px"
-      >下架</ui-button>
+      <div style="marginTop:56px">
+        <ButtonItem text="下架" backgroundColor="#CE2848" @click.native="goNext()"></ButtonItem>
+      </div>
     </div>
   </div>
 </template>

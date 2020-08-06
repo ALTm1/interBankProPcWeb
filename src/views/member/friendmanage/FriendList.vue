@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-21 17:43:24
- * @LastEditTime: 2020-07-22 16:10:10
+ * @LastEditTime: 2020-07-30 16:12:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \jn-pc\src\views\member\friendmanage\FriendList.vue
@@ -15,7 +15,7 @@
       <ui-table-column prop="friendOrgan" label="好友所属机构" min-width="300px"></ui-table-column>
       <ui-table-column label="操作">
         <template slot-scope="scope">
-          <ui-button @click="goDetail(scope.row)" type="text" size="small">查看详情</ui-button>
+          <span class="detail-button" @click="goDetail(scope.row)">查看详情</span>
         </template>
       </ui-table-column>
     </ui-table>
@@ -30,19 +30,19 @@ export default {
         {
           order: 1,
           friendName: '张三',
-          friendOrgan: '江南农村银行'
+          friendOrgan: '江南农村银行',
         },
         {
           order: 2,
           friendName: '张三',
-          friendOrgan: '江南农村银行'
+          friendOrgan: '江南农村银行',
         },
         {
           order: 3,
           friendName: '张三',
-          friendOrgan: '江南农村银行'
-        }
-      ]
+          friendOrgan: '江南农村银行',
+        },
+      ],
     }
   },
   methods: {
@@ -50,11 +50,11 @@ export default {
       this.$router.push({
         path: '/member/friendDetail',
         query: {
-          detail: JSON.stringify(row)
-        }
+          detail: JSON.stringify(row),
+        },
       })
-    }
-  }
+    },
+  },
 }
 </script>
 
