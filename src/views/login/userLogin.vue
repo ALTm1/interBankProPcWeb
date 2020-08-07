@@ -1,49 +1,64 @@
 <template>
-  <ui-container-full class="register-pre">
-    <!-- 标题 -->
-    <div style="display:flex;">
-      <ui-breadcrumb separator-class="ui-icon-arrow-right">
-        <ui-breadcrumb-item class="ui-icon-add-location">登录</ui-breadcrumb-item>
-        <ui-breadcrumb-item>个人信息录入</ui-breadcrumb-item>
-      </ui-breadcrumb>
+  <ui-container-full class="user-login">
+    <div class="login-wrapper">
+      <ui-row>
+        <ui-col :span="17">
+          <div class="logobg">
+            <!-- <img class="loginbg" src="@/assets/image/loginbg.png" alt /> -->
+            <img src="@/assets/image/logincont.png" alt class="loginbg-center" />
+          </div>
+        </ui-col>
+        <ui-col :span="7">
+          <div class="logo">
+            <img src="@/assets/image/logo.png" alt />
+            <h2>E同赢银银平台</h2>
+            <div class="describe">以“打造中国农村商业银行一流品牌”为战略愿景，啦啦啦啦啦啦啦</div>
+          </div>
+          <!--表单-->
+          <div class="form">
+            <ui-form ref="form" :rules="rules" :model="form">
+              <ui-row class="bordB">
+                <ui-col :span="24">
+                  <ui-form-item label="登录名：" prop="loginName">
+                    <ui-input-business
+                      v-model="form.loginName"
+                      minlength="4"
+                      maxlength="20"
+                      placeholder="请输入登录名"
+                    ></ui-input-business>
+                  </ui-form-item>
+                  <ui-form-item label="登录密码：" prop="pass">
+                    <ui-input-business v-model="form.pass" placeholder="请输入登录密码"></ui-input-business>
+                  </ui-form-item>
+                </ui-col>
+              </ui-row>
+              <ui-row class="text-center padtop20">
+                <!-- <ui-button type="primary" round @click="submitForm('form')">注册</ui-button> -->
+                <ui-button type="primary" round @click="submitForm('form')">登录</ui-button>
+                <!-- <ui-button type="primary" round @click="submitForm('form')">忘记密码</ui-button> -->
+              </ui-row>
+              <ui-row class="forget">
+                <ui-col style="text-align:center; margin-top: 10px;">
+                  <a
+                    href="javascript:;"
+                    style=" text-decoration: underline;"
+                    @click="goForgetPass"
+                  >忘记密码？</a>
+                </ui-col>
+              </ui-row>
+            </ui-form>
+          </div>
+        </ui-col>
+      </ui-row>
+    </div>
+    <!-- <div style="display:flex;">
       <div style="display: flex; margin-bottom:20px;justify-content: flex-end;">
         <ui-button type="primary" round @click="goRegister">注册</ui-button>
         <ui-button type="primary" round @click="loginout">退出</ui-button>
         <ui-button type="primary" round @click="goForgetPass">忘记密码</ui-button>
       </div>
-    </div>
-
-    <!-- 步骤条 -->
-    <!-- <div class="register-step">
-      <ui-steps :space="300" :active="0" finish-status="success" align-center>
-        <ui-step title="个人信息录入"></ui-step>
-        <ui-step title="设置登录密码"></ui-step>
-        <ui-step title="注册结果"></ui-step>
-      </ui-steps>
     </div>-->
-    <!--表单-->
-    <ui-form ref="form" :rules="rules" :model="form" label-width="150px">
-      <ui-row class="bordB">
-        <ui-col :span="20" :offset="2">
-          <ui-form-item label="登录名：" prop="loginName">
-            <ui-input-business
-              v-model="form.loginName"
-              minlength="4"
-              maxlength="20"
-              placeholder="请输入登录名"
-            ></ui-input-business>
-          </ui-form-item>
-          <ui-form-item label="登录密码：" prop="pass">
-            <ui-input-business v-model="form.pass" placeholder="请输入登录密码"></ui-input-business>
-          </ui-form-item>
-        </ui-col>
-      </ui-row>
-      <ui-row class="text-center padtop20">
-        <!-- <ui-button type="primary" round @click="submitForm('form')">注册</ui-button> -->
-        <ui-button type="primary" round @click="submitForm('form')">登录</ui-button>
-        <!-- <ui-button type="primary" round @click="submitForm('form')">忘记密码</ui-button> -->
-      </ui-row>
-    </ui-form>
+
     <!-- 退出弹窗 -->
     <ui-dialog title="退出提示" :visible.sync="centerDialogVisible" width="30%" center>
       <span>确定退出吗？</span>
@@ -60,7 +75,7 @@ import CodeTimer from '@/components/codetimer'
 export default {
   name: 'registerPre',
   components: {
-    CodeTimer
+    CodeTimer,
   },
   data() {
     return {
@@ -68,20 +83,20 @@ export default {
         //    登录名
         loginName: '',
         //    登陆密码
-        pass: ''
+        pass: '',
       },
       rules: {
         loginName: [
           { required: true, message: '请输入登录名', trigger: 'blur' },
-          { validator: LoginName, trigger: 'blur' }
+          { validator: LoginName, trigger: 'blur' },
         ],
         pass: [
           { required: true, message: '请输入登录密码', trigger: 'blur' },
-          { validator: Pass, trigger: 'blur' }
-        ]
+          { validator: Pass, trigger: 'blur' },
+        ],
       },
       // 控制退出弹窗是否显示
-      centerDialogVisible: false
+      centerDialogVisible: false,
     }
   },
   created() {},
@@ -127,7 +142,7 @@ export default {
           }
         }
       ); */
-      this.$refs[formName].validate(valid => {
+      this.$refs[formName].validate((valid) => {
         if (valid) {
           this.$router.push('/registerConf')
           //   this.onSubmit()
@@ -137,25 +152,7 @@ export default {
       })
     },
     // 组装数据
-    onSubmit() {
-      // 获取上送数据，对数据按照要求的格式上送
-      var pargs = Object.assign({}, this.form, {
-        // 付款账号
-        payerAccountNo: this.payerAc.AcNo,
-        // 付款人姓名
-        payerAccountAcName: this.payerAc.AcName,
-        // 付款账号类型
-        payerAccountBankAcType: this.payerAc.BankAcType,
-        payeeCurrencyCode: 'CNY',
-        payeeCurrencyCRFlag: 'R',
-        abstractCode: '0360',
-        trsCurrencyCode: 'CNY',
-        trsCurrencyCRFlag: 'R'
-      })
-      // 组装结束
-      // 校验并提交表单
-      this.transferPre(pargs)
-    },
+    onSubmit() {},
 
     // 提交表单
     submitPre(pargs) {
@@ -173,40 +170,106 @@ export default {
       //         params: { info: this.confirmData }
       //       })
       //     })
-    }
-  }
+    },
+  },
 }
 </script>
-<style lang="scss" scoped>
-.register-pre {
-  .ui-breadcrumb {
-    width: 50%;
-    margin: 0 auto;
+<style lang="scss" >
+.user-login {
+  margin: 0;
+  box-sizing: border-box;
+  // height: 100vh;
+  .ui-container-full {
+    border: none;
   }
-  .register-step {
-    width: 60%;
-    margin: 40px auto;
+  .ui-container-full .ui-container-full__body {
+    padding: 0;
   }
-  .ui-steps {
-    margin-left: 9%;
+  .ui-col-17 {
+    width: 69.463%;
   }
-  .ui-form {
-    width: 40% !important;
-    margin: 0 auto !important;
+  .ui-col-7 {
+    width: 30.537%;
   }
-  .ui-form-item__content {
-    text-align: left;
-  }
-  .text-center {
-    text-align: center;
-  }
-  .padtop20 {
-    padding-top: 20px;
-  }
-  .ui-button.is-round {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 20px 0 0 20px;
+  .login-wrapper {
+    // height: 100vh;
+    position: relative;
+    background: #fff;
+
+    .logobg {
+      position: relative;
+      height: 100vh;
+      background: url('~@/assets/image/loginbg.png');
+      background-size: 100% 100%;
+      .loginbg {
+        width: 100%;
+        // height: 100vh;
+      }
+      .loginbg-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        // margin-left: -520px;
+        // margin-top: -200px;
+      }
+    }
+    .logo {
+      padding: 20px 0;
+      img {
+        display: block;
+        width: 90px;
+        height: 90px;
+        margin: 0 auto;
+      }
+      h2 {
+        text-align: center;
+        font-size: 34px;
+        font-family: zcool-gdh;
+        font-weight: bold;
+        color: rgba(50, 50, 50, 1);
+      }
+      .describe {
+        padding: 0 20px;
+        font-size: 14px;
+        font-family: SimHei;
+        font-weight: 400;
+        color: rgba(111, 111, 111, 1);
+      }
+    }
+
+    .form {
+      box-sizing: border-box;
+      padding: 0 30px;
+      .ui-form {
+        .ui-form-item__content {
+          text-align: left;
+
+          .ui-input__inner {
+            border-radius: 20px;
+            border: 1px solid #be9d62;
+          }
+        }
+      }
+      .ui-button.is-round {
+        width: 100%;
+        height: 40px;
+        padding: 0;
+        border: none;
+        margin: 0 auto;
+        background: rgba(206, 40, 72, 1);
+        border-radius: 31px;
+      }
+      .forget a {
+        color: rgba(206, 40, 72, 1);
+      }
+    }
+    .text-center {
+      text-align: center;
+    }
+    .padtop20 {
+      padding-top: 20px;
+    }
   }
 }
 </style>

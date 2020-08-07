@@ -58,51 +58,51 @@ import Item from '@/views/member/components/Item.vue'
 export default {
   name: 'checkingQuery',
   components: {
-    Item
+    Item,
   },
   data() {
     return {
       proInfo: [
         {
           itemTitle: '授信测算额度',
-          itemValue: '50'
+          itemValue: '50',
         },
         {
           itemTitle: '授信期限',
-          itemValue: '36'
+          itemValue: '36',
         },
         {
           itemTitle: '金融市场部业务额度（亿元）',
-          itemValue: '5'
+          itemValue: '5',
         },
         {
           itemTitle: '零售业务部业务额度（亿元）',
-          itemValue: '5'
-        }
+          itemValue: '5',
+        },
       ],
       //   月账单
       bill: '',
       billOptions: [
         {
           value: '选项1',
-          label: '黄金糕'
+          label: '黄金糕',
         },
         {
           value: '选项2',
-          label: '双皮奶'
+          label: '双皮奶',
         },
         {
           value: '选项3',
-          label: '蚵仔煎'
+          label: '蚵仔煎',
         },
         {
           value: '选项4',
-          label: '龙须面'
+          label: '龙须面',
         },
         {
           value: '选项5',
-          label: '北京烤鸭'
-        }
+          label: '北京烤鸭',
+        },
       ],
       // 对账数据
       checkingList: [
@@ -110,21 +110,21 @@ export default {
           index: 1,
           customerName: '刘诗诗',
           billDate: '13148888888',
-          checkingFiles: '你好嘛'
+          checkingFiles: '你好嘛',
         },
         {
           index: 2,
           customerName: '朱一龙',
           billDate: '13148888888',
-          checkingFiles: '可好啦'
+          checkingFiles: '可好啦',
         },
         {
           index: 3,
           customerName: '郑好',
           billDate: '13148888888',
-          checkingFiles: '长歌'
-        }
-      ]
+          checkingFiles: '长歌',
+        },
+      ],
     }
   },
   methods: {
@@ -133,8 +133,8 @@ export default {
     },
     submitForm(form) {
       this.$router.push('/member/checkingFilesUpload')
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -189,6 +189,9 @@ export default {
   }
   .btn .ui-button {
     width: 30%;
+    border-radius: 20px;
+    border-color: #ce2848;
+    background-color: #ce2848;
     padding: 12px 20px !important;
   }
 }

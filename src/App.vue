@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-21 10:08:35
- * @LastEditTime: 2020-07-22 14:27:39
+ * @LastEditTime: 2020-07-29 18:43:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \jn-pc\src\App.vue
@@ -17,7 +17,7 @@ import util from '@/libs/utils/index.js'
 export default {
   name: 'app',
   watch: {
-    '$i18n.locale': 'i18nHandle'
+    '$i18n.locale': 'i18nHandle',
   },
   created() {
     this.i18nHandle(this.$i18n.locale)
@@ -26,8 +26,8 @@ export default {
     i18nHandle(val, oldVal) {
       util.cookies.set('lang', val)
       document.querySelector('html').setAttribute('lang', val)
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -38,7 +38,8 @@ export default {
 .demo-block h3 {
   margin: 55px 0 20px;
 }
-button{
+
+button {
   outline: none;
   cursor: pointer;
 }

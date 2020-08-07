@@ -2,26 +2,32 @@
 
 
 <template>
-  <div class="pro-info-wrap">
-    <div class="pro-info-content">
+  <div class="wrap">
+    <div class="content">
       <div class="pro-info">
-        <p class="item-title">产品信息</p>
-        <div v-for="item in proInfo" :key="item.itemTitle">
-          <Item :itemTitle="item.itemTitle">
-            <span>{{item.itemValue}}</span>
-          </Item>
+        <HeaderItem text="产品信息"></HeaderItem>
+        <div class="pro-info-content clear">
+          <div
+            v-for="(item,index) in proInfo"
+            :key="item.itemTitle"
+            :class="[index%2==0?'float-left':'float-right']"
+          >
+            <Item :itemTitle="item.itemTitle">
+              <span>{{item.itemValue}}</span>
+            </Item>
+          </div>
         </div>
       </div>
       <div class="organ-list">
-        <p class="item-title">机构列表</p>
-        <ui-table :data="organList" border>
+        <HeaderItem text="机构列表"></HeaderItem>
+        <ui-table :data="organList">
           <ui-table-column prop="order" label="序号" min-width="100px"></ui-table-column>
           <ui-table-column prop="organName" label="机构全称" min-width="300px"></ui-table-column>
         </ui-table>
       </div>
       <div class="publish-contact-list">
-        <p class="item-title">发布方联系人</p>
-        <ui-table :data="pubContactList" border>
+        <HeaderItem text="发布方联系人"></HeaderItem>
+        <ui-table :data="pubContactList">
           <ui-table-column prop="order" label="序号" min-width="100px"></ui-table-column>
           <ui-table-column prop="contactName" label="联系人姓名" min-width="100px"></ui-table-column>
           <ui-table-column label="在线聊天" min-width="100px">
@@ -31,12 +37,9 @@
           </ui-table-column>
         </ui-table>
       </div>
-      <ui-button
-        @click="goNext()"
-        type="primary"
-        size="small"
-        style="marginTop:20px; width:200px"
-      >下架</ui-button>
+      <div style="marginTop:56px">
+        <ButtonItem text="下架" backgroundColor="#CE2848" @click.native="goNext()"></ButtonItem>
+      </div>
     </div>
   </div>
 </template>
@@ -140,16 +143,24 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.pro-info-wrap {
+.wrap {
   text-align: center;
 }
+.content {
+  display: inline-block;
+  text-align: center;
+}
+
 .pro-info-content {
+  width: 880px;
   display: inline-block;
 }
 .organ-list {
   width: 500px;
+  display: inline-block;
 }
 .publish-contact-list {
   width: 500px;
+  margin: 0 auto;
 }
 </style>

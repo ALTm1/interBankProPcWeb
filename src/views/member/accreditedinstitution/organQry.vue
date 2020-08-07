@@ -152,23 +152,23 @@ import Item from '@/views/member/components/Item.vue'
 export default {
   name: 'organQry',
   components: {
-    Item
+    Item,
   },
   data() {
     return {
       proInfo: [
         {
           itemTitle: '产品类型',
-          itemValue: '同业资金'
+          itemValue: '同业资金',
         },
         {
           itemTitle: '业务类型',
-          itemValue: '同业存放'
+          itemValue: '同业存放',
         },
         {
           itemTitle: '交易方向',
-          itemValue: '同业存放'
-        }
+          itemValue: '同业存放',
+        },
       ],
       // 是否为总机构
       headOffice: '是否为总机构',
@@ -178,16 +178,16 @@ export default {
       organList: [
         {
           index: 1,
-          name: '王小虎'
+          name: '王小虎',
         },
         {
           index: 2,
-          name: '王小虎'
+          name: '王小虎',
         },
         {
           index: 3,
-          name: '王小虎'
-        }
+          name: '王小虎',
+        },
       ],
       // 已发布联系人列表
       publishedList: [
@@ -195,33 +195,33 @@ export default {
           index: 1,
           contactName: '刘诗诗',
           contactPhone: '13148888888',
-          contactOnline: '你好嘛'
+          contactOnline: '你好嘛',
         },
         {
           index: 2,
           contactName: '朱一龙',
           contactPhone: '13148888888',
-          contactOnline: '可好啦'
+          contactOnline: '可好啦',
         },
         {
           index: 3,
           contactName: '郑好',
           contactPhone: '13148888888',
-          contactOnline: '长歌'
-        }
+          contactOnline: '长歌',
+        },
       ],
       // 确认意见
       radio: '1',
       confTitle: '确认结果',
       confResult: 0,
-      reason: ''
+      reason: '',
     }
   },
   methods: {
     submitForm(form) {
       this.$router.push('/member/reauthentication')
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -254,6 +254,9 @@ export default {
   }
   .btn .ui-button {
     width: 30%;
+    border-radius: 20px;
+    background-color: #ce2848;
+    border-color: #ce2848;
     padding: 12px 20px !important;
   }
 }
