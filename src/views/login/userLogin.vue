@@ -32,13 +32,11 @@
                   </ui-form-item>
                 </ui-col>
               </ui-row>
-              <ui-row class="text-center padtop20">
-                <!-- <ui-button type="primary" round @click="submitForm('form')">注册</ui-button> -->
+              <ui-row style="margin-top:21px">
                 <ui-button type="primary" round @click="submitForm('form')">登录</ui-button>
-                <!-- <ui-button type="primary" round @click="submitForm('form')">忘记密码</ui-button> -->
               </ui-row>
               <ui-row class="forget">
-                <ui-col style="text-align:center; margin-top: 10px;">
+                <ui-col>
                   <a
                     href="javascript:;"
                     style=" text-decoration: underline;"
@@ -51,14 +49,6 @@
         </ui-col>
       </ui-row>
     </div>
-    <!-- <div style="display:flex;">
-      <div style="display: flex; margin-bottom:20px;justify-content: flex-end;">
-        <ui-button type="primary" round @click="goRegister">注册</ui-button>
-        <ui-button type="primary" round @click="loginout">退出</ui-button>
-        <ui-button type="primary" round @click="goForgetPass">忘记密码</ui-button>
-      </div>
-    </div>-->
-
     <!-- 退出弹窗 -->
     <ui-dialog title="退出提示" :visible.sync="centerDialogVisible" width="30%" center>
       <span>确定退出吗？</span>
@@ -242,33 +232,50 @@ export default {
       box-sizing: border-box;
       padding: 0 30px;
       .ui-form {
-        .ui-form-item__content {
-          text-align: left;
+        .ui-form-item {
+          margin-bottom: 80px;
+          .ui-form-item__label {
+            line-height: 50px;
+            font-size: 19px;
+            font-family: SimHei;
+            font-weight: bold;
+            color: rgba(50, 50, 50, 1);
+          }
+          .ui-form-item__content {
+            text-align: left;
+            .ui-input {
+              display: block;
 
-          .ui-input__inner {
-            border-radius: 20px;
-            border: 1px solid #be9d62;
+              .ui-input__inner {
+                height: 60px;
+                line-height: 60px;
+                border: 2px solid rgba(190, 157, 98, 1);
+                border-radius: 31px;
+              }
+            }
+            .ui-form-item__error {
+              top: auto;
+              left: 20px;
+            }
           }
         }
       }
       .ui-button.is-round {
         width: 100%;
-        height: 40px;
+        height: 60px;
         padding: 0;
         border: none;
         margin: 0 auto;
         background: rgba(206, 40, 72, 1);
         border-radius: 31px;
       }
+      .forget {
+        text-align: center;
+        margin-top: 23px;
+      }
       .forget a {
         color: rgba(206, 40, 72, 1);
       }
-    }
-    .text-center {
-      text-align: center;
-    }
-    .padtop20 {
-      padding-top: 20px;
     }
   }
 }
