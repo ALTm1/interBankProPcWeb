@@ -8,7 +8,7 @@
         <div class="service-img-wrap">
           <img class="service-img" :src="item.imgSrc" alt="imgSrc" />
         </div>
-        <span>{{item.text}}</span>
+        <span class="service-text">{{item.text}}</span>
       </div>
     </div>
     <!-- 查询条件 -->
@@ -17,53 +17,57 @@
         <ui-form-item label="业务类型">
           <div class="clear">
             <div class="float-left">
-              <ui-popover placement="bottom" trigger="manual" v-model="serviceTypePopup">
-                <div>
-                  <div class="choose-service">
-                    <p class="service-title">我的应用</p>
-                    <div
-                      class="service-item"
-                      v-for="(item,index) in chooseServiceArr"
-                      :key="item.id"
-                      @click="subtractService(item,index)"
-                    >
-                      <div class="service-img-wrap">
-                        <img class="service-img" :src="item.imgSrc" alt="imgSrc" />
-                        <i class="ui-icon-circle-close icon-circle-close"></i>
-                      </div>
-                      <span>{{item.text}}</span>
+              <SelectItem slot="reference" selText="全部" @hit="showServiceDialog"></SelectItem>
+              <ui-dialog
+                class="service-type-dialog"
+                center
+                :show-close="false"
+                :visible.sync="serviceTypePopup"
+              >
+                <div class="choose-service">
+                  <p class="service-title">我的应用</p>
+                  <div
+                    class="service-item"
+                    v-for="(item,index) in chooseServiceArr"
+                    :key="item.id"
+                    @click="subtractService(item,index)"
+                  >
+                    <div class="service-img-wrap">
+                      <img class="service-img" :src="item.imgSrc" alt="imgSrc" />
+                      <i class="ui-icon-circle-close icon-circle-close"></i>
                     </div>
-                  </div>
-                  <div class="all-service">
-                    <p class="service-title">全部应用</p>
-                    <div
-                      class="service-item"
-                      v-for="(item,index) in allServiceArr"
-                      :key="item.id"
-                      @click="addService(item,index)"
-                    >
-                      <div class="service-img-wrap">
-                        <img class="service-img" :src="item.imgSrc" alt="imgSrc" />
-                        <i class="ui-icon-circle-check icon-circle-check" v-show="item.addActive"></i>
-                      </div>
-                      <span>{{item.text}}</span>
-                    </div>
-                  </div>
-                  <div class="buttons">
-                    <div class="button-item-active" @click="serviceTypePopup=!serviceTypePopup">
-                      <span class="button-text">确认</span>
-                    </div>
-                    <div class="button-item" @click="serviceTypePopup=!serviceTypePopup">
-                      <span class="button-text">取消</span>
-                    </div>
+                    <span class="service-text">{{item.text}}</span>
                   </div>
                 </div>
-                <SelectItem
-                  slot="reference"
-                  selText="全部"
-                  @hit="serviceTypePopup = !serviceTypePopup"
-                ></SelectItem>
-              </ui-popover>
+                <div class="all-service">
+                  <p class="service-title">全部应用</p>
+                  <div
+                    class="service-item"
+                    v-for="(item,index) in allServiceArr"
+                    :key="item.id"
+                    @click="addService(item,index)"
+                  >
+                    <div class="service-img-wrap">
+                      <img class="service-img" :src="item.imgSrc" alt="imgSrc" />
+                      <i class="ui-icon-circle-check icon-circle-check" v-show="item.active"></i>
+                    </div>
+                    <span class="service-text">{{item.text}}</span>
+                  </div>
+                </div>
+                <div class="service-buttons">
+                  <ButtonItem
+                    text="确认"
+                    backgroundColor="#CE2848"
+                    marginRight="20px"
+                    @click.native="serviceConfirm"
+                  ></ButtonItem>
+                  <ButtonItem
+                    text="取消"
+                    backgroundColor="#BE9D62"
+                    @click.native="serviceTypePopup=!serviceTypePopup"
+                  ></ButtonItem>
+                </div>
+              </ui-dialog>
             </div>
             <div class="float-left" v-for="item in chooseServiceArr" :key="item.id">
               <SelectItem
@@ -119,7 +123,7 @@
     </div>
 
     <!-- 查询结果 -->
-    <div v-if="showTable">
+    <div v-if="showTable" class="table-bolck">
       <ui-table :data="tableData" cell-class-name="tabel-cell">
         <ui-table-column prop="proType" label="产品类型" min-width="100px"></ui-table-column>
         <ui-table-column prop="serviceType" label="业务类型" min-width="200px"></ui-table-column>
@@ -329,43 +333,80 @@ export default {
       serviceTypePopup: false,
       chooseServiceArr: [
         {
-          id: 'choose同业存放',
+          id: 'choose同业理财',
           imgSrc: require('@/assets/image/logo.png'),
-          text: '同业存放',
+          text: '同业理财',
           active: false,
         },
         {
-          id: 'choose协议存款',
+          id: 'choose资产证券化-ABS',
           imgSrc: require('@/assets/image/logo.png'),
-          text: '协议存款',
+          text: '资产证券化-ABS',
           active: false,
         },
         {
-          id: 'choose同业借款',
+          id: 'choose信托计划',
           imgSrc: require('@/assets/image/logo.png'),
-          text: '同业借款',
+          text: '信托计划',
           active: false,
         },
       ],
-      allServiceArr: [],
+      allServiceArr: [
+        {
+          id: 'all资管计划',
+          imgSrc: require('@/assets/image/logo.png'),
+          text: '资管计划',
+          active: false,
+        },
+        {
+          id: 'all债权融资计划',
+          imgSrc: require('@/assets/image/logo.png'),
+          text: '债权融资计划',
+          active: false,
+        },
+        {
+          id: 'all基金产品',
+          imgSrc: require('@/assets/image/logo.png'),
+          text: '基金产品',
+          active: false,
+        },
+      ],
     }
   },
   methods: {
+    showServiceDialog() {
+      this.serviceTypePopup = true
+      for (var i = 0; i < this.allServiceArr.length; i++) {
+        this.allServiceArr[i].active = false
+      }
+    },
     addService(serviceItem, serviceIndex) {
-      this.allServiceArr.splice(serviceIndex, 1)
-      this.chooseServiceArr.push({
-        id: serviceItem.text,
-        imgSrc: require('@/assets/image/logo.png'),
-        text: serviceItem.text,
-      })
+      this.allServiceArr[serviceIndex].active = !this.allServiceArr[
+        serviceIndex
+      ].active
     },
     subtractService(serviceItem, serviceIndex) {
       this.chooseServiceArr.splice(serviceIndex, 1)
       this.allServiceArr.push({
-        id: serviceItem.text,
+        id: 'all' + serviceItem.text,
         imgSrc: require('@/assets/image/logo.png'),
         text: serviceItem.text,
+        active: false,
       })
+    },
+
+    serviceConfirm() {
+      for (var i = 0; i < this.allServiceArr.length; i++) {
+        if (this.allServiceArr[i].active) {
+          this.chooseServiceArr.push({
+            id: 'choose' + this.allServiceArr[i].text,
+            imgSrc: require('@/assets/image/logo.png'),
+            text: this.allServiceArr[i].text,
+          })
+        }
+      }
+
+      this.serviceTypePopup = false
     },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`)
@@ -392,7 +433,14 @@ export default {
 <style lang="css" scoped>
 .form-block {
   margin: 20px 0px;
+  background: #fffefd;
+  border-radius: 4px;
 }
+
+.form-block /deep/ .ui-form-item__content {
+  height: auto;
+}
+
 /* 产品类型 */
 .pro-type {
   height: 76px;
@@ -402,10 +450,26 @@ export default {
   padding: 0px 20px;
   box-sizing: border-box;
 }
+
+/* 业务类型 */
+.service-type-dialog /deep/ .ui-dialog__header {
+  padding: 0px;
+}
+.service-type-dialog /deep/ .ui-dialog__body {
+  padding: 0px 20px;
+}
+.service-type-dialog /deep/ .icon-circle-close {
+  position: absolute;
+  top: 0;
+}
+.service-type-dialog /deep/ .icon-circle-check {
+  position: absolute;
+  top: 0;
+}
 .service-item {
   display: inline-block;
   margin-right: 65px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 .service-title {
   font-size: 16px;
@@ -416,15 +480,27 @@ export default {
 .service-img-wrap {
   position: relative;
   text-align: center;
+  height: 30px;
+  line-height: 30px;
 }
 .service-img {
-  width: 25px;
+  width: 30px;
   height: 30px;
+}
+.service-text {
+  font-size: 12px;
+  font-family: SimHei;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+}
+.service-buttons {
+  text-align: center;
+  padding: 36px 0px;
 }
 
 /* 查询/重置按钮 */
 .query-buttons {
-  margin: 20px 0px 0px;
+  padding: 20px 0px;
 }
 
 .wrap /deep/ .ui-input {
@@ -439,6 +515,8 @@ export default {
   border: 1px solid rgba(83, 83, 83, 1);
   border-radius: 11px;
 }
+
+
 
 /* 页码 */
 .pagination-block {
@@ -465,5 +543,4 @@ export default {
   font-weight: 400;
   color: rgba(61, 61, 61, 1);
 }
-
 </style>

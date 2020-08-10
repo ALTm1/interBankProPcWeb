@@ -14,7 +14,7 @@
     <!-- 产品列表 -->
     <infolist></infolist>
     <!-- 地图 -->
-    <!-- <Map></Map> -->
+    <Map></Map>
     <div class="footer-wrap">
       <li>版权信息版权信息版权信息版权信息版权信息</li>
     </div>

@@ -1,46 +1,41 @@
-<!--
- * @Author: your name
- * @Date: 2020-07-20 16:50:40
- * @LastEditTime: 2020-07-30 15:43:03
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \JNRCB-PC\src\views\member\publishedassets\PublishedQry.vue
---> 
+
 
 <template>
   <div class="wrap">
-    <ui-form ref="ruleForm" :model="form" :rules="rules" label-width="100px">
-      <ui-form-item label="产品类型">
-        <div class="clear">
-          <div class="float-left" v-for="item in form.proTypeList" :key="item.label">
-            <SelectItem
-              :selText="item.value"
-              :selActive="item.active"
-              @hit="item.active=!item.active"
-            ></SelectItem>
+    <div class="form-block">
+      <ui-form ref="ruleForm" :model="form" :rules="rules" label-width="100px">
+        <ui-form-item label="产品类型">
+          <div class="clear">
+            <div class="float-left" v-for="item in form.proTypeList" :key="item.label">
+              <SelectItem
+                :selText="item.value"
+                :selActive="item.active"
+                @hit="item.active=!item.active"
+              ></SelectItem>
+            </div>
           </div>
-        </div>
-      </ui-form-item>
-      <ui-form-item label="活动时间" required>
-        <div class="clear">
-          <ui-date-picker type="date" placeholder="选择起始日期" v-model="form.startDate"></ui-date-picker>
-          <span class="split-line"></span>
-          <ui-date-picker type="date" placeholder="选择终止时间" v-model="form.endDate"></ui-date-picker>
-        </div>
-      </ui-form-item>
-      <ui-form-item>
-        <div class="query-buttons">
-          <ButtonItem
-            text="查询"
-            backgroundColor="#CE2848"
-            marginRight="20px"
-            @click.native="submitForm('ruleForm')"
-          ></ButtonItem>
-          <ButtonItem text="重置" backgroundColor="#BE9D62" @click.native="resetForm('ruleForm')"></ButtonItem>
-        </div>
-      </ui-form-item>
-    </ui-form>
-    <ui-table :data="tableData" stripe v-if="showTable">
+        </ui-form-item>
+        <ui-form-item label="活动时间" required>
+          <div class="clear">
+            <ui-date-picker type="date" placeholder="选择起始日期" v-model="form.startDate"></ui-date-picker>
+            <span class="split-line"></span>
+            <ui-date-picker type="date" placeholder="选择终止时间" v-model="form.endDate"></ui-date-picker>
+          </div>
+        </ui-form-item>
+        <ui-form-item>
+          <div class="query-buttons">
+            <ButtonItem
+              text="查询"
+              backgroundColor="#CE2848"
+              marginRight="20px"
+              @click.native="submitForm('ruleForm')"
+            ></ButtonItem>
+            <ButtonItem text="重置" backgroundColor="#BE9D62" @click.native="resetForm('ruleForm')"></ButtonItem>
+          </div>
+        </ui-form-item>
+      </ui-form>
+    </div>
+    <ui-table :data="tableData" v-if="showTable">
       <ui-table-column prop="proType" label="产品类型" min-width="100px"></ui-table-column>
       <ui-table-column prop="serviceType" label="业务类型" min-width="200px"></ui-table-column>
       <ui-table-column prop="proName" label="产品名称" min-width="100px"></ui-table-column>
@@ -202,6 +197,13 @@ export default {
 
 <style lang="css" scoped>
 /* form表单 */
+.form-block {
+  background: #fffefd;
+}
+.form-block /deep/ .ui-form-item__content {
+  height: auto;
+}
+
 .wrap /deep/ .ui-input {
   display: inline-block;
   width: 120px;
@@ -219,6 +221,10 @@ export default {
   font-family: SimHei;
   font-weight: 400;
   color: rgba(61, 61, 61, 1);
+}
+
+.query-buttons {
+  padding: 20px 0px;
 }
 
 /* 日期分割线 */
