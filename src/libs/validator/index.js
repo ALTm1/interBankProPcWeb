@@ -59,21 +59,16 @@ export const validatePass = (rule, value, callback) => {
             new Error('请输入4-20个字符，可以是字母大小写、数字和下划线组合，可以纯数字，纯字母。')
         )
     } else {
-
         if (confirmPass) {
             confirmPass = ''
             confirmPass = value
             callback()
         }
-
-
-
     }
 
 }
 // 确认密码
 export const validateConfirmPass = (rule, value, callback) => {
-
     if (value && value != confirmPass && !patt.test(value)) {
         return callback(
             new Error('两次输入密码不一致')

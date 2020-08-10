@@ -2,29 +2,35 @@
   <div>
     <!-- 我的基金 -->
     <div class="fund-earning">
-      <ul>
-        <li>基金总资产（元）</li>
+      <div>
+        <ul>
+        <li>基金总资产</li>
+        <li>（元）</li>
         <li>{{totalamount}}</li>
       </ul>
       <ul>
-        <li>昨日收益（元）</li>
+        <li>昨日收益</li>
+         <li>（元）</li>
         <li>{{earning}}</li>
       </ul>
       <ul>
-        <li>累计收益（元</li>
+        <li>累计收益</li>
+         <li>（元）</li>
         <li>{{intres}}</li>
       </ul>
+      </div>
+      
     </div>
-    <div>
+    <div class="fund-con">
       <li>持有产品</li>
       <div class="type-pro">
         <ul v-for="(item,index) in type" :key="index" class="type-wrap" @click="seletype(index)">
-          <li :class="tab==index?'sele':'nosele'">{{item}}</li>
+          <span :class="tab==index?'sele':'nosele'">{{item}}</span>
         </ul>
       </div>
       <div v-if="tab==0" class="fund-table">
         <!-- 货币型 -->
-        <ui-table :data="tableData" border>
+        <ui-table :data="tableData" row-class-name="row-class" header-cell-class-name="header">
           <ui-table-column prop="code" label="基金代码" width="120"></ui-table-column>
           <ui-table-column prop="name" label="基金名称" width="120"></ui-table-column>
           <ui-table-column prop="assets" label="持仓资产" width="120"></ui-table-column>
@@ -42,7 +48,7 @@
       </div>
       <div v-if="tab==1" class="fund-table">
         <!-- 债券型 -->
-        <ui-table :data="tableData1" border>
+        <ui-table :data="tableData1" >
           <ui-table-column prop="code" label="基金代码" width="120"></ui-table-column>
           <ui-table-column prop="name" label="基金名称" width="120"></ui-table-column>
           <ui-table-column prop="assets" label="持仓资产" width="120"></ui-table-column>
@@ -240,54 +246,100 @@ export default {
 };
 </script>
 <style>
-.fund-table .ui-table{
-    width: 990px;
-   
+.fund-table .ui-table .cell{
+    /* width: 990px; */
+    text-align: center;
+     font-size: 12px;
+  text-align: center;
+}
+.ui-table .row-class,.ui-table  .header{
+  font-size:12px;
+  text-align: center;
 }
 </style>
 <style scoped>
 .fund-earning {
-  display: -webkit-box;
+  height:199px;
+background:rgba(255,254,253,1);
+border-radius:4px;
+ 
+}
+.fund-earning div{
+  width: 94%;
+  margin: 0 auto;
+   display: -webkit-box;
 }
 .fund-earning ul {
-  margin-right: 30px;
-  width: 26%;
-  background: #f0f0f0;
-  padding-top: 20px;
+  /* width:261px; */
+height:155px;
+border-radius:4px;
+  margin-right: 5.45%;
+  margin-top: 21px;
+  width: 29.4%;
+  color: #FFFFFF;
   text-align: center;
-  padding: 20px;
+  padding-left: 0;
 }
-.fund-earning ul li:nth-child(2) {
-  font-size: 24px;
-  padding-top: 20px;
+.fund-earning ul:nth-child(1){
+  background:linear-gradient(-90deg,rgba(118,56,199,1) 0%,rgba(179,52,185,1) 100%);
+box-shadow:0px 0px 20px 0px rgba(129,55,196,0.2);
+}
+.fund-earning ul:nth-child(2){
+background:linear-gradient(72deg,rgba(242,175,32,1) 0%,rgba(252,134,24,1) 100%);
+box-shadow:0px 0px 20px 0px rgba(249,147,27,0.2);
+}
+.fund-earning ul:nth-child(3){
+  background:linear-gradient(72deg,rgba(108,151,239,1) 0%,rgba(70,93,249,1) 100%);
+box-shadow:0px 0px 20px 0px rgba(74,99,248,0.2);
+}
+.fund-earning ul li:nth-child(1){
+  margin-top: 32px;
+}
+.fund-earning ul li:nth-child(1),.fund-earning ul li:nth-child(2) {
+  font-size:17px;
+font-weight:400;
+color:rgba(255,255,255,1);
+line-height:22px;
+}
+.fund-earning ul li:nth-child(3) {
+  font-size:32px;
+  padding-top: 28px;
+
+}
+.fund-con{
+  background-color: #FFFEFD;
+  margin-top: 20px;
+}
+.fund-con li:nth-child(1){
+  font-size:16px;
+font-family:SimHei;
+font-weight:400;
+color:rgba(51,51,51,1);
+padding: 19px 0  0 27px;
 }
 .sele {
-  /* background: cornflowerblue;
-  color: #ffffff;
-  border: none; */
-     color:rgba(190,157,98,1);
-background:rgba(255,255,255,1);
-border:1px solid rgba(190,157,98,1);
+     color:#333333;
+
+border-bottom: 3px solid #D02F50;
 }
 .nosele {
-   border: 1px solid #999;
-  color: #999999;
+   /* border: 1px solid #999; */
+  color: #666666;
 }
 .type-pro {
   display: -webkit-box;
 }
-.type-wrap li {
-  width:91px;
-height:22px;
-border-radius:11px;
-
+.type-wrap{
+  padding-left: 27px;
+}
+.type-wrap span {
+font-size:14px;
+cursor: pointer;
 font-size:12px;
 font-family:SimHei;
 font-weight:400;
-
   text-align: center;
-  line-height: 22px;
-  
+  padding-bottom: 10px;
 }
 .fund-info{
     width: 80%;

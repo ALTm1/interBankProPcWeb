@@ -183,35 +183,38 @@ export default {
 }
 </script>
 <style>
-.ui-menu--horizontal > .ui-submenu .ui-submenu__title {
-  font-size: 16px !important;
-  line-height: 50px !important;
-  height: 50px !important;
+.menu-list{
+  height: 41px;
+}
+.ui-menu--horizontal>.ui-submenu .ui-submenu__title{
+    font-size:13px!important;
+   line-height: 41px!important;
+    height: 41px!important;
 }
 .ui-icon-arrow-down:before {
   content: '';
   display: none;
 }
-.theme-vx .ui-menu-item i,
-.theme-vx .ui-submenu__title i {
-  width: 0 !important;
-  display: none !important;
+.theme-vx .ui-menu-item i, .theme-vx .ui-submenu__title i{
+    width: 0!important;
+    display: none!important;
 }
 .ui-menu--horizontal > .ui-submenu {
   text-align: center !important;
 }
-.ui-menu--horizontal > .ui-menu-item {
-  font-size: 16px;
-  line-height: 50px;
+.ui-menu--horizontal>.ui-menu-item{
+    font-size: 13px;
+    line-height: 41px;
 }
-.ui-submenu .ui-submenu__title .ui-menu-item {
-  font-size: 16px;
-  font-weight: 400;
-  color: rgba(51, 51, 51, 1);
+.ui-submenu .ui-submenu__title .ui-menu-item{
+     font-size:13px;
+font-weight:400;
+color:rgba(51,51,51,1);
 }
-.menu-item {
-  text-align: center;
-  height: 50px;
-  line-height: 50px;
+.menu-item{
+    text-align: center;
+    height: 41px;
+   line-height: 41px;
 }
+
 </style>

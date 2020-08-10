@@ -25,7 +25,7 @@
       <ui-table-column prop="proMoney" label="金额" width="120"></ui-table-column>
       <ui-table-column prop="proExpires" label="期限" width="120"></ui-table-column>
       <ui-table-column prop="publishDate" label="发布日期" width="120"></ui-table-column>
-      <!-- <ui-table-column label="操作"> -->
+      <!-- <ui-table-column label="操作">-->
       <ui-table-column label="操作">
         <template slot-scope="scope">
           <span class="detail-button" @click="goDetail(scope.row)">查看详情</span>

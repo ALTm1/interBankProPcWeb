@@ -1,14 +1,14 @@
 <template>
   <ui-container-full class="user-login">
-    <!-- <img style="width:1138px" src="@/assets/image/loginbg.png" alt /> -->
     <div class="login-wrapper">
       <ui-row>
-        <!-- <ui-col :span="16">
+        <ui-col :span="17">
           <div class="logobg">
-            <img src="@/assets/image/loginbg.png" alt />
+            <!-- <img class="loginbg" src="@/assets/image/loginbg.png" alt /> -->
+            <img src="@/assets/image/logincont.png" alt class="loginbg-center" />
           </div>
-        </ui-col>-->
-        <ui-col :span="6" style="position:absolute;top:120px;right:0px">
+        </ui-col>
+        <ui-col :span="7">
           <div class="logo">
             <img src="@/assets/image/logo.png" alt />
             <h2>E同赢银银平台</h2>
@@ -32,13 +32,11 @@
                   </ui-form-item>
                 </ui-col>
               </ui-row>
-              <ui-row class="text-center padtop20">
-                <!-- <ui-button type="primary" round @click="submitForm('form')">注册</ui-button> -->
+              <ui-row style="margin-top:21px">
                 <ui-button type="primary" round @click="submitForm('form')">登录</ui-button>
-                <!-- <ui-button type="primary" round @click="submitForm('form')">忘记密码</ui-button> -->
               </ui-row>
               <ui-row class="forget">
-                <ui-col style="text-align:center; margin-top: 10px;">
+                <ui-col>
                   <a
                     href="javascript:;"
                     style=" text-decoration: underline;"
@@ -50,16 +48,7 @@
           </div>
         </ui-col>
       </ui-row>
-      <img src="@/assets/image/logincont.png" alt class="loginbg-center" />
     </div>
-    <!-- <div style="display:flex;">
-      <div style="display: flex; margin-bottom:20px;justify-content: flex-end;">
-        <ui-button type="primary" round @click="goRegister">注册</ui-button>
-        <ui-button type="primary" round @click="loginout">退出</ui-button>
-        <ui-button type="primary" round @click="goForgetPass">忘记密码</ui-button>
-      </div>
-    </div>-->
-
     <!-- 退出弹窗 -->
     <ui-dialog title="退出提示" :visible.sync="centerDialogVisible" width="30%" center>
       <span>确定退出吗？</span>
@@ -177,27 +166,43 @@ export default {
 </script>
 <style lang="scss" >
 .user-login {
+  margin: 0;
+  box-sizing: border-box;
+  // height: 100vh;
+  .ui-container-full {
+    border: none;
+  }
+  .ui-container-full .ui-container-full__body {
+    padding: 0;
+  }
+  .ui-col-17 {
+    width: 69.463%;
+  }
+  .ui-col-7 {
+    width: 30.537%;
+  }
   .login-wrapper {
+    // height: 100vh;
     position: relative;
-    // width: 1038px;
-    height: 1000px;
-    margin: 0 auto;
     background: #fff;
-    background: url('~@/assets/image/loginbg.png') no-repeat;
-    .loginbg-center {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-left: -440px;
-      margin-top: -200px;
-    }
 
     .logobg {
-      // float: left;
-      // width: 100%;
-      // height: 1000px;
-      // background: url('~@/assets/image/loginbg.png') no-repeat;
-      // background: brown;
+      position: relative;
+      height: 100vh;
+      background: url('~@/assets/image/loginbg.png');
+      background-size: 100% 100%;
+      .loginbg {
+        width: 100%;
+        // height: 100vh;
+      }
+      .loginbg-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        // margin-left: -520px;
+        // margin-top: -200px;
+      }
     }
     .logo {
       padding: 20px 0;
@@ -226,36 +231,51 @@ export default {
     .form {
       box-sizing: border-box;
       padding: 0 30px;
-
       .ui-form {
-        height: 1000px;
-        .ui-form-item__content {
-          text-align: left;
+        .ui-form-item {
+          margin-bottom: 80px;
+          .ui-form-item__label {
+            line-height: 50px;
+            font-size: 19px;
+            font-family: SimHei;
+            font-weight: bold;
+            color: rgba(50, 50, 50, 1);
+          }
+          .ui-form-item__content {
+            text-align: left;
+            .ui-input {
+              display: block;
 
-          .ui-input__inner {
-            border-radius: 20px;
-            border: 1px solid #be9d62;
+              .ui-input__inner {
+                height: 60px;
+                line-height: 60px;
+                border: 2px solid rgba(190, 157, 98, 1);
+                border-radius: 31px;
+              }
+            }
+            .ui-form-item__error {
+              top: auto;
+              left: 20px;
+            }
           }
         }
       }
       .ui-button.is-round {
         width: 100%;
-        height: 40px;
+        height: 60px;
         padding: 0;
         border: none;
         margin: 0 auto;
         background: rgba(206, 40, 72, 1);
         border-radius: 31px;
       }
+      .forget {
+        text-align: center;
+        margin-top: 23px;
+      }
       .forget a {
         color: rgba(206, 40, 72, 1);
       }
-    }
-    .text-center {
-      text-align: center;
-    }
-    .padtop20 {
-      padding-top: 20px;
     }
   }
 }

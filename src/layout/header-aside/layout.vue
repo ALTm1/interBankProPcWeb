@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content-wrap">
     <div>
       <!-- 顶栏 -->
       <div class="tab-menu">
@@ -17,10 +17,10 @@
     </div>
     <!-- 下面 主体 -->
     <div class="home-wrap">
-      <div>
-        <router-view />
-      </div>
-    </div>
+         <div class="wrap-list">
+          <router-view />
+        </div>
+      </div> 
   </div>
   <!-- <div
     class="ui-layout-header-aside-group"
@@ -227,20 +227,21 @@ export default {
 .tab-menu {
   background-color: #fff;
   // display: -webkit-box;
+  width: 80%;
+  height: 41px;
+  margin: 0 auto;
   img {
     width: 140px;
     height: 30px;
-    margin: 10px 0;
+    margin: 8px 0;
   }
   span {
-    height: 50px;
-    line-height: 50px;
+    height: 41px;
+    line-height: 41px;
+    font-size: 13px!important;
     display: -webkit-box;
     font-weight: 400;
     color: rgba(51, 51, 51, 1);
-  }
-  li {
-    font-size: 16px;
   }
   p {
     color: #cccccc;
@@ -277,21 +278,26 @@ export default {
 }
 .home-wrap {
   width: 100%;
-  min-height: 100vh;
-  background: rgba(247, 246, 253, 1);
+  background: rgb(243, 245, 249);
   overflow: hidden;
+  .wrap-list{
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 .login-wrap {
   float: right;
-  padding-right: 30px;
-  li {
+  // padding-right: 30px;
+  li{
     cursor: pointer;
   }
 }
 .menu-left {
   float: left;
-  .menu-list {
+  height: 41px;
+  .menu-list{
     float: right;
   }
 }
+
 </style>

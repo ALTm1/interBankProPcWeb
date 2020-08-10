@@ -5,7 +5,7 @@
       <img src="@/assets/image/success.png" alt />
       <div class="status">注册成功，请登录</div>
     </div>
-    <div style="text-align:center">
+    <div style="text-align:center;margin-bottom:75px">
       <ui-button type="primary" round @click="submitForm('form')">去登录</ui-button>
     </div>
   </div>
@@ -25,19 +25,18 @@ export default {
   },
   methods: {
     submitForm(form) {
-      this.$router.push('/login')
+      this.$router.push('/userLogin')
     },
   },
 }
 </script>
 <style lang="scss" scoped>
 .reg-res {
-  height: 533px;
   background: #fff;
   padding: 40px 0;
   .result {
     text-align: center;
-    margin: 80px 0;
+    margin: 118px 0 50px;
 
     img,
     .status {
@@ -53,20 +52,6 @@ export default {
       font-weight: 400;
       color: rgba(51, 51, 51, 1);
     }
-  }
-
-  .ui-button.is-round {
-    width: 160px;
-    height: 34px;
-    line-height: 34px;
-    padding: 0;
-    font-size: 16px;
-    font-family: SimHei;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 1);
-    border-radius: 18px;
-    background-color: #ce2848;
-    border: 1px solid #ce2848;
   }
 }
 </style>
