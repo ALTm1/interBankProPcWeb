@@ -984,7 +984,7 @@ export default {
                 normal: {
                   // color: "#05C3F9",
                   // color:'#FFE153'
-                  color:'rgb(251,88,75)'
+                  color:'rgb(178,224,96)'
                 }
               }
             },

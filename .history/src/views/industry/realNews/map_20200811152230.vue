@@ -916,7 +916,7 @@ export default {
             //地图区域的多边形 图形样式，有 normal 和 emphasis 两个状态
             itemStyle: {
               normal: {
-                areaColor: "rgb(207,204,255)", //默认地图块颜色
+                areaColor: "rgb(55,127,237)", //默认地图块颜色
                 borderColor: "rgb(126,154,255)", //地图边线颜色
                 borderWidth: 0.5, //地图边线粗细
                 shadowBlur: 6,
@@ -984,7 +984,7 @@ export default {
                 normal: {
                   // color: "#05C3F9",
                   // color:'#FFE153'
-                  color:'rgb(251,88,75)'
+                  color:'rgb(38,232,167)'
                 }
               }
             },
