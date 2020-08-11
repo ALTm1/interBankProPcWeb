@@ -16,7 +16,7 @@
     </p>
     <p>您的意向已提交,请等待对手方确认</p>
     <div style="marginTop:56px">
-      <ButtonItem text="完成" backgroundColor="#CE2848" @click.native="goNext()"></ButtonItem>
+      <ButtonItem text="完成" backgroundColor="#CE2848" @click.native="returnIndex()"></ButtonItem>
     </div>
   </div>
 </template>
@@ -27,6 +27,13 @@ export default {
     return {
       succImg: require('@/assets/image/logo.png'),
     }
+  },
+  methods: {
+    returnIndex() {
+      this.$router.push({
+        path: '/financialMarket/productTrade/proTrade',
+      })
+    },
   },
 }
 </script>

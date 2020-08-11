@@ -1,11 +1,4 @@
-<!--
- * @Author: your name
- * @Date: 2020-07-21 10:08:35
- * @LastEditTime: 2020-07-29 18:43:18
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \jn-pc\src\App.vue
---> 
+
 <template>
   <div id="app">
     <router-view />

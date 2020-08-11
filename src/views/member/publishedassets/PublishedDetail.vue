@@ -44,7 +44,7 @@
           </ui-table-column>
         </ui-table>
       </div>
-      <div style="marginTop:56px">
+      <div class="buttons">
         <ButtonItem text="下架" backgroundColor="#CE2848" @click.native="goNext()"></ButtonItem>
       </div>
     </div>
@@ -156,6 +156,7 @@ export default {
 <style lang="css" scoped>
 .wrap {
   text-align: center;
+  background: #ffffff;
 }
 .content {
   display: inline-block;
@@ -165,5 +166,8 @@ export default {
 .pro-info-content {
   width: 880px;
   display: inline-block;
+}
+.buttons{
+  margin: 50px 0px;
 }
 </style>

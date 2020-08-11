@@ -1,11 +1,4 @@
-<!--
- * @Author: your name
- * @Date: 2020-07-27 17:20:46
- * @LastEditTime: 2020-07-30 13:40:19
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \interBankProPcWeb\src\views\financialmarket\producttrade\ProTrade.vue
---> 
+
 
 <template>
   <div class="wrap">
@@ -14,7 +7,7 @@
         <HeaderItem text="产品信息"></HeaderItem>
         <div class="pro-info-content clear">
           <div
-            v-for="item in proInfo"
+            v-for="(item,index) in proInfo"
             :key="item.itemTitle"
             :class="[index%2==0?'float-left':'float-right']"
           >
@@ -138,6 +131,7 @@ export default {
 <style lang="css" scoped>
 .wrap {
   text-align: center;
+  background: #fffefd;
 }
 .content {
   display: inline-block;

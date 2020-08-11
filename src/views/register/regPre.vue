@@ -190,69 +190,15 @@ export default {
 <style lang="scss" scoped>
 .pre {
   background: #fff;
-  padding: 40px 0;
-  height: 533px;
+  padding: 40px 0 0;
   .ui-form {
     margin: 0 auto !important;
-    .form-top,
-    .top {
+    .form-top {
       border-bottom: 1px dashed #999;
-      width: 81%;
-      margin: 0 auto 20px;
     }
     .top {
       border-bottom: none;
     }
-    .form-content {
-      width: 70%;
-      margin: 0 auto;
-    }
   }
-
-  .text-center {
-    text-align: center;
-    margin-top: 20px;
-  }
-  .ui-button.is-round {
-    width: 160px;
-    height: 34px;
-    line-height: 34px;
-    padding: 0;
-    font-size: 16px;
-    font-family: SimHei;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 1);
-    border-radius: 18px;
-    background-color: #ce2848;
-    border: 1px solid #ce2848;
-  }
-}
-</style>
-<style>
-.pre .ui-input-group__append,
-.pre .ui-input-group__prepend {
-  background-color: #fff !important;
-}
-.pre .ui-form-item__content {
-  width: 55.5%;
-  text-align: left;
-  float: left;
-  margin-left: 0 !important;
-}
-.pre .ui-form-item__label {
-  font-size: 14px;
-  font-family: SimHei;
-  font-weight: 400;
-  color: rgba(114, 114, 114, 1);
-  margin-left: 70px;
-  padding: 0;
-  text-align: left !important;
-}
-.pre .ui-input__inner {
-  font-size: 14px;
-  font-family: SimHei;
-  font-weight: 400;
-  color: rgba(194, 194, 194, 1);
-  border: 1px solid #e5e5e5;
 }
 </style>

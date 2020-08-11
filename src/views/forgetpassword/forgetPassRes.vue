@@ -33,7 +33,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .forget-pass-res {
-  height: 533px;
   background: #fff;
   padding: 40px 0;
   .result {
@@ -54,20 +53,6 @@ export default {
       font-weight: 400;
       color: rgba(51, 51, 51, 1);
     }
-  }
-
-  .ui-button.is-round {
-    width: 160px;
-    height: 34px;
-    line-height: 34px;
-    padding: 0;
-    font-size: 16px;
-    font-family: SimHei;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 1);
-    border-radius: 18px;
-    background-color: #ce2848;
-    border: 1px solid #ce2848;
   }
 }
 </style>

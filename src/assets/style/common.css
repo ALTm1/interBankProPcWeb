@@ -1,5 +1,18 @@
 /* table表格 */
 
+.ui-table {
+  background: #FFFEFD;
+}
+
+.ui-table .ui-table__row:hover {
+  width: 100%;
+  box-shadow: 0px 0px 10px rgba(190, 157, 98, 0.48);
+}
+
+.ui-table--enable-row-hover  .ui-table__body tr:hover>td {
+  background: rgba(255, 255, 255, 1);
+}
+
 .ui-table .cell {
   text-align: center;
 }
@@ -66,22 +79,6 @@
   content: "";
   display: table;
   clear: both;
-}
-
-/* 错号图标 */
-
-.icon-circle-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-/* 对号图标 */
-
-.icon-circle-check {
-  position: absolute;
-  top: 0;
-  right: 0;
 }
 
 /* 页码 */

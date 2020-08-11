@@ -35,11 +35,12 @@ export default {
   display: inline-block;
   width: 420px;
   height: 39px;
-  background: #ffffff;
-  line-height: 39px;
+  border: 1px solid rgba(238, 238, 238, 1);
+  border-radius: 4px;
   padding: 0 13px;
   box-sizing: border-box;
-  border-radius: 4px;
+  background: #ffffff;
+  line-height: 39px;
   font-size: 12px;
   font-family: SimHei;
   font-weight: 400;
