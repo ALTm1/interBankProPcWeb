@@ -955,39 +955,32 @@ export default {
           //     // data: dataList
           //   }
           // ]
+          series: [
+            // {
+            //   name: "散点",
+            //   type: "scatter",
+            //   coordinateSystem: "geo",
+            //   data: convertData(data),
+            //   symbolSize: function(val) {
+            //     return val[2] / 10;
+            //   },
+            //   label: {
+            //     normal: {
+            //       formatter: "{b}",
+            //       position: "left",
+            //       show: false
+            //     },
+            //     emphasis: {
+            //       show: true
+            //     }
+            //   },
 
-          
-           series: [
-            {
-              name: "散点",
-              // type: "scatter",
-              type: 'effectScatter',
-              coordinateSystem: "geo",
-              data: convertData(data),
-              symbolSize: function(val) {
-                return val[2] / 10;
-              },
-              label: {
-                
-                normal: {
-                  formatter: "{b}",
-                  position: "left",
-                  show: false
-                },
-                emphasis: {
-                  show: true
-                }
-              },
-
-              itemStyle: {
-                
-                normal: {
-                  // color: "#05C3F9",
-                  // color:'#FFE153'
-                  color:'rgb(38,232,167)'
-                }
-              }
-            },
+            //   itemStyle: {
+            //     normal: {
+            //       color: "#05C3F9"
+            //     }
+            //   }
+            // },
             {
               type: "map",
               map: mapName,
@@ -1009,8 +1002,7 @@ export default {
               itemStyle: {
                 normal: {
                   areaColor: "#031525",
-                  borderColor: "#3B5077",
-                  
+                  borderColor: "#3B5077"
                 },
                 emphasis: {
                   areaColor: "#2B91B7"
@@ -1020,21 +1012,26 @@ export default {
               animationDuration: 1500,
               // animationEasing: 'cubicOut',
               animationEasing: "bounceInOut",
-
               data: data
             },
             // 气泡的样式
             {
-              name: "点",
-              type: "scatter",
+              // name: "点",
+              name: 'light',
+               coordinateSystem: 'geo',
+              //  type: "scatter",
+            type: 'effectScatter',
               coordinateSystem: "geo",
-              symbol: "pin", //气泡
+             symbol: "pin", //气泡
+             // symbol: 'none',
+             
               symbolSize: function(val) {
                 var a = (maxSize4Pin - minSize4Pin) / (max - min);
                 var b = minSize4Pin - a * min;
                 b = maxSize4Pin - a * max;
                 return a * val[2] + b;
               },
+              
               label: {
                 normal: {
                   show: true,
@@ -1044,15 +1041,52 @@ export default {
                   }
                 }
               },
+
               itemStyle: {
                 normal: {
-                  color: "#F62157", //标志颜色，
-                 
+                  // color: "#F62157" //标志颜色
+                  color: "rgb(38, 232, 167)"
                 }
               },
               zlevel: 6,
+              data: convertData(data)
             }
-          
+            // 数据前5的动态显示
+            // {
+            //   name: "Top 5",
+            //   type: "effectScatter",
+            //   coordinateSystem: "geo",
+            //   data: convertData(
+            //     data
+            //       .sort(function(a, b) {
+            //         return b.value - a.value;
+            //       })
+            //       .slice(0, 5)
+            //   ),
+            //   symbolSize: function(val) {
+            //     return val[2] / 10;
+            //   },
+            //   showEffectOn: "render",
+            //   rippleEffect: {
+            //     brushType: "stroke"
+            //   },
+            //   hoverAnimation: true,
+            //   label: {
+            //     normal: {
+            //       formatter: "{b}",
+            //       position: "right",
+            //       show: true
+            //     }
+            //   },
+            //   itemStyle: {
+            //     normal: {
+            //       color: "yellow",
+            //       shadowBlur: 10,
+            //       shadowColor: "yellow"
+            //     }
+            //   },
+            //   zlevel: 1
+            // },
           ],
           animation: true,
           animationDuration: 1500,

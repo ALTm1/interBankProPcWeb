@@ -960,8 +960,7 @@ export default {
            series: [
             {
               name: "散点",
-              // type: "scatter",
-              type: 'effectScatter',
+              type: "scatter",
               coordinateSystem: "geo",
               data: convertData(data),
               symbolSize: function(val) {
@@ -983,8 +982,7 @@ export default {
                 
                 normal: {
                   // color: "#05C3F9",
-                  // color:'#FFE153'
-                  color:'rgb(38,232,167)'
+                  color:'#FFE153'
                 }
               }
             },

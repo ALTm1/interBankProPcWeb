@@ -916,11 +916,11 @@ export default {
             //地图区域的多边形 图形样式，有 normal 和 emphasis 两个状态
             itemStyle: {
               normal: {
-                areaColor: "rgb(134,159,255)", //默认地图块颜色
-                borderColor: "rgb(126,154,255)", //地图边线颜色
+                areaColor: "#5dc4e3", //默认地图块颜色
+                borderColor: "#7638C7", //地图边线颜色
                 borderWidth: 0.5, //地图边线粗细
                 shadowBlur: 6,
-                shadowColor: "rgb(106,144,254)",
+                shadowColor: "#3D7878",
                 /*地图内的阴影*/
                 shadowOffsetY: 10,
                 shadowOffsetx: 10
@@ -955,20 +955,16 @@ export default {
           //     // data: dataList
           //   }
           // ]
-
-          
-           series: [
+          series: [
             {
               name: "散点",
-              // type: "scatter",
-              type: 'effectScatter',
+              type: "scatter",
               coordinateSystem: "geo",
               data: convertData(data),
               symbolSize: function(val) {
                 return val[2] / 10;
               },
               label: {
-                
                 normal: {
                   formatter: "{b}",
                   position: "left",
@@ -980,11 +976,8 @@ export default {
               },
 
               itemStyle: {
-                
                 normal: {
-                  // color: "#05C3F9",
-                  // color:'#FFE153'
-                  color:'rgb(38,232,167)'
+                  color: "#05C3F9"
                 }
               }
             },
@@ -1009,8 +1002,7 @@ export default {
               itemStyle: {
                 normal: {
                   areaColor: "#031525",
-                  borderColor: "#3B5077",
-                  
+                  borderColor: "#3B5077"
                 },
                 emphasis: {
                   areaColor: "#2B91B7"
@@ -1044,15 +1036,52 @@ export default {
                   }
                 }
               },
+
               itemStyle: {
                 normal: {
-                  color: "#F62157", //标志颜色，
-                 
+                  // color: "#F62157" //标志颜色
+                  color: "#F75000"
                 }
               },
               zlevel: 6,
+              data: convertData(data)
             }
-          
+            // 数据前5的动态显示
+            // {
+            //   name: "Top 5",
+            //   type: "effectScatter",
+            //   coordinateSystem: "geo",
+            //   data: convertData(
+            //     data
+            //       .sort(function(a, b) {
+            //         return b.value - a.value;
+            //       })
+            //       .slice(0, 5)
+            //   ),
+            //   symbolSize: function(val) {
+            //     return val[2] / 10;
+            //   },
+            //   showEffectOn: "render",
+            //   rippleEffect: {
+            //     brushType: "stroke"
+            //   },
+            //   hoverAnimation: true,
+            //   label: {
+            //     normal: {
+            //       formatter: "{b}",
+            //       position: "right",
+            //       show: true
+            //     }
+            //   },
+            //   itemStyle: {
+            //     normal: {
+            //       color: "yellow",
+            //       shadowBlur: 10,
+            //       shadowColor: "yellow"
+            //     }
+            //   },
+            //   zlevel: 1
+            // },
           ],
           animation: true,
           animationDuration: 1500,
@@ -1493,7 +1522,9 @@ export default {
 };
 </script>
 <style scoped>
+.Echarts {
 
+}
 .Echarts p{
 margin-left: 30px;
 }
