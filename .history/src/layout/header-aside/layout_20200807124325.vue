@@ -210,7 +210,7 @@ export default {
       this.asideCollapseToggle()
     },
     login() {
-      this.$router.push('/userLogin')
+      this.$router.push('/login')
     },
     registerPre() {
       this.$router.push('/registerPre')

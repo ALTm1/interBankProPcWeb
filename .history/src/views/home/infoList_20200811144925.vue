@@ -81,23 +81,18 @@ export default {
   width: 20%;
   /* height:390px; */
   background: rgba(255, 255, 255, 1);
-  /* box-shadow: 0px 0px 60px 0px rgba(8, 20, 35, 0.2); */
+  box-shadow: 0px 0px 60px 0px rgba(8, 20, 35, 0.2);
   border-radius: 10px;
   margin-right: 40px;
-      box-shadow: 0 0 0 #777;
-    transition: box-shadow .2s linear;
-   
 }
 .infolist {
   margin-top: 0;
-
 }
 .infolist:hover {
   cursor: pointer;
 
   /* animation: code 0.5s; */
   transform: translate3d(0,-2px,0);
-  box-shadow: 0 15px 30px rgb(0,0,0,0.1);
   transition: all 0.2s ease-in 0s;
 }
 /* @keyframes code {
